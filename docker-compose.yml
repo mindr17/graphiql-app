@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  badges-frontend:
+    container_name: badges-frontend
+    restart: always
+    build:
+      context: /root/badges/frontend
+      dockerfile: Dockerfile
+    image: badges-frontend-image
+    ports:
+      - "3003:3000"
+    environment:
+      - NODE_ENV=production
+      - HOSTNAME=0.0.0.0
+    networks:
+      - badges
+    volumes:
+      - badges-frontend:/app/data
+
+volumes:
+  badges-frontend:
+
+networks:
+  badges:
+    external: true
