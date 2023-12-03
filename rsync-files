@@ -1,0 +1,13 @@
+public/
+src/
+.env.local
+
+package.json
+pnpm-lock.yaml
+
+tsconfig.json
+next.config.js
+
+Dockerfile
+.dockerignore
+docker-compose.yml

@@ -1,26 +1,26 @@
 version: '3.8'
 
 services:
-  badges-frontend:
-    container_name: badges-frontend
+  frontend:
+    container_name: apifinder-frontend
     restart: always
     build:
-      context: /root/badges/frontend
+      context: /root/apifinder/apifinder-frontend
       dockerfile: Dockerfile
-    image: badges-frontend-image
+    image: apifinder-frontend-image
     ports:
       - "3000:3000"
     environment:
       - NODE_ENV=production
       - HOSTNAME=0.0.0.0
     networks:
-      - badges
+      - apifinder
     volumes:
-      - badges-frontend:/app/data
+      - apifinder-frontend:/app/data
 
 volumes:
-  badges-frontend:
+  apifinder-frontend:
 
 networks:
-  badges:
-    external: true
+  apifinder:
+    # external: true
