@@ -1,6 +1,6 @@
-HOST="vds"
-PROJECT_NAME="badges-frontend"
-DIR="/root/badges/frontend"
+HOST="apifinder"
+PROJECT_NAME="apifinder-frontend"
+DIR="/root/apifinder/$PROJECT_NAME"
 
 echo "Uploading"
 rsync --files-from=rsync-files -r --delete . $HOST:$DIR
