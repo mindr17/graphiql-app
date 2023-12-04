@@ -1,5 +1,6 @@
 const subDomain = 'apifinder-api';
 const domain = 'badges.bio';
+export const API_TOKEN_PUBLIC = '';
 
 const baseConfig = {
   subDomain,

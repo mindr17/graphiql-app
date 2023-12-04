@@ -9,7 +9,7 @@ const config: CodegenConfig = {
   schema: {
     [`${myConfig.codegenUrl}/graphql`]: {
       headers: {
-        Authorization: `Bearer ${process.env.API_TOKEN}`,
+        Authorization: `Bearer ${process.env.API_TOKEN_PRIVATE}`,
       },
     },
   },
