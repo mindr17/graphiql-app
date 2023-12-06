@@ -1,0 +1,33 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "scripts": {
+    "schema": "graphql-codegen --config codegen-schema-json.ts",
+    "gen": "graphql-codegen --config codegen-types.ts",
+    "sitemap": "npx ts-node-dev --transpile-only ./src/sitemap/generate.ts",
+    "sitemap-dev": "npx ts-node-dev --respawn --transpile-only ./src/sitemap/generate.ts"
+  },
+  "dependencies": {
+    "@directus/sdk": "^10.3.3",
+    "babel-plugin-import-graphql": "^2.8.1",
+    "dotenv": "^16.0.3",
+    "esbuild": "^0.16.7",
+    "form-data": "^4.0.0",
+    "graphql": "^16.6.0",
+    "graphql-request": "^5.2.0",
+    "graphql-tag": "^2.12.6",
+    "puppeteer": "^19.7.5"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "3.2.2",
+    "@graphql-codegen/client-preset": "2.1.0",
+    "@graphql-codegen/introspection": "^3.0.1",
+    "@graphql-codegen/typescript": "^3.0.1",
+    "@graphql-codegen/typescript-resolvers": "^3.1.0",
+    "@types/node": "^18.17.0",
+    "nodemon": "^2.0.20",
+    "ts-node": "^10.9.1",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^4.9.4"
+  }
+}
