@@ -5,9 +5,16 @@
   --text-color: #ffffff;
   --background: #121417;
 
+  --color-white: #ffffff;
   --color-red: #e83b35;
+  --color-red-hover: #d0201a;
   --color-green: #1fa84e;
+  --color-green-hover: #0d8738;
   --color-orange: #e3861a;
+  --color-orange-hover: #c47418;
+  --color-neutral-left: rgba(255, 255, 255, 0.84);
+  --color-neutral-left-hover: rgba(255, 255, 255, 0.95);
+  --color-neutral-right: rgba(18, 19, 20, 0.68);
 }
 
 @media (prefers-color-scheme: dark) {

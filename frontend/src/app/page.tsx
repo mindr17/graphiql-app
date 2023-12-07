@@ -1,9 +1,22 @@
+'use client';
+
+import Button from '../shared/button/button';
 import styles from './page.module.css';
 
 export default function Home() {
   return (
     <section className={styles.main}>
       <h1>Hello</h1>
+      <div style={{ display: 'flex' }}>
+        <Button title={'Default Button'} />
+        <Button title={'Red Button'} style={'red'} />
+        <Button
+          title={'Green Button'}
+          style={'green'}
+          classes={['test-class']}
+          callback={() => console.log('hello')}
+        />
+      </div>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit.
         Nesciunt facilis eum maxime neque, vel, possimus assumenda
