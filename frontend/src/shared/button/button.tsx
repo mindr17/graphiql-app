@@ -6,7 +6,9 @@ interface ButtonProps {
   classes?: string[];
   title: string;
   disabled?: boolean;
-  callback?: () => void;
+  onClick?: (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => void;
 }
 
 export default function Button(props: ButtonProps): JSX.Element {
@@ -15,7 +17,7 @@ export default function Button(props: ButtonProps): JSX.Element {
     style,
     classes = [],
     title,
-    callback,
+    onClick = () => {},
   } = props;
 
   return (
@@ -26,7 +28,7 @@ export default function Button(props: ButtonProps): JSX.Element {
         styles[style ?? ''],
         ...classes,
       ].join(' ')}
-      onClick={callback}
+      onClick={onClick}
     >
       {title}
     </button>

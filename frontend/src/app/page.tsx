@@ -4,6 +4,9 @@ import Button from '../shared/button/button';
 import styles from './page.module.css';
 
 export default function Home() {
+  function handleClick() {
+    console.log('hello');
+  }
   return (
     <section className={styles.main}>
       <h1>Hello</h1>
@@ -14,7 +17,7 @@ export default function Home() {
           title={'Green Button'}
           style={'green'}
           classes={['test-class']}
-          callback={() => console.log('hello')}
+          onClick={handleClick}
         />
       </div>
       <p>
