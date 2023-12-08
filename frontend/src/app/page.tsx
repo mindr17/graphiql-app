@@ -1,23 +1,28 @@
 'use client';
 
-import Button from '../shared/button/button';
+import { Button, Input } from '@nextui-org/react';
+
 import styles from './page.module.css';
 
 export default function Home() {
-  function handleClick() {
-    console.log('hello');
-  }
   return (
     <section className={styles.main}>
       <h1>Hello</h1>
+
       <div style={{ display: 'flex' }}>
-        <Button title={'Default Button'} />
-        <Button title={'Red Button'} style={'red'} />
-        <Button
-          title={'Green Button'}
-          style={'green'}
-          classes={['test-class']}
-          onClick={handleClick}
+        <Button color='default'>Default</Button>
+        <Button color='primary'>Primary</Button>
+        <Button color='secondary'>Secondary</Button>
+        <Button color='success'>Success</Button>
+        <Button color='warning'>Warning</Button>
+        <Button color='danger'>Danger</Button>
+      </div>
+      <div style={{ display: 'flex' }}>
+        <Input type='email' label='Email' />
+        <Input
+          type='email'
+          label='Email'
+          placeholder='Enter your email'
         />
       </div>
       <p>

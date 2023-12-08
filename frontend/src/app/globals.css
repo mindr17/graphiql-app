@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --font-main: 'Source Sans 3', sans-serif;
   --font-monserrat: 'Montserrat', sans-serif;

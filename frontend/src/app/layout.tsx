@@ -1,6 +1,11 @@
+import './globals.css';
+
 import type { Metadata } from 'next';
 import { Montserrat, Source_Sans_3 } from 'next/font/google';
-import './globals.css';
+import Link from 'next/link';
+
+import ThemeSwitcher from '@/components/theme-switcher';
+import Providers from '@/utils/providers';
 
 const montserrat = Montserrat({ subsets: ['latin'] });
 const source_sans = Source_Sans_3({ subsets: ['latin'] });
@@ -20,7 +25,19 @@ export default function RootLayout({
       <body
         className={`${source_sans.className} ${montserrat.className}`}
       >
-        <main className='container'>{children}</main>
+        <Providers>
+          <header className='py-6'>
+            <nav className='container flex items-center justify-between'>
+              <ul>
+                <li>
+                  <Link href='/'>Home</Link>
+                </li>
+              </ul>
+              <ThemeSwitcher />
+            </nav>
+          </header>
+          <main className='container'>{children}</main>
+        </Providers>
       </body>
     </html>
   );
