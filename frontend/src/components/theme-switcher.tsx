@@ -2,9 +2,9 @@
 
 import { Button } from '@nextui-org/button';
 import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 
-export default function ThemeSwitcher() {
+const ThemeSwitcher: FC = () => {
   const [mounted, setMounted] = useState(false);
   const { setTheme } = useTheme();
 
@@ -32,4 +32,6 @@ export default function ThemeSwitcher() {
       </Button>
     </div>
   );
-}
+};
+
+export default ThemeSwitcher;
