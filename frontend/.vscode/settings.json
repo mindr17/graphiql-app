@@ -10,5 +10,6 @@
   },
   "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact", "graphql"],
   "stylelint.validate": ["css", "scss"],
-  "typescript.referencesCodeLens.enabled": true
+  "typescript.referencesCodeLens.enabled": true,
+  "css.lint.unknownAtRules": "ignore"
 }

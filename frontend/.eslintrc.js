@@ -44,7 +44,16 @@ module.exports = {
             endOfLine: 'auto',
           },
         ],
-        'react/jsx-sort-props': 'warn',
+        'react/jsx-sort-props': [
+          2,
+          {
+            callbacksLast: true,
+            shorthandFirst: false,
+            shorthandLast: true,
+            ignoreCase: true,
+            noSortAlphabetically: true,
+          },
+        ],
         'simple-import-sort/imports': 'warn',
         'simple-import-sort/exports': 'error',
         'import/no-unresolved': [2, { commonjs: true, amd: true }],
