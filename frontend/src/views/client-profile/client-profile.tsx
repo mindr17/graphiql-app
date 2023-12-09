@@ -4,8 +4,9 @@ import { Button } from '@nextui-org/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { signOut, useSession } from 'next-auth/react';
+import { FC } from 'react';
 
-const ClientProfile: React.FC = () => {
+const ClientProfile: FC = () => {
   const session = useSession();
 
   return (

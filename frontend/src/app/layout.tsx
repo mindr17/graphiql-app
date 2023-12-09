@@ -3,7 +3,7 @@ import './globals.css';
 import { Link } from '@nextui-org/react';
 import type { Metadata } from 'next';
 import { Montserrat, Source_Sans_3 } from 'next/font/google';
-import { PropsWithChildren } from 'react';
+import { FC, PropsWithChildren } from 'react';
 
 import ThemeSwitcher from '@/components/theme-switcher';
 import Providers from '@/utils/providers';
@@ -16,7 +16,9 @@ export const metadata: Metadata = {
   description: 'GraphiQL is a playground/IDE for graphQL requests',
 };
 
-const RootLayout: React.FC<PropsWithChildren> = ({ children }) => {
+const RootLayout: FC<PropsWithChildren> = (props) => {
+  const { children } = props;
+
   return (
     <html lang='en'>
       <body

@@ -1,14 +1,13 @@
 'use client';
 
 import { NextUIProvider } from '@nextui-org/react';
+import { SessionProvider } from 'next-auth/react';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import { PropsWithChildren } from 'react';
 
-import { AuthProvier } from '../providers';
-
 const Providers: React.FC<PropsWithChildren> = ({ children }) => {
   return (
-    <AuthProvier>
+    <SessionProvider>
       <NextUIProvider>
         <NextThemesProvider
           attribute='class'
@@ -18,7 +17,7 @@ const Providers: React.FC<PropsWithChildren> = ({ children }) => {
           {children}
         </NextThemesProvider>
       </NextUIProvider>
-    </AuthProvier>
+    </SessionProvider>
   );
 };
 
