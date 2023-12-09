@@ -32,10 +32,10 @@ const RootLayout: FC<PropsWithChildren> = (props) => {
                   <Link href='/'>Home</Link>
                 </li>
                 <li>
-                  <Link href='/clientProfile'>Client Profile</Link>
+                  <Link href='/client-profile'>Client Profile</Link>
                 </li>
                 <li>
-                  <Link href='/backendProfile'>Backend Profile</Link>
+                  <Link href='/backend-profile'>Backend Profile</Link>
                 </li>
               </ul>
               <ThemeSwitcher />
