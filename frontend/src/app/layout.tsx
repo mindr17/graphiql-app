@@ -1,8 +1,8 @@
 import './globals.css';
 
+import { Link } from '@nextui-org/react';
 import type { Metadata } from 'next';
 import { Montserrat, Source_Sans_3 } from 'next/font/google';
-import Link from 'next/link';
 import { PropsWithChildren } from 'react';
 
 import ThemeSwitcher from '@/components/theme-switcher';
@@ -16,9 +16,7 @@ export const metadata: Metadata = {
   description: 'GraphiQL is a playground/IDE for graphQL requests',
 };
 
-export const RootLayout: React.FC<PropsWithChildren> = ({
-  children,
-}) => {
+const RootLayout: React.FC<PropsWithChildren> = ({ children }) => {
   return (
     <html lang='en'>
       <body
@@ -27,9 +25,15 @@ export const RootLayout: React.FC<PropsWithChildren> = ({
         <Providers>
           <header className='py-6'>
             <nav className='container flex items-center justify-between'>
-              <ul>
+              <ul className='flex gap-2'>
                 <li>
                   <Link href='/'>Home</Link>
+                </li>
+                <li>
+                  <Link href='/clientProfile'>Client Profile</Link>
+                </li>
+                <li>
+                  <Link href='/backendProfile'>Backend Profile</Link>
                 </li>
               </ul>
               <ThemeSwitcher />
@@ -41,3 +45,5 @@ export const RootLayout: React.FC<PropsWithChildren> = ({
     </html>
   );
 };
+
+export default RootLayout;

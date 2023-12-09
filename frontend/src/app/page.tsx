@@ -4,7 +4,7 @@ import { Button, Input } from '@nextui-org/react';
 
 import styles from './page.module.css';
 
-export default function Home() {
+const Home: React.FC = () => {
   return (
     <section className={styles.main}>
       <h1>Hello</h1>
@@ -53,4 +53,6 @@ export default function Home() {
       </p>
     </section>
   );
-}
+};
+
+export default Home;

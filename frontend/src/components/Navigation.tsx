@@ -7,6 +7,7 @@ type NavLink = {
   label: string;
   href: string;
 };
+
 type Props = {
   navLinks: NavLink[];
 };

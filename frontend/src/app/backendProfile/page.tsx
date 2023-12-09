@@ -10,7 +10,12 @@ export default async function Profile() {
     <div>
       <h1>Profile of {session?.user?.name}</h1>
       {session?.user?.image && (
-        <Image alt='' src={session.user.image} />
+        <Image
+          alt=''
+          src={session.user.image}
+          width={35}
+          height={35}
+        />
       )}
     </div>
   );
