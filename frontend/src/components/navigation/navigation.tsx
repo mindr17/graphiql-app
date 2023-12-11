@@ -12,7 +12,8 @@ type Props = {
   navLinks: NavLink[];
 };
 
-const Navigation = ({ navLinks }: Props) => {
+const Navigation = (props: Props) => {
+  const { navLinks } = props;
   const pathname = usePathname();
   const session = useSession();
 

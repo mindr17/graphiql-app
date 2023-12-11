@@ -1,4 +1,4 @@
-import { Navigation } from './Navigation';
+import { Navigation } from './navigation/navigation';
 
 const navItems = [
   { label: 'Home', href: '/' },
@@ -14,4 +14,4 @@ const TheHeader: React.FC = () => {
   );
 };
 
-export { TheHeader };
+export default TheHeader;

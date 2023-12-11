@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { signIn } from 'next-auth/react';
 import type { FormEventHandler } from 'react';
 
-import GoogleButton from '../GoogleButton';
+import GoogleButton from '../google-button';
 import classes from './loginForm.module.css';
 
 const LoginForm: React.FC = () => {
