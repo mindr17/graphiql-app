@@ -1,6 +1,9 @@
 import Link from 'next/link';
+import { FC } from 'react';
 
-import { Navigation } from '../Navigation';
+import Navigation from '@/components/Navigation';
+
+import s from './header.module.css';
 
 const navItems = [
   { label: 'Home', href: '/' },
@@ -8,15 +11,12 @@ const navItems = [
   { label: 'About', href: '/about' },
 ];
 
-const TheHeader: React.FC = () => {
+const Header: FC = () => {
   return (
     <header className='py-6'>
       <Navigation navLinks={navItems} />
       <nav className='container flex items-center justify-between'>
         <ul className='flex gap-2'>
-          <li>
-            <Link href='/'>Home</Link>
-          </li>
           <li>
             <Link href='/client-profile'>Client Profile</Link>
           </li>
@@ -29,4 +29,4 @@ const TheHeader: React.FC = () => {
   );
 };
 
-export { TheHeader };
+export default Header;

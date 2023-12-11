@@ -1,4 +1,5 @@
 'use client';
+
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { signOut, useSession } from 'next-auth/react';
@@ -12,7 +13,8 @@ type Props = {
   navLinks: NavLink[];
 };
 
-const Navigation = ({ navLinks }: Props) => {
+const Navigation = (props: Props) => {
+  const { navLinks } = props;
   const pathname = usePathname();
   const session = useSession();
 
@@ -43,4 +45,4 @@ const Navigation = ({ navLinks }: Props) => {
   );
 };
 
-export { Navigation };
+export default Navigation;

@@ -5,6 +5,7 @@ import type { Metadata } from 'next';
 import { Montserrat, Source_Sans_3 } from 'next/font/google';
 import { FC, PropsWithChildren } from 'react';
 
+import Header from '@/components/header/header';
 import ThemeSwitcher from '@/components/theme-switcher';
 import Providers from '@/utils/providers';
 
@@ -25,6 +26,7 @@ const RootLayout: FC<PropsWithChildren> = (props) => {
         className={`${source_sans.className} ${montserrat.className}`}
       >
         <Providers>
+          <Header />
           <main className='container'>{children}</main>
         </Providers>
       </body>
