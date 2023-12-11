@@ -25,22 +25,6 @@ const RootLayout: FC<PropsWithChildren> = (props) => {
         className={`${source_sans.className} ${montserrat.className}`}
       >
         <Providers>
-          <header className='py-6'>
-            <nav className='container flex items-center justify-between'>
-              <ul className='flex gap-2'>
-                <li>
-                  <Link href='/'>Home</Link>
-                </li>
-                <li>
-                  <Link href='/client-profile'>Client Profile</Link>
-                </li>
-                <li>
-                  <Link href='/backend-profile'>Backend Profile</Link>
-                </li>
-              </ul>
-              <ThemeSwitcher />
-            </nav>
-          </header>
           <main className='container'>{children}</main>
         </Providers>
       </body>
