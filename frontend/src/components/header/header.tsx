@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { FC } from 'react';
 
-import Navigation from '@/components/Navigation';
+import Navigation from '@/components/navigation/navigation';
 
 import s from './header.module.css';
 
