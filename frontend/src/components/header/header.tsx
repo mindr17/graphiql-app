@@ -13,7 +13,7 @@ const navItems = [
 
 const Header: FC = () => {
   return (
-    <header className='py-6'>
+    <header className={s.container}>
       <Navigation navLinks={navItems} />
       <nav className='container flex items-center justify-between'>
         <ul className='flex gap-2'>
