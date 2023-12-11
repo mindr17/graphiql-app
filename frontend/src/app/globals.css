@@ -21,7 +21,7 @@
   --color-neutral-right: rgba(18, 19, 20, 0.68);
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --text-color: #121417;
     --background: #ffffff;
@@ -32,7 +32,7 @@
   html {
     color-scheme: dark;
   }
-}
+} */
 
 * {
   box-sizing: border-box;

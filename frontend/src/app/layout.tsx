@@ -1,12 +1,11 @@
 import './globals.css';
 
-import { Link } from '@nextui-org/react';
 import type { Metadata } from 'next';
 import { Montserrat, Source_Sans_3 } from 'next/font/google';
 import { FC, PropsWithChildren } from 'react';
+import * as React from 'react';
 
 import Header from '@/components/header/header';
-import ThemeSwitcher from '@/components/theme-switcher';
 import Providers from '@/utils/providers';
 
 const montserrat = Montserrat({ subsets: ['latin'] });
