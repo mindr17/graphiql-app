@@ -11,7 +11,9 @@ const navItems = [
   { label: 'About', href: '/about' },
 ];
 
-const Header: FC = () => {
+const Header: FC = async () => {
+  const headerData = await 
+
   return (
     <header className={s.container}>
       <Navigation navLinks={navItems} />

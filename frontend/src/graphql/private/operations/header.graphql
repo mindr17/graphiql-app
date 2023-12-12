@@ -1,0 +1,7 @@
+query Header {
+  global {
+    translations {
+      login_label
+    }
+  }
+}
