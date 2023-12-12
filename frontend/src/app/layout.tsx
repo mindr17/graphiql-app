@@ -1,12 +1,10 @@
 import './globals.css';
 
-import { Link } from '@nextui-org/react';
 import type { Metadata } from 'next';
 import { Montserrat, Source_Sans_3 } from 'next/font/google';
 import { FC, PropsWithChildren } from 'react';
 
 import Header from '@/components/header/header';
-import ThemeSwitcher from '@/components/theme-switcher';
 import Providers from '@/utils/providers';
 
 const montserrat = Montserrat({ subsets: ['latin'] });
@@ -27,7 +25,7 @@ const RootLayout: FC<PropsWithChildren> = (props) => {
       >
         <Providers>
           <Header />
-          <main className='container'>{children}</main>
+          <main className='container dark'>{children}</main>
         </Providers>
       </body>
     </html>

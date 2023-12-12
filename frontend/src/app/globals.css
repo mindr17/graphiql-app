@@ -7,10 +7,10 @@
   --font-monserrat: 'Montserrat', sans-serif;
 
   --text-color: #ffffff;
-  --background: #121417;
+  --background: #212123;
 
   --color-white: #ffffff;
-  --color-red: #e83b35;
+  --color-red: #d33832;
   --color-red-hover: #d0201a;
   --color-green: #1fa84e;
   --color-green-hover: #0d8738;
@@ -19,19 +19,10 @@
   --color-neutral-left: rgba(255, 255, 255, 0.84);
   --color-neutral-left-hover: rgba(255, 255, 255, 0.95);
   --color-neutral-right: rgba(18, 19, 20, 0.68);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text-color: #121417;
-    --background: #ffffff;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+  --color-blue: #246bfd;
+  --color-grey: rgb(63, 63, 70);
+  --color-dark-button: rgba(18, 19, 20, 0.68);
 }
 
 * {
@@ -44,6 +35,7 @@ html,
 body {
   max-width: 100vw;
   height: 100%;
+  min-height: 100vh;
   overflow-x: hidden;
 }
 

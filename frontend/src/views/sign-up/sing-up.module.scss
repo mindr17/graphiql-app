@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.formContainer {
+  z-index: 2;
+  position: relative;
+  max-width: 320px;
+  margin: 70px auto;
+}
+
+.formContainer::after {
+  position: absolute;
+
+  z-index: -1;
+  content: '';
+
+  width: 100%;
+  aspect-ratio: 1;
+  bottom: -180px;
+
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    #e83b353f 0%,
+    #e83b353f 25%,
+    rgba(232, 59, 53, 0) 100%
+  );
+}
+
+.formTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.formBody {
+  margin: 32px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.formBottom {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.title {
+  color: #fff;
+  font-feature-settings:
+    'clig' off,
+    'liga' off;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 32px;
+  font-style: italic;
+  font-weight: 900;
+  line-height: normal;
+  text-transform: uppercase;
+}
+
+.signInButton {
+  /* background-color: var(--color-grey); */
+  color: #fff;
+  text-align: center;
+  font-feature-settings:
+    'clig' off,
+    'liga' off;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.checkbox {
+  align-items: flex-start;
+  font-feature-settings:
+    'clig' off,
+    'liga' off;
+  /* Mobile/B3 */
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 19.5px */
+}
+
+.blueText {
+  color: var(--color-blue);
+}
+
+.submitButton {
+  height: 56px;
+  background: var(--color-red);
+}
+
+.dividerBody {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.chip {
+  flex-shrink: 0;
+  flex-grow: 0;
+  text-transform: uppercase;
+}
+
+.dividerLeft,
+.dividerRight {
+  display: block;
+  width: -webkit-fill-available;
+  height: 1px;
+}
+
+.dividerLeft {
+  background: var(
+    --neutral-left-l-1,
+    linear-gradient(-90deg, var(--color-grey), #0000 100%)
+  );
+}
+
+.dividerRight {
+  background: var(
+    --neutral-left-l-1,
+    linear-gradient(90deg, var(--color-grey), #0000 100%)
+  );
+}
+
+.social {
+  margin-top: 20px;
+  display: flex;
+  gap: 16px;
+}
+
+.socialButton {
+  background-color: var(--color-dark-button);
+  width: -webkit-fill-available;
+  height: 70px;
+}
+
+/* .input > div[data-filled-within='true'] {
+  background: red;
+} */
