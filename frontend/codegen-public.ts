@@ -1,13 +1,13 @@
 import type { CodegenConfig } from '@graphql-codegen/cli';
 
-import { API_TOKEN_PUBLIC, myConfig } from './src/config';
+import { myConfig } from './src/config';
 
 const config1: CodegenConfig = {
   overwrite: true,
   schema: {
     [`${myConfig.codegenUrl}/graphql`]: {
       headers: {
-        Authorization: `Bearer ${API_TOKEN_PUBLIC}`,
+        Authorization: `Bearer ${process.env.API_TOKEN_PUBLIC}`,
       },
     },
   },
