@@ -12,6 +12,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@parcel/watcher": "^2.3.0",
     "@reduxjs/toolkit": "^1.9.7",
     "firebase": "^10.7.1",
     "framer-motion": "^10.16.16",

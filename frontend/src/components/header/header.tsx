@@ -1,32 +1,26 @@
-import Link from 'next/link';
 import { FC } from 'react';
 
 import Navigation from '@/components/navigation/navigation';
+import { HeaderDocument } from '@/graphql/private/gql/graphql';
+import { privateClient } from '@/helpers/graphql-clients';
 
 import s from './header.module.css';
 
-const navItems = [
-  { label: 'Home', href: '/' },
-  { label: 'Blog', href: '/blog' },
-  { label: 'About', href: '/about' },
-];
-
 const Header: FC = async () => {
-  const headerData = await 
+  const headerData = await privateClient.request(HeaderDocument);
+  const globalTranslation = headerData.global?.translations?.[0];
+  const signInLabel = globalTranslation?.signin_label || '';
+  console.log('signInLabel: ', signInLabel);
+
+  const navItems = [
+    { label: signInLabel, href: '/about' },
+    { label: 'client profile', href: '/client-profile' },
+    { label: 'backend profile', href: '/backend-profile' },
+  ];
 
   return (
     <header className={s.container}>
       <Navigation navLinks={navItems} />
-      <nav className='container flex items-center justify-between'>
-        <ul className='flex gap-2'>
-          <li>
-            <Link href='/client-profile'>Client Profile</Link>
-          </li>
-          <li>
-            <Link href='/backend-profile'>Backend Profile</Link>
-          </li>
-        </ul>
-      </nav>
     </header>
   );
 };
