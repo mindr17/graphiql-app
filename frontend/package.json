@@ -6,6 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "gen-private": "graphql-codegen --config codegen-private.ts",
+    "watch": "graphql-codegen --config codegen-private.ts --watch",
+    "gen-public": "graphql-codegen --config codegen-public.ts",
     "lint": "next lint"
   },
   "dependencies": {
