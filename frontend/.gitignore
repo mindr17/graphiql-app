@@ -8,7 +8,6 @@ bundle.js
 */bundle.js
 *.code-workspace
 # .vscode
-package-lock.json
 service-account.json
 
 # GraphQL
