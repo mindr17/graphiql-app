@@ -1,4 +1,16 @@
+## Open frontend folder
+
+```bash
+cd frontend
+```
+
 ## Install packages
+
+```bash
+npm i
+```
+
+## Add .env
 
 ```bash
 npm i
