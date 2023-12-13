@@ -1,0 +1,50 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 0.5;
+  border: 2px solid #2d2e2e;
+
+  min-height: 300px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+
+  transition: all 0.3s ease;
+}
+
+.mainHide {
+  min-height: 0;
+  flex-grow: 0;
+}
+
+.actions {
+  width: 100%;
+  padding: 13px 11px;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #2d2e2e;
+}
+
+.leftBtns {
+  display: flex;
+  gap: 11px;
+}
+
+.textarea {
+  padding: 18px 20px;
+  flex-grow: 1;
+  background: inherit;
+  transition: all 0.3s ease;
+}
+
+.hideTextarea {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .main {
+    min-height: 0;
+    margin-bottom: 0;
+    border-radius: 0;
+  }
+}

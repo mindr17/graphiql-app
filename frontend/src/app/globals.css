@@ -21,19 +21,6 @@
   --color-neutral-right: rgba(18, 19, 20, 0.68);
 }
 
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --text-color: #121417;
-    --background: #ffffff;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-} */
-
 * {
   box-sizing: border-box;
   padding: 0;
@@ -71,8 +58,24 @@ a {
   text-decoration: none;
 }
 
+textarea {
+  border: none;
+  overflow: auto;
+  outline: none;
+
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+
+  resize: none;
+}
+
 .container {
   margin: 0 auto;
+  width: 100%;
   max-width: 1920px;
   padding: 0 25px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }

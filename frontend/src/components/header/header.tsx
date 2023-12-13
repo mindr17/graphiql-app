@@ -23,6 +23,9 @@ const Header: FC = () => {
           <li>
             <Link href='/backend-profile'>Backend Profile</Link>
           </li>
+          <li>
+            <Link href='/explorer'>Explorer</Link>
+          </li>
         </ul>
       </nav>
     </header>

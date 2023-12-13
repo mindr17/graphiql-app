@@ -12,7 +12,7 @@ const Providers: React.FC<PropsWithChildren> = ({ children }) => {
         <NextThemesProvider
           attribute='class'
           defaultTheme='dark'
-          themes={['light', 'dark', 'modern']}
+          themes={['light', 'dark']}
         >
           {children}
         </NextThemesProvider>
@@ -22,3 +22,11 @@ const Providers: React.FC<PropsWithChildren> = ({ children }) => {
 };
 
 export default Providers;
+
+// display: flex;
+// flex-wrap: nowrap;
+// flex-direction: column;
+// justify-content: start;
+// align-items: stretch;
+// height: 100vh;
+// width: 100%;
