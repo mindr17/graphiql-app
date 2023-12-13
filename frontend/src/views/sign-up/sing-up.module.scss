@@ -15,12 +15,12 @@
 
   width: 100%;
   aspect-ratio: 1;
-  bottom: -180px;
+  bottom: -140px;
 
   background: radial-gradient(
     50% 50% at 50% 50%,
-    #e83b353f 0%,
-    #e83b353f 25%,
+    #e83b351e 0%,
+    #e83b351e 25%,
     rgba(232, 59, 53, 0) 100%
   );
 }
@@ -84,8 +84,16 @@
   line-height: 150%; /* 19.5px */
 }
 
+.checkoxText {
+  color: var(--text-color);
+}
+
 .blueText {
   color: var(--color-blue);
+}
+
+.errorText {
+  color: var(--color-red);
 }
 
 .submitButton {

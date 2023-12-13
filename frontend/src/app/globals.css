@@ -23,6 +23,7 @@
   --color-blue: #246bfd;
   --color-grey: rgb(63, 63, 70);
   --color-dark-button: rgba(18, 19, 20, 0.68);
+  --color-error: rgb(243, 18, 96);
 }
 
 * {
