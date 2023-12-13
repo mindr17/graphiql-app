@@ -9,7 +9,11 @@
     "gen-private": "graphql-codegen --config codegen-private.ts",
     "watch": "graphql-codegen --config codegen-private.ts --watch",
     "gen-public": "graphql-codegen --config codegen-public.ts",
-    "lint": "next lint"
+    "lint": "eslint . --ext ts,tsx",
+    "lint:fix": "eslint . --ext ts, tsx --fix",
+    "format": "prettier . --check",
+    "format:fix": "prettier . --write",
+    "prepare": "cd .. && husky install frontend/.husky"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.7",
