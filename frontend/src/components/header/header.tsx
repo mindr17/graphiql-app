@@ -10,7 +10,6 @@ const Header: FC = async () => {
   const headerData = await privateClient.request(HeaderDocument);
   const globalTranslation = headerData.global?.translations?.[0];
   const signInLabel = globalTranslation?.signin_label || '';
-  console.log('signInLabel: ', signInLabel);
 
   const navItems = [
     { label: signInLabel, href: '/about' },
