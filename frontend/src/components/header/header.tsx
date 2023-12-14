@@ -9,13 +9,16 @@ import s from './header.module.css';
 
 const Header: FC = () => {
   const context = useContext(AppContext);
-  const { signIn } = context;
+  const { translations } = context;
+  const { signIn } = translations;
+  console.log('signIn: ', signIn);
+  context.setLocale('ru');
 
   const navItems = [
     { label: 'Home', href: '/' },
     { label: 'Blog', href: '/blog' },
     { label: 'About', href: '/about' },
-    { label: 'Sign In', href: '/sign-in' },
+    { label: context.translations, href: '/sign-in' },
     { label: 'Sign Up', href: '/sign-up' },
     { label: 'Frontend Profile', href: '/client-profile' },
     { label: 'Backend Profile', href: '/backend-profile' },

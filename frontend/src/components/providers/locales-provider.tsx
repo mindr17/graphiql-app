@@ -2,16 +2,19 @@
 
 import { useEffect, useState } from 'react';
 
-import { AppContext, Context, localeType } from '@/context/context';
+import {
+  AppContext,
+  Context,
+  initialTranslations,
+  localeType,
+} from '@/context/context';
 
 interface Props {
   children: JSX.Element;
-  translations: unknown;
 }
 
 const LocalesProvider = (props: Props) => {
   const { children } = props;
-  const initialTranslations = undefined;
   const [locale, setLocale] = useState<localeType>('en');
   const [translations, setTranslations] = useState(
     initialTranslations

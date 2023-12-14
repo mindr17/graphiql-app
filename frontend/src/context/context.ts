@@ -7,9 +7,15 @@ export interface Context {
   setLocale: (locale: localeType) => void;
 }
 
+export const initialTranslations = {
+  signIn: 'Sign In',
+  signUp: 'Sign Up',
+  signOut: 'Sign Out',
+};
+
 const initialAppContext: Context = {
   locale: 'en',
-  translations: undefined,
+  translations: initialTranslations,
   setLocale: () => {},
 };
 
