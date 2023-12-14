@@ -2,6 +2,7 @@
 
 import { FC, useContext } from 'react';
 
+import LanguageSelect from '@/components/header/language-select/language-select';
 import Navigation from '@/components/navigation/navigation';
 import { AppContext } from '@/context/context';
 
@@ -15,7 +16,6 @@ const Header: FC = () => {
   const { translations } = context;
   const { signIn } = translations;
   console.log('signIn: ', signIn);
-  context.setLocale('ru');
 
   const navItems = [
     { label: 'Home', href: '/' },
@@ -29,6 +29,7 @@ const Header: FC = () => {
 
   return (
     <header className={s.container}>
+      <LanguageSelect />
       <Navigation navLinks={navItems} />
     </header>
   );
