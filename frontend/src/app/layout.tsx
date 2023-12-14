@@ -26,7 +26,7 @@ const RootLayout: FC<PropsWithChildren> = (props) => {
       >
         <Providers>
           <Header />
-          <main className='container'>{children}</main>
+          <main className='container dark'>{children}</main>
         </Providers>
       </body>
     </html>

@@ -1,60 +1,52 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('tailwindcss/base');
+@import url('tailwindcss/components');
+@import url('tailwindcss/utilities');
 
 :root {
   --font-main: 'Source Sans 3', sans-serif;
   --font-monserrat: 'Montserrat', sans-serif;
-
-  --text-color: #ffffff;
-  --background: #121417;
-
-  --color-white: #ffffff;
-  --color-red: #e83b35;
+  --text-color: #fff;
+  --background: #212123;
+  --color-white: #fff;
+  --color-red: #d33832;
   --color-red-hover: #d0201a;
   --color-green: #1fa84e;
   --color-green-hover: #0d8738;
   --color-orange: #e3861a;
   --color-orange-hover: #c47418;
-  --color-neutral-left: rgba(255, 255, 255, 0.84);
-  --color-neutral-left-hover: rgba(255, 255, 255, 0.95);
-  --color-neutral-right: rgba(18, 19, 20, 0.68);
+  --color-neutral-left: rgb(255 255 255 / 84%);
+  --color-neutral-left-hover: rgb(255 255 255 / 95%);
+  --color-neutral-right: rgb(18 19 20 / 68%);
+  --color-blue: #246bfd;
+  --color-grey: rgb(63 63 70);
+  --color-dark-button: rgb(18 19 20 / 68%);
+  --color-error: rgb(243 18 96);
 }
-
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --text-color: #121417;
-    --background: #ffffff;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-} */
 
 * {
   box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 html,
 body {
+  overflow-x: hidden;
   max-width: 100vw;
   height: 100%;
-  overflow-x: hidden;
+  min-height: 100vh;
 }
 
 body {
   display: flex;
   flex-direction: column;
+
   font-family: var(--font-main);
-  color: var(--text-color);
   font-size: 16px;
   font-weight: 600;
   line-height: normal;
+  color: var(--text-color);
+
   background: var(--background);
 }
 
@@ -72,7 +64,7 @@ a {
 }
 
 .container {
-  margin: 0 auto;
   max-width: 1920px;
+  margin: 0 auto;
   padding: 0 25px;
 }
