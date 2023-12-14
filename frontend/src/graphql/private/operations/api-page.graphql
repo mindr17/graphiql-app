@@ -1,0 +1,5 @@
+query ApiPage {
+  apis {
+    id
+  }
+}

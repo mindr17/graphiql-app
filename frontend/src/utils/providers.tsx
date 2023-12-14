@@ -2,31 +2,19 @@
 
 import { NextUIProvider } from '@nextui-org/react';
 import { SessionProvider } from 'next-auth/react';
-import { ThemeProvider as NextThemesProvider } from 'next-themes';
+// import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import { PropsWithChildren } from 'react';
+
+import LocalesProvider from '@/components/providers/locales-provider';
 
 const Providers: React.FC<PropsWithChildren> = ({ children }) => {
   return (
-    <SessionProvider>
-      <NextUIProvider>
-        <NextThemesProvider
-          attribute='class'
-          defaultTheme='dark'
-          themes={['light', 'dark']}
-        >
-          {children}
-        </NextThemesProvider>
-      </NextUIProvider>
-    </SessionProvider>
+    <LocalesProvider>
+      <SessionProvider>
+        <NextUIProvider>{children}</NextUIProvider>
+      </SessionProvider>
+    </LocalesProvider>
   );
 };
 
 export default Providers;
-
-// display: flex;
-// flex-wrap: nowrap;
-// flex-direction: column;
-// justify-content: start;
-// align-items: stretch;
-// height: 100vh;
-// width: 100%;

@@ -25,20 +25,8 @@ const RootLayout: FC<PropsWithChildren> = (props) => {
         className={`${source_sans.className} ${montserrat.className}`}
       >
         <Providers>
-          <div
-            style={{
-              display: 'flex',
-              flexWrap: 'nowrap',
-              flexDirection: 'column',
-              justifyContent: 'start',
-              alignItems: 'stretch',
-              height: '100vh',
-              width: '100%',
-            }}
-          >
-            <Header />
-            <main className='container'>{children}</main>
-          </div>
+          <Header />
+          <main className='container dark'>{children}</main>
         </Providers>
       </body>
     </html>
