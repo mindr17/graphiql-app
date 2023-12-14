@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "gen-private": "graphql-codegen --config codegen-private.ts",
+    "gen:private": "graphql-codegen --config codegen-private.ts",
+    "gen:public": "graphql-codegen --config codegen-public.ts",
     "watch": "graphql-codegen --config codegen-private.ts --watch",
     "gen-public": "graphql-codegen --config codegen-public.ts",
     "lint": "eslint . --ext ts,tsx",
@@ -16,7 +17,9 @@
     "prepare": "cd .. && husky install frontend/.husky"
   },
   "dependencies": {
+    "lint": "next lint",
     "@hookform/resolvers": "^3.3.2",
+    "@parcel/watcher": "^2.3.0",
     "@reduxjs/toolkit": "^1.9.7",
     "firebase": "^10.7.1",
     "framer-motion": "^10.16.16",
