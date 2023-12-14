@@ -18,7 +18,7 @@ const Header: FC = () => {
     { label: 'Home', href: '/' },
     { label: 'Blog', href: '/blog' },
     { label: 'About', href: '/about' },
-    { label: context.translations, href: '/sign-in' },
+    { label: context.translations?.signIn, href: '/sign-in' },
     { label: 'Sign Up', href: '/sign-up' },
     { label: 'Frontend Profile', href: '/client-profile' },
     { label: 'Backend Profile', href: '/backend-profile' },
