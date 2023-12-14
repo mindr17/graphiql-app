@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "turbo": "next dev --turbo",
     "build": "next build",
     "start": "next start",
     "gen-private": "graphql-codegen --config codegen-private.ts",
