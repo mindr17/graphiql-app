@@ -1,0 +1,9 @@
+query Header {
+  global {
+    translations {
+      signin_label
+      signout_label
+      signup_label
+    }
+  }
+}

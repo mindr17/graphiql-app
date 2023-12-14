@@ -1,12 +1,12 @@
 const subDomain = 'apifinder-api';
 const domain = 'badges.bio';
-export const API_TOKEN_PUBLIC = '';
 
 const baseConfig = {
   subDomain,
   domain,
   baseUrl: `https://${domain}`,
-  apiToken: process.env.API_TOKEN,
+  API_TOKEN_PRIVATE: process.env.API_TOKEN_PRIVATE,
+  API_TOKEN_PUBLIC: process.env.NEXT_PUBLIC_API_TOKEN_PUBLIC,
   searchToken: '',
   revalidationToken: '',
   yandexMetricaId: '',
@@ -17,7 +17,7 @@ const baseConfig = {
 
 const devConfig = {};
 const prodConfig = {
-  fetchUrl: `http://172.19.0.1:8055`,
+  fetchUrl: process.env.PROD_FETCH_URL_PRIVATE,
 };
 
 export const config = {

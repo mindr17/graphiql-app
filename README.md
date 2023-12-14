@@ -1,27 +1,29 @@
-## Install pnpm (optional)
-
-https://pnpm.io/installation
-
-## Install packages
+## Open frontend folder
 
 ```bash
-pnpm i
+cd frontend
 ```
 
-or
+## Install packages
 
 ```bash
 npm i
 ```
 
-## Generate types and documents, start dev mode
+## Add .env
 
 ```bash
-npm run gen && npm run gen1 && npm run dev
+npm i
 ```
 
-Run dev mode
+## Generate graphql schemas, documents, ts types, start dev mode
 
 ```bash
-npm run gen
+npm run gen:private && npm run gen:public && npm run dev
+```
+
+## Run dev mode
+
+```bash
+npm run dev
 ```
