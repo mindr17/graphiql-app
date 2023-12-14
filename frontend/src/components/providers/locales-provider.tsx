@@ -8,6 +8,7 @@ import {
   initialTranslations,
   localeType,
 } from '@/context/context';
+import { translationsType } from '@/types/translations';
 
 interface Props {
   children: JSX.Element;
@@ -16,7 +17,7 @@ interface Props {
 const LocalesProvider = (props: Props) => {
   const { children } = props;
   const [locale, setLocale] = useState<localeType>('en');
-  const [translations, setTranslations] = useState(
+  const [translations, setTranslations] = useState<translationsType>(
     initialTranslations
   );
   const value: Context = {

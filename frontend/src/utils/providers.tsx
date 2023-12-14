@@ -2,7 +2,6 @@
 
 import { NextUIProvider } from '@nextui-org/react';
 import { SessionProvider } from 'next-auth/react';
-// import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import { PropsWithChildren } from 'react';
 
 import LocalesProvider from '@/components/providers/locales-provider';

@@ -1,14 +1,20 @@
 'use client';
 
 import { Button, Input } from '@nextui-org/react';
+import { FC, useContext } from 'react';
+
+import { AppContext } from '@/context/context';
 
 import styles from './home.module.css';
 
-const Home: React.FC = () => {
+const Home: FC = () => {
+  const context = useContext(AppContext);
+  const { translations } = context;
+  const { h1 } = translations;
+
   return (
     <section className={styles.main}>
-      <h1>Hello</h1>
-
+      <h1>{h1}</h1>
       <div className='flex'>
         <Button color='default'>Default</Button>
         <Button color='primary'>Primary</Button>

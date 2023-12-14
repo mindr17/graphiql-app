@@ -1,16 +1,19 @@
 import { createContext } from 'react';
 
+import { translationsType } from '@/types/translations';
+
 export type localeType = 'en' | 'ru';
 export interface Context {
   locale: localeType;
-  translations: unknown;
+  translations: translationsType;
   setLocale: (locale: localeType) => void;
 }
 
-export const initialTranslations = {
+export const initialTranslations: translationsType = {
   signIn: 'Sign In',
   signUp: 'Sign Up',
   signOut: 'Sign Out',
+  h1: 'Welcome',
 };
 
 const initialAppContext: Context = {

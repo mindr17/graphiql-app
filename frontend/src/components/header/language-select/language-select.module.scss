@@ -1,4 +1,5 @@
 .dropdown {
+  cursor: pointer;
   position: relative;
   height: 22px;
 }
@@ -16,11 +17,6 @@
     object-fit: cover;
     border-radius: 50%;
   }
-}
-
-.bigSize {
-  width: 30px;
-  height: 30px;
 }
 
 .smSize {
