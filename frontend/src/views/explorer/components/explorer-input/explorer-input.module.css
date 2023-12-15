@@ -1,0 +1,56 @@
+.wrapper {
+  display: flex;
+}
+
+.inputWrapp {
+  position: relative;
+  display: flex;
+  width: 100%;
+  margin: 0 15px 0 0;
+}
+
+.inputAction {
+  display: none;
+}
+
+.btn {
+  display: none;
+}
+
+.btnOther {
+  display: none;
+}
+
+.more {
+  display: block;
+}
+
+.moreBtn {
+  background: #e3861a;
+}
+
+@media (min-width: 768px) {
+  .inputWrapp {
+    margin: 0 15px;
+  }
+
+  .inputAction {
+    position: absolute;
+    right: 0;
+    display: flex;
+  }
+
+  .btn {
+    display: flex;
+    padding: 0 20px;
+  }
+
+  .btnOther {
+    display: flex;
+    padding: 0 30px;
+  }
+
+  .more {
+    display: none;
+  }
+}

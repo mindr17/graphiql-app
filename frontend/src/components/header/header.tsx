@@ -22,6 +22,7 @@ const Header: FC = () => {
     { label: signUp, href: '/sign-up' },
     { label: 'Frontend Profile', href: '/client-profile' },
     { label: 'Backend Profile', href: '/backend-profile' },
+    { label: 'Explorer', href: '/explorer' },
   ];
 
   return (

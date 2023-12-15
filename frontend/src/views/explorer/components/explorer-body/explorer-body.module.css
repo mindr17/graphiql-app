@@ -1,0 +1,19 @@
+.textarea {
+  padding: 18px 20px;
+  flex-grow: 1;
+  background: inherit;
+  border: 2px solid #2d2e2e;
+
+  min-height: 300px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .textarea {
+    min-height: 0;
+    margin-bottom: 0;
+    border-radius: 0;
+  }
+}
