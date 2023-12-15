@@ -25,8 +25,10 @@ const RootLayout: FC<PropsWithChildren> = (props) => {
         className={`${source_sans.className} ${montserrat.className}`}
       >
         <Providers>
-          <Header />
-          <main className='container dark'>{children}</main>
+          <div className='layout'>
+            <Header />
+            <main className='container dark'>{children}</main>
+          </div>
         </Providers>
       </body>
     </html>
