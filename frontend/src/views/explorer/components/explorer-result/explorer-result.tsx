@@ -3,6 +3,11 @@
 import { Tab, Tabs } from '@nextui-org/react';
 import { Key, useState } from 'react';
 
+import {
+  ExplorerDocsSvg,
+  ExplorerResultSvg,
+} from '@/components/svg-icons';
+
 import styles from './explorer-result.module.css';
 
 const ExplorerResult = () => {
@@ -18,8 +23,24 @@ const ExplorerResult = () => {
             setSelected(key.toString())
           }
         >
-          <Tab key='result' title='Result' />
-          <Tab key='docs' title='Docs' />
+          <Tab
+            key='result'
+            title={
+              <div className='flex items-center gap-1.5'>
+                <ExplorerResultSvg />
+                <span>Result</span>
+              </div>
+            }
+          />
+          <Tab
+            key='docs'
+            title={
+              <div className='flex items-center gap-1.5'>
+                <ExplorerDocsSvg />
+                <span>Docs</span>
+              </div>
+            }
+          />
         </Tabs>
       </div>
       <>

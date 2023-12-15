@@ -26,9 +26,15 @@ const ExplorerSend = (props: ExplorerSendProps) => {
     <div className={clsx(styles.wrapper, cl)}>
       <Dropdown>
         <DropdownTrigger>
-          <Button variant='light'>{variant}</Button>
+          <Button
+            color='default'
+            variant='light'
+            className={styles.btn}
+          >
+            {variant}
+          </Button>
         </DropdownTrigger>
-        <DropdownMenu aria-label='Example with disabled actions'>
+        <DropdownMenu aria-label='ExplorerSend Menu'>
           {crudVariants.map((item) => (
             <DropdownItem key={item} onClick={() => setVariant(item)}>
               {item}

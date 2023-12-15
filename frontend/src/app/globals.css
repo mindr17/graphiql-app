@@ -75,6 +75,10 @@ textarea {
   resize: none;
 }
 
+svg {
+  min-width: fit-content;
+}
+
 .layout {
   height: 100vh;
   width: 100%;

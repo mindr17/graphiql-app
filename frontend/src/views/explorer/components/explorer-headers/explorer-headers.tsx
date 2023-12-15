@@ -4,6 +4,12 @@ import { Button, Tab, Tabs } from '@nextui-org/react';
 import clsx from 'clsx';
 import { Key, useState } from 'react';
 
+import {
+  ExplorerArrowSvg,
+  ExplorerHeadersSvg,
+  ExplorerVariablesSvg,
+} from '@/components/svg-icons';
+
 import styles from './explorer-headers.module.css';
 
 const ExplorerHeaders = () => {
@@ -23,16 +29,33 @@ const ExplorerHeaders = () => {
               setSelected(key.toString())
             }
           >
-            <Tab key='headers' title='Headers' />
-            <Tab key='variables' title='Variables' />
+            <Tab
+              key='headers'
+              title={
+                <div className='flex items-center gap-1.5'>
+                  <ExplorerHeadersSvg />
+                  <span>Headers</span>
+                </div>
+              }
+            />
+            <Tab
+              key='variables'
+              title={
+                <div className='flex items-center gap-1.5'>
+                  <ExplorerVariablesSvg />
+                  <span>Variables</span>
+                </div>
+              }
+            />
           </Tabs>
         </div>
         <Button
           color='default'
-          variant='bordered'
+          variant='light'
+          isIconOnly
           onClick={() => setIsShow(!isShow)}
         >
-          {isShow ? 'hide' : 'show'}
+          <ExplorerArrowSvg isShow={!!isShow} />
         </Button>
       </div>
       {isShow && (

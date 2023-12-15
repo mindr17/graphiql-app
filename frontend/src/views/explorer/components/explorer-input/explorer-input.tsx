@@ -2,6 +2,11 @@
 
 import { Button, Input } from '@nextui-org/react';
 
+import {
+  ExplorerCatalogSvg,
+  ExplorerOtherSvg,
+} from '@/components/svg-icons';
+
 import ExplorerSend from '../explorer-send/explorer-send';
 import styles from './explorer-input.module.css';
 import ExplorerInputMore from './explorer-input-more';
@@ -13,6 +18,7 @@ const ExplorerInput = () => {
         color='default'
         variant='bordered'
         className={styles.btn}
+        startContent={<ExplorerCatalogSvg />}
       >
         Api catalog
       </Button>
@@ -30,12 +36,15 @@ const ExplorerInput = () => {
       <Button
         color='default'
         variant='bordered'
-        className={styles.btn}
+        className={styles.btnOther}
+        startContent={<ExplorerOtherSvg />}
       >
         Try other explorers
       </Button>
 
-      <ExplorerInputMore cl={styles.more} />
+      <div className={styles.more}>
+        <ExplorerInputMore />
+      </div>
     </div>
   );
 };

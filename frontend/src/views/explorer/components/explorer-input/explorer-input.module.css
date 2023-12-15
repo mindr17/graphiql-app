@@ -17,6 +17,10 @@
   display: none;
 }
 
+.btnOther {
+  display: none;
+}
+
 .more {
   display: block;
 }
@@ -38,6 +42,12 @@
 
   .btn {
     display: flex;
+    padding: 0 20px;
+  }
+
+  .btnOther {
+    display: flex;
+    padding: 0 30px;
   }
 
   .more {
