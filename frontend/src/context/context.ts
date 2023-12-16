@@ -14,6 +14,8 @@ export const initialTranslations: translationsType = {
   signUp: 'Sign Up',
   signOut: 'Sign Out',
   h1: 'Welcome',
+  errorBoundaryTitle: 'Error... Something went wrong!',
+  errorBoundaryBtn: 'Reload Page',
 };
 
 const initialAppContext: Context = {
