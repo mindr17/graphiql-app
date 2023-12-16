@@ -14,6 +14,8 @@ export const initialTranslations: translationsType = {
   signUp: 'Sign Up',
   signOut: 'Sign Out',
   h1: 'Welcome',
+  notFoundTitile: 'Not Found Page',
+  notFoundBtn: 'Back To Home',
 };
 
 const initialAppContext: Context = {

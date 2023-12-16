@@ -2,5 +2,7 @@
   "signIn": "Sign In",
   "signUp": "Sign Up",
   "signOut": "Sign Out",
-  "h1": "Welcome"
+  "h1": "Welcome",
+  "notFoundTitile": "Not Found Page",
+  "notFoundBtn": "Back To Home"
 }

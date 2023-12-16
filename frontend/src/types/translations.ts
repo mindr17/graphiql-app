@@ -3,4 +3,6 @@ export type translationsType = {
   signUp: string;
   signOut: string;
   h1: string;
+  notFoundTitile: string;
+  notFoundBtn: string;
 };
