@@ -14,7 +14,7 @@
   --color-green: #1fa84e;
   --color-green-hover: #0d8738;
   --color-orange: #e3861a;
-  --color-orange-hover: #c47418;
+  --color-orange-hover: #aa6311;
   --color-neutral-left: rgb(255 255 255 / 84%);
   --color-neutral-left-hover: rgb(255 255 255 / 95%);
   --color-neutral-right: rgb(18 19 20 / 68%);
@@ -22,6 +22,7 @@
   --color-grey: rgb(63 63 70);
   --color-dark-button: rgb(18 19 20 / 68%);
   --color-error: rgb(243 18 96);
+  --color-footer: rgba(255, 255, 255, 0.04);
 }
 
 * {
