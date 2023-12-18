@@ -1,6 +1,6 @@
 import { createContext } from 'react';
 
-import { translationsType } from '@/types/translations';
+import type { translationsType } from '@/types/translations';
 
 export type localeType = 'en' | 'ru';
 export interface Context {
