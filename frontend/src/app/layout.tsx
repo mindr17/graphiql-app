@@ -5,6 +5,7 @@ import { Montserrat, Source_Sans_3 } from 'next/font/google';
 import { FC, PropsWithChildren } from 'react';
 import * as React from 'react';
 
+import Footer from '@/components/footer/footer';
 import Header from '@/components/header/header';
 import Providers from '@/utils/providers';
 
@@ -28,6 +29,7 @@ const RootLayout: FC<PropsWithChildren> = (props) => {
           <div className='layout'>
             <Header />
             <main className='container dark'>{children}</main>
+            <Footer />
           </div>
         </Providers>
       </body>
