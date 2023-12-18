@@ -5,4 +5,6 @@ export type translationsType = {
   h1: string;
   errorBoundaryTitle: string;
   errorBoundaryBtn: string;
+  notFoundTitile: string;
+  notFoundBtn: string;
 };

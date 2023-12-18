@@ -4,5 +4,7 @@
   "signOut": "Выход",
   "h1": "Добро пожаловать",
   "errorBoundaryTitle": "Ошибка... Что-то пошло не так!",
-  "errorBoundaryBtn": "Перезагрузить страницу"
+  "errorBoundaryBtn": "Перезагрузить страницу",
+  "notFoundTitile": "Страница не найдена",
+  "notFoundBtn": "Перейти на главную"
 }

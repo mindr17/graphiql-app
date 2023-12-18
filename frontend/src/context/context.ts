@@ -16,6 +16,8 @@ export const initialTranslations: translationsType = {
   h1: 'Welcome',
   errorBoundaryTitle: 'Error... Something went wrong!',
   errorBoundaryBtn: 'Reload Page',
+  notFoundTitile: 'Not Found Page',
+  notFoundBtn: 'Back To Home',
 };
 
 const initialAppContext: Context = {

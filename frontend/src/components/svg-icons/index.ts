@@ -1,4 +1,5 @@
 export { default as GoogleSvg } from './google';
+export { default as NotFoundSvg } from './not-found';
 export { default as VkSvg } from './vk';
 
 //explorer
