@@ -26,7 +26,13 @@
 }
 
 .send button:last-child {
-  width: 215px;
+  width: 100%;
+}
+
+@media (min-width: 400px) {
+  .send button:last-child {
+    width: 215px;
+  }
 }
 
 @media (min-width: 768px) {

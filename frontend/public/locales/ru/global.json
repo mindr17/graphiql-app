@@ -6,5 +6,15 @@
   "errorBoundaryTitle": "Ошибка... Что-то пошло не так!",
   "errorBoundaryBtn": "Перезагрузить страницу",
   "notFoundTitile": "Страница не найдена",
-  "notFoundBtn": "Перейти на главную"
+  "notFoundBtn": "Перейти на главную",
+  "explorerCatalog": "Каталог API",
+  "explorerInput": "Введите URL-адрес",
+  "explorerOther": "Другие редакторы",
+  "explorerSend": "Отправить",
+  "explorerResult": "Результат",
+  "explorerDocs": "Документация",
+  "explorerHeaders": "Заголовки",
+  "explorerVariables": "Переменные",
+  "explorerHeadersPlaceholder": "Поле для ввода заголовков",
+  "explorerVariablesPlaceholder": "Поле для ввода переменных"
 }

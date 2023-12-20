@@ -1,33 +1,27 @@
 'use client';
 
 import { Button, Input } from '@nextui-org/react';
+import { useContext } from 'react';
 
-import {
-  ExplorerCatalogSvg,
-  ExplorerOtherSvg,
-} from '@/components/svg-icons';
+import { ExplorerCatalogSvg } from '@/components/svg-icons';
+import { AppContext } from '@/context/context';
 
 import ExplorerSend from '../explorer-send/explorer-send';
-import styles from './explorer-input.module.css';
-import ExplorerInputMore from './explorer-input-more';
+import styles from './explorer-input.module.scss';
 
 const ExplorerInput = () => {
+  const context = useContext(AppContext);
+  const { translations } = context;
+  const { explorerCatalog, explorerInput } = translations;
+
   return (
     <div className={styles.wrapper}>
-      <Button
-        color='default'
-        variant='bordered'
-        className={styles.btn}
-        startContent={<ExplorerCatalogSvg />}
-      >
-        Api catalog
-      </Button>
       <div className={styles.inputWrapp}>
         <Input
           type='text'
           variant='bordered'
           labelPlacement='outside'
-          placeholder='Enter the URL'
+          placeholder={explorerInput}
         />
         <div className={styles.inputAction}>
           <ExplorerSend />
@@ -36,15 +30,11 @@ const ExplorerInput = () => {
       <Button
         color='default'
         variant='bordered'
-        className={styles.btnOther}
-        startContent={<ExplorerOtherSvg />}
+        className={styles.btn}
+        startContent={<ExplorerCatalogSvg />}
       >
-        Try other explorers
+        <span>{explorerCatalog}</span>
       </Button>
-
-      <div className={styles.more}>
-        <ExplorerInputMore />
-      </div>
     </div>
   );
 };

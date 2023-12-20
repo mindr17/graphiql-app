@@ -2,19 +2,29 @@
 
 import { Button, Tab, Tabs } from '@nextui-org/react';
 import clsx from 'clsx';
-import { Key, useState } from 'react';
+import { Key, useContext, useState } from 'react';
 
 import {
   ExplorerArrowSvg,
   ExplorerHeadersSvg,
   ExplorerVariablesSvg,
 } from '@/components/svg-icons';
+import { AppContext } from '@/context/context';
 
 import styles from './explorer-headers.module.css';
 
 const ExplorerHeaders = () => {
   const [isShow, setIsShow] = useState<boolean>(true);
   const [selected, setSelected] = useState<string>('headers');
+
+  const context = useContext(AppContext);
+  const { translations } = context;
+  const {
+    explorerHeaders,
+    explorerVariables,
+    explorerHeadersPlaceholder,
+    explorerVariablesPlaceholder,
+  } = translations;
 
   return (
     <div
@@ -34,7 +44,9 @@ const ExplorerHeaders = () => {
               title={
                 <div className='flex items-center gap-1.5'>
                   <ExplorerHeadersSvg />
-                  <span>Headers</span>
+                  <span className={styles.tabs}>
+                    {explorerHeaders}
+                  </span>
                 </div>
               }
             />
@@ -43,7 +55,9 @@ const ExplorerHeaders = () => {
               title={
                 <div className='flex items-center gap-1.5'>
                   <ExplorerVariablesSvg />
-                  <span>Variables</span>
+                  <span className={styles.tabs}>
+                    {explorerVariables}
+                  </span>
                 </div>
               }
             />
@@ -63,13 +77,13 @@ const ExplorerHeaders = () => {
           {selected === 'headers' && (
             <textarea
               className={styles.textarea}
-              placeholder='Test Headers text'
+              placeholder={explorerHeadersPlaceholder}
             />
           )}
           {selected === 'variables' && (
             <textarea
               className={styles.textarea}
-              placeholder='Test Variables text'
+              placeholder={explorerVariablesPlaceholder}
             />
           )}
         </>
