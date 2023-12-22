@@ -18,6 +18,16 @@ export const initialTranslations: translationsType = {
   errorBoundaryBtn: 'Reload Page',
   notFoundTitile: 'Not Found Page',
   notFoundBtn: 'Back To Home',
+  explorerCatalog: 'Api catalog',
+  explorerInput: 'Enter the URL',
+  explorerSend: 'Send',
+  explorerResult: 'Result',
+  explorerDocs: 'Docs',
+  explorerHeaders: 'Headers',
+  explorerVariables: 'Variables',
+  explorerHeadersPlaceholder: 'Field for entering request headers',
+  explorerVariablesPlaceholder:
+    'Field for entering request variables',
 };
 
 const initialAppContext: Context = {

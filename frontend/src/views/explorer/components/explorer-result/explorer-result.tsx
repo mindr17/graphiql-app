@@ -1,17 +1,22 @@
 'use client';
 
 import { Tab, Tabs } from '@nextui-org/react';
-import { Key, useState } from 'react';
+import { Key, useContext, useState } from 'react';
 
 import {
   ExplorerDocsSvg,
   ExplorerResultSvg,
 } from '@/components/svg-icons';
+import { AppContext } from '@/context/context';
 
 import styles from './explorer-result.module.css';
 
 const ExplorerResult = () => {
   const [selected, setSelected] = useState<string>('headers');
+
+  const context = useContext(AppContext);
+  const { translations } = context;
+  const { explorerResult, explorerDocs } = translations;
 
   return (
     <div className={styles.main}>
@@ -28,7 +33,7 @@ const ExplorerResult = () => {
             title={
               <div className='flex items-center gap-1.5'>
                 <ExplorerResultSvg />
-                <span>Result</span>
+                <span className={styles.tabs}>{explorerResult}</span>
               </div>
             }
           />
@@ -37,7 +42,7 @@ const ExplorerResult = () => {
             title={
               <div className='flex items-center gap-1.5'>
                 <ExplorerDocsSvg />
-                <span>Docs</span>
+                <span className={styles.tabs}>{explorerDocs}</span>
               </div>
             }
           />

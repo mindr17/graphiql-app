@@ -41,6 +41,16 @@
   display: none;
 }
 
+.tabs {
+  font-size: 10px;
+}
+
+@media (min-width: 400px) {
+  .tabs {
+    font-size: 16px;
+  }
+}
+
 @media (min-width: 768px) {
   .main {
     min-height: 0;

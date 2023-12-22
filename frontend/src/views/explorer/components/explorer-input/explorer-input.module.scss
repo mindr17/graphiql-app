@@ -6,7 +6,7 @@
   position: relative;
   display: flex;
   width: 100%;
-  margin: 0 15px 0 0;
+  margin: 0 5px 0 0;
 }
 
 .inputAction {
@@ -14,11 +14,13 @@
 }
 
 .btn {
-  display: none;
-}
+  min-width: fit-content;
+  padding: 0px 8px;
+  user-select: none;
 
-.btnOther {
-  display: none;
+  & span {
+    display: none;
+  }
 }
 
 .more {
@@ -31,7 +33,7 @@
 
 @media (min-width: 768px) {
   .inputWrapp {
-    margin: 0 15px;
+    margin: 0 15px 0 0;
   }
 
   .inputAction {
@@ -43,14 +45,9 @@
   .btn {
     display: flex;
     padding: 0 20px;
-  }
 
-  .btnOther {
-    display: flex;
-    padding: 0 30px;
-  }
-
-  .more {
-    display: none;
+    & span {
+      display: block;
+    }
   }
 }

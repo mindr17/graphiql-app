@@ -6,5 +6,15 @@
   "errorBoundaryTitle": "Error... Something went wrong!",
   "errorBoundaryBtn": "Reload Page",
   "notFoundTitile": "Not Found Page",
-  "notFoundBtn": "Back To Home"
+  "notFoundBtn": "Back To Home",
+  "explorerCatalog": "Api catalog",
+  "explorerInput": "Enter the URL",
+  "explorerOther": "Try other explorers",
+  "explorerSend": "Send",
+  "explorerResult": "Result",
+  "explorerDocs": "Docs",
+  "explorerHeaders": "Headers",
+  "explorerVariables": "Variables",
+  "explorerHeadersPlaceholder": "Field for entering request headers",
+  "explorerVariablesPlaceholder": "Field for entering request variables"
 }
