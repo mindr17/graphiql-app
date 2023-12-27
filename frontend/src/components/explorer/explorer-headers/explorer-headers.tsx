@@ -1,7 +1,7 @@
 'use client';
 
 import { Button, Tab, Tabs } from '@nextui-org/react';
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 import { Key, useContext, useState } from 'react';
 
 import {

@@ -9,9 +9,11 @@ import {
 } from '@/components/svg-icons';
 import { AppContext } from '@/context/context';
 
-import styles from './explorer-result.module.css';
+import ExplorerDocs from '../docs/docs';
+import ExplorerResult from '../result/result';
+import styles from './explorer-actions.module.css';
 
-const ExplorerResult = () => {
+const ExplorerActions = () => {
   const [selected, setSelected] = useState<string>('headers');
 
   const context = useContext(AppContext);
@@ -49,23 +51,11 @@ const ExplorerResult = () => {
         </Tabs>
       </div>
       <>
-        {selected === 'result' && (
-          <textarea
-            className={styles.textarea}
-            placeholder='Test Result text'
-            readOnly
-          />
-        )}
-        {selected === 'docs' && (
-          <textarea
-            className={styles.textarea}
-            placeholder='Test Docs text'
-            readOnly
-          />
-        )}
+        {selected === 'result' && <ExplorerResult />}
+        {selected === 'docs' && <ExplorerDocs />}
       </>
     </div>
   );
 };
 
-export default ExplorerResult;
+export default ExplorerActions;

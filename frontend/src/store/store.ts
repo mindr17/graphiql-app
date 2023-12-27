@@ -1,14 +1,20 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 
-import editorReducer from './reducers/editor/editor-slice';
+import docsReducer from './reducers/docs/docs-slice';
+import explorerReducer from './reducers/explorer/explorer-slice';
 
 const rootReducer = combineReducers({
-  editor: editorReducer,
+  explorer: explorerReducer,
+  docs: docsReducer,
 });
 
 export const setupStore = () => {
   return configureStore({
     reducer: rootReducer,
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware({
+        serializableCheck: false,
+      }),
   });
 };
 
