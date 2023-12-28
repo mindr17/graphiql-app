@@ -1,7 +1,9 @@
 'use client';
 
 import { Navbar, NavbarBrand } from '@nextui-org/react';
+import { clsx } from 'clsx';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 import LanguageSelect from '@/components/header/language-select/language-select';
 
@@ -11,8 +13,26 @@ import HeaderNav from './header-nav/header-nav';
 import HeaderUser from './header-user/header-user';
 
 const Header = () => {
+  const [headerActive, setHeaderActive] = useState<boolean>(false);
+
+  useEffect(() => {
+    const listenScrollEvent = () => {
+      setHeaderActive(document.body.scrollTop > 0);
+    };
+
+    document.body.addEventListener('scroll', listenScrollEvent);
+
+    return () => {
+      document.body.removeEventListener('scroll', listenScrollEvent);
+    };
+  }, []);
+
   return (
-    <Navbar className={styles.header}>
+    <Navbar
+      className={clsx(styles.header, {
+        [styles.headerActive]: headerActive,
+      })}
+    >
       <NavbarBrand>
         <Link href='/' className={styles.title}>
           Api
