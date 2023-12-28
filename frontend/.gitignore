@@ -25,6 +25,7 @@ introspection.json
 
 # testing
 /coverage
+/.swc
 
 # next.js
 /.next/
