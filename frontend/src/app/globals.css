@@ -19,7 +19,10 @@
   --color-neutral-left-hover: rgb(255 255 255 / 95%);
   --color-neutral-right: rgb(18 19 20 / 68%);
   --color-blue: #246bfd;
+  --color-blue-dark: #143f95;
   --color-grey: rgb(63 63 70);
+  --color-purple: rgb(186, 2, 186);
+  --color-purple-dark: rgb(147, 2, 147);
   --color-dark-button: rgb(18 19 20 / 68%);
   --color-error: rgb(243 18 96);
   --color-footer: rgba(255, 255, 255, 0.04);
