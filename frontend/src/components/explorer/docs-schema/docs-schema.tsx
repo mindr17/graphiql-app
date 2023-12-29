@@ -125,9 +125,9 @@ const DocsSchema = () => {
                     <span className={styles.argsItemName}>
                       {arg.name}:
                     </span>{' '}
-                    {/* <span className={styles.argsItemType}>
-                      {(arg.type as GraphQLObjectType).name}
-                    </span> */}
+                    <span className={styles.argsItemType}>
+                      {arg.type.toString() || ''}
+                    </span>
                   </li>
                 );
               })}

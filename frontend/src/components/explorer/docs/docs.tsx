@@ -1,11 +1,15 @@
 'use client';
 
-import { CircularProgress, Snippet } from '@nextui-org/react';
+import {
+  CircularProgress,
+  ScrollShadow,
+  Snippet,
+} from '@nextui-org/react';
 
 import { useAppSelector } from '@/store/store-hooks';
 
 import ExplorerSchema from '../docs-schema/docs-schema';
-import styles from './docs.module.css';
+import styles from './docs.module.scss';
 
 const ExplorerDocs = () => {
   const { docs, isLoading, error } = useAppSelector(
@@ -46,7 +50,11 @@ const ExplorerDocs = () => {
     );
   }
 
-  return <ExplorerSchema />;
+  return (
+    <ScrollShadow className={styles.result}>
+      <ExplorerSchema />
+    </ScrollShadow>
+  );
 };
 
 export default ExplorerDocs;

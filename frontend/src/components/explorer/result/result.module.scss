@@ -1,5 +1,11 @@
 .result {
-  max-height: calc(100vh - 280px);
+  min-height: 300px;
+  max-height: 300px;
+
+  @media (min-width: 768px) {
+    min-height: calc(100vh - 290px);
+    max-height: calc(100vh - 290px);
+  }
 }
 
 .snippet {

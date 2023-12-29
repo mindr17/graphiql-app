@@ -9,7 +9,7 @@ import CodeEditor from '@uiw/react-textarea-code-editor';
 
 import { useAppSelector } from '@/store/store-hooks';
 
-import styles from './result.module.css';
+import styles from './result.module.scss';
 
 const ExplorerResult = () => {
   const { result, isLoading, error } = useAppSelector(
@@ -62,6 +62,7 @@ const ExplorerResult = () => {
         style={{
           fontFamily: 'inherit',
           fontSize: '16px',
+          background: 'inherit',
         }}
       />
     </ScrollShadow>
