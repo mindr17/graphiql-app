@@ -5,26 +5,30 @@ import { useRouter } from 'next/navigation';
 import { SessionProvider } from 'next-auth/react';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import { PropsWithChildren } from 'react';
+import { Provider } from 'react-redux';
 
 import LocalesProvider from '@/components/providers/locales-provider';
+import { store } from '@/store/store';
 
 const Providers: React.FC<PropsWithChildren> = ({ children }) => {
   const router = useRouter();
 
   return (
-    <LocalesProvider>
-      <SessionProvider>
-        <NextThemesProvider
-          attribute='class'
-          defaultTheme='dark'
-          themes={['light', 'dark', 'modern']}
-        >
+    <Provider store={store}>
+      <LocalesProvider>
+        <SessionProvider>
           <NextUIProvider navigate={router.push}>
-            {children}
+            <NextThemesProvider
+              attribute='class'
+              defaultTheme='dark'
+              themes={['light', 'dark', 'modern']}
+            >
+              {children}
+            </NextThemesProvider>
           </NextUIProvider>
-        </NextThemesProvider>
-      </SessionProvider>
-    </LocalesProvider>
+        </SessionProvider>
+      </LocalesProvider>
+    </Provider>
   );
 };
 

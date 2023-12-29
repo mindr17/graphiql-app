@@ -23,7 +23,6 @@ export const initialTranslations: translationsType = {
   errorBoundaryBtn: 'Reload Page',
   notFoundTitile: 'Not Found Page',
   notFoundBtn: 'Back To Home',
-  explorerCatalog: 'Api catalog',
   explorerInput: 'Enter the URL',
   explorerSend: 'Send',
   explorerResult: 'Result',

@@ -6,7 +6,6 @@
   position: relative;
   display: flex;
   width: 100%;
-  margin: 0 5px 0 0;
 }
 
 .inputAction {
@@ -23,19 +22,7 @@
   }
 }
 
-.more {
-  display: block;
-}
-
-.moreBtn {
-  background: #e3861a;
-}
-
 @media (min-width: 768px) {
-  .inputWrapp {
-    margin: 0 15px 0 0;
-  }
-
   .inputAction {
     position: absolute;
     right: 0;

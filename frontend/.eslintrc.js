@@ -82,6 +82,14 @@ module.exports = {
           pragma: 'React',
           version: 'detect',
         },
+        'import/parsers': {
+          '@typescript-eslint/parser': ['.ts', '.tsx'],
+        },
+        'import/resolver': {
+          typescript: {
+            alwaysTryTypes: true,
+          },
+        },
       },
     },
     {

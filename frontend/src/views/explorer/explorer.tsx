@@ -1,8 +1,9 @@
-import ExplorerBody from './components/explorer-body/explorer-body';
-import ExplorerHeaders from './components/explorer-headers/explorer-headers';
-import ExplorerInput from './components/explorer-input/explorer-input';
-import ExplorerResult from './components/explorer-result/explorer-result';
-import ExplorerSend from './components/explorer-send/explorer-send';
+import ExplorerResult from '@/components/explorer/explorer-actions/explorer-actions';
+import ExplorerBody from '@/components/explorer/explorer-body/explorer-body';
+import ExplorerHeaders from '@/components/explorer/explorer-headers/explorer-headers';
+import ExplorerInput from '@/components/explorer/explorer-input/explorer-input';
+import ExplorerSend from '@/components/explorer/explorer-send/explorer-send';
+
 import styles from './explorer.module.css';
 
 const Explorer: React.FC = () => {
