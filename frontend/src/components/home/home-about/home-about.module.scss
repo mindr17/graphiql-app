@@ -1,3 +1,31 @@
 .section {
   padding: 60px 0;
+  width: 100%;
+}
+
+.title {
+  font-size: 22px;
+  text-align: center;
+  margin-bottom: 25px;
+
+  @media (min-width: 500px) {
+    font-size: 28px;
+  }
+}
+
+.wrapp {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+}
+
+.text {
+  max-width: 500px;
+  padding: 20px;
 }

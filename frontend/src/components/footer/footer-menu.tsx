@@ -15,7 +15,7 @@ import s from './footer.module.scss';
 
 const FooterMenu: FC = () => {
   return (
-    <Dropdown placement='top'>
+    <Dropdown placement='left-start' backdrop='blur'>
       <DropdownTrigger>
         <Button variant='faded' className={s.svgTeam} isIconOnly>
           <TeamSvg />

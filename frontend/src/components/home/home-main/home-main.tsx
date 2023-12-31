@@ -17,7 +17,7 @@ const HomeMain = () => {
 
   const context = useContext(AppContext);
   const { translations } = context;
-  const { mainTitle, mainSubTitle } = translations;
+  const { mainTitle, mainSubTitle, mainBtn } = translations;
 
   return (
     <section className={styles.mainSection}>
@@ -41,23 +41,15 @@ const HomeMain = () => {
         </div>
 
         <div className={styles.mainSectionBtn}>
-          {session?.data ? (
-            <Button
-              color='secondary'
-              variant='ghost'
-              onClick={() => router.push('/explorer')}
-            >
-              Get started
-            </Button>
-          ) : (
-            <Button
-              color='secondary'
-              variant='ghost'
-              onClick={() => router.push('/signin')}
-            >
-              Get started
-            </Button>
-          )}
+          <Button
+            color='secondary'
+            variant='ghost'
+            onClick={() =>
+              router.push(session?.data ? '/explorer' : '/signin')
+            }
+          >
+            {mainBtn}
+          </Button>
         </div>
       </div>
     </section>
