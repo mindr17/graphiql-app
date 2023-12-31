@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useContext } from 'react';
 
 import { AppContext } from '@/context/context';
@@ -15,14 +16,25 @@ const HomeAbout = () => {
   const { translations, locale } = context;
   const { mainAboutTitle } = translations;
 
+  const text =
+    locale === 'en' ? MAIN_ABOUT_INFO_EN : MAIN_ABOUT_INFO_RU;
+
   return (
     <section className={styles.section}>
       <h2 className={styles.title}>{mainAboutTitle}</h2>
 
-      <div>
-        <p>
-          {locale === 'en' ? MAIN_ABOUT_INFO_EN : MAIN_ABOUT_INFO_RU}
-        </p>
+      <div className={styles.wrapp}>
+        <p
+          className={styles.text}
+          dangerouslySetInnerHTML={{ __html: text }}
+        />
+        <Image
+          className={styles.img}
+          src='/about-project.png'
+          alt='about-project'
+          width={500}
+          height={500}
+        />
       </div>
     </section>
   );

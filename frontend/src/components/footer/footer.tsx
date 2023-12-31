@@ -1,13 +1,10 @@
-'use client';
-
 import Link from 'next/link';
-import { FC } from 'react';
 
 import { RSSchoolSvg } from '../svg-icons';
 import s from './footer.module.scss';
 import FooterMenu from './footer-menu';
 
-const Footer: FC = () => {
+const Footer = () => {
   return (
     <footer className={s.main}>
       <div className={s.wrapp}>
