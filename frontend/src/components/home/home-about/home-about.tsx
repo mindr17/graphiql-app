@@ -17,7 +17,7 @@ const HomeAbout = () => {
 
   return (
     <section className={styles.section}>
-      <h2>{mainAboutTitle}</h2>
+      <h2 className={styles.title}>{mainAboutTitle}</h2>
 
       <div>
         <p>
