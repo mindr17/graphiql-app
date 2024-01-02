@@ -5,11 +5,14 @@ import {
   ExplorerFetchResultReturns,
 } from '../../store.types';
 
-const config = {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-  },
+const config = (headers: string | null): RequestInit => {
+  return {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      ...JSON.parse(headers ? headers : '{}'),
+    },
+  };
 };
 
 export const explorerFetchResult = createAsyncThunk<
@@ -18,11 +21,11 @@ export const explorerFetchResult = createAsyncThunk<
   { rejectValue: string }
 >(
   'explorer/fetchResult',
-  async ({ url, query }, { rejectWithValue }) => {
+  async ({ url, query, variables, headers }, { rejectWithValue }) => {
     try {
       const request = await fetch(url, {
-        ...config,
-        body: JSON.stringify({ query }),
+        ...config(headers),
+        body: JSON.stringify({ query, variables }),
       });
 
       const response = await request.json();

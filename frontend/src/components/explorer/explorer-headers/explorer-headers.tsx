@@ -10,12 +10,17 @@ import {
   ExplorerVariablesSvg,
 } from '@/components/svg-icons';
 import { AppContext } from '@/context/context';
+import {
+  setHeaders,
+  setVariables,
+} from '@/store/reducers/explorer/explorer-slice';
+import { useAppDispatch, useAppSelector } from '@/store/store-hooks';
 
 import styles from './explorer-headers.module.css';
 
 const ExplorerHeaders = () => {
   const [isShow, setIsShow] = useState<boolean>(true);
-  const [selected, setSelected] = useState<string>('headers');
+  const [selected, setSelected] = useState<string>('variables');
 
   const context = useContext(AppContext);
   const { translations } = context;
@@ -25,6 +30,12 @@ const ExplorerHeaders = () => {
     explorerHeadersPlaceholder,
     explorerVariablesPlaceholder,
   } = translations;
+
+  const { variables, headers } = useAppSelector(
+    (store) => store.explorer
+  );
+
+  const dispatch = useAppDispatch();
 
   return (
     <div
@@ -40,23 +51,23 @@ const ExplorerHeaders = () => {
             }
           >
             <Tab
-              key='headers'
-              title={
-                <div className='flex items-center gap-1.5'>
-                  <ExplorerHeadersSvg />
-                  <span className={styles.tabs}>
-                    {explorerHeaders}
-                  </span>
-                </div>
-              }
-            />
-            <Tab
               key='variables'
               title={
                 <div className='flex items-center gap-1.5'>
                   <ExplorerVariablesSvg />
                   <span className={styles.tabs}>
                     {explorerVariables}
+                  </span>
+                </div>
+              }
+            />
+            <Tab
+              key='headers'
+              title={
+                <div className='flex items-center gap-1.5'>
+                  <ExplorerHeadersSvg />
+                  <span className={styles.tabs}>
+                    {explorerHeaders}
                   </span>
                 </div>
               }
@@ -74,16 +85,20 @@ const ExplorerHeaders = () => {
       </div>
       {isShow && (
         <>
-          {selected === 'headers' && (
-            <textarea
-              className={styles.textarea}
-              placeholder={explorerHeadersPlaceholder}
-            />
-          )}
           {selected === 'variables' && (
             <textarea
+              value={variables}
               className={styles.textarea}
               placeholder={explorerVariablesPlaceholder}
+              onChange={(e) => dispatch(setVariables(e.target.value))}
+            />
+          )}
+          {selected === 'headers' && (
+            <textarea
+              value={headers}
+              className={styles.textarea}
+              placeholder={explorerHeadersPlaceholder}
+              onChange={(e) => dispatch(setHeaders(e.target.value))}
             />
           )}
         </>

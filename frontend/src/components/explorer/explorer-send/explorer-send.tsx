@@ -3,11 +3,13 @@
 import { Button } from '@nextui-org/react';
 import { clsx } from 'clsx';
 import { useContext } from 'react';
+import { toast } from 'sonner';
 
 import { AppContext } from '@/context/context';
 import { explorerFetchDocs } from '@/store/reducers/docs/docs-actions';
 import { explorerFetchResult } from '@/store/reducers/explorer/explorer-actions';
 import { useAppDispatch, useAppSelector } from '@/store/store-hooks';
+import { checkValues } from '@/utils/check-values';
 
 import styles from './explorer-send.module.css';
 
@@ -20,17 +22,38 @@ const ExplorerSend = (props: ExplorerSendProps) => {
 
   const context = useContext(AppContext);
   const { translations } = context;
-  const { explorerSend } = translations;
+  const {
+    explorerSend,
+    explorerVariablesError,
+    explorerHeadersError,
+  } = translations;
 
-  const { url, query, isLoading } = useAppSelector(
-    (store) => store.explorer
-  );
+  const { url, query, isLoading, variables, headers } =
+    useAppSelector((store) => store.explorer);
 
   const dispatch = useAppDispatch();
 
   const handleSendUrl = () => {
     if (url.trim() !== '') {
-      dispatch(explorerFetchResult({ url, query }));
+      const isCorrectVariables =
+        variables.trim() !== '' ? checkValues(variables) : true;
+      const isCorrectHeaders =
+        headers.trim() !== '' ? checkValues(headers) : true;
+
+      if (!isCorrectVariables) {
+        toast.error(explorerVariablesError);
+      } else if (!isCorrectHeaders) {
+        toast.error(explorerHeadersError);
+      }
+
+      dispatch(
+        explorerFetchResult({
+          url,
+          query,
+          variables: isCorrectVariables ? variables : '',
+          headers: isCorrectHeaders ? variables : null,
+        })
+      );
       dispatch(explorerFetchDocs({ url }));
     }
   };
@@ -40,6 +63,7 @@ const ExplorerSend = (props: ExplorerSendProps) => {
       <Button
         color='success'
         isLoading={isLoading}
+        isDisabled={url.trim() === ''}
         onClick={handleSendUrl}
       >
         {explorerSend}

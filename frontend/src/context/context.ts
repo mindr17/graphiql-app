@@ -35,6 +35,8 @@ export const initialTranslations: translationsType = {
   explorerVariablesPlaceholder:
     'Field for entering request variables',
   explorerPrettifyingSuccess: 'Query was been prettified successfuly',
+  explorerVariablesError: 'Variables is invalid. Try anothers!',
+  explorerHeadersError: 'Headers is invalid. Try anothers!',
 };
 
 const initialAppContext: Context = {

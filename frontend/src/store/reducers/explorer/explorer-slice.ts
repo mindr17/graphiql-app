@@ -8,6 +8,8 @@ const initialState: ExplorerState = {
   query: '',
   isPrettifyQuery: false,
   result: '',
+  variables: '',
+  headers: '',
   error: undefined,
   isLoading: false,
   isSucces: false,
@@ -29,10 +31,10 @@ const explorerReducer = createSlice({
       state.isPrettifyQuery = false;
     },
     setVariables: (state, action: PayloadAction<string>) => {
-      state.query = action.payload;
+      state.variables = action.payload;
     },
     setHeaders: (state, action: PayloadAction<string>) => {
-      state.query = action.payload;
+      state.headers = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -58,7 +60,12 @@ const explorerReducer = createSlice({
   },
 });
 
-export const { setUrl, setQuery, setPrettifyQuery } =
-  explorerReducer.actions;
+export const {
+  setUrl,
+  setQuery,
+  setPrettifyQuery,
+  setVariables,
+  setHeaders,
+} = explorerReducer.actions;
 
 export default explorerReducer.reducer;

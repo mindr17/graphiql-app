@@ -22,5 +22,7 @@
   "explorerVariables": "Переменные",
   "explorerHeadersPlaceholder": "Поле для ввода заголовков",
   "explorerVariablesPlaceholder": "Поле для ввода переменных",
-  "explorerPrettifyingSuccess": "Запрос был успешно отредактирован"
+  "explorerPrettifyingSuccess": "Запрос был успешно отредактирован",
+  "explorerVariablesError": "Переменные недействительны. Попробуйте другие!",
+  "explorerHeadersError": "Заголовки недействительны. Попробуйте другие!"
 }
