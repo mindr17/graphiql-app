@@ -1,4 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { toast } from 'sonner';
 
 import {
   ExplorerFetchResultArgs,
@@ -39,9 +40,13 @@ export const explorerFetchResult = createAsyncThunk<
         return { result: response.errors[0].message, success: false };
       }
     } catch (err) {
-      if (err instanceof Error) return rejectWithValue(err.message);
+      if (err instanceof Error) {
+        toast.error('Error: ' + err.message);
+        return rejectWithValue(err.message);
+      }
 
-      return rejectWithValue('Error!');
+      toast.error('Error: Something went wrong!');
+      return rejectWithValue('Error: Something went wrong!');
     }
   }
 );
