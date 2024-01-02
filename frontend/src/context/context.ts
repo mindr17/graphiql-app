@@ -34,6 +34,7 @@ export const initialTranslations: translationsType = {
   explorerHeadersPlaceholder: 'Field for entering request headers',
   explorerVariablesPlaceholder:
     'Field for entering request variables',
+  explorerPrettifyingSuccess: 'Query was been prettified successfuly',
 };
 
 const initialAppContext: Context = {

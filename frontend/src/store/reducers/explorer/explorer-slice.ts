@@ -6,6 +6,7 @@ import { explorerFetchResult } from './explorer-actions';
 const initialState: ExplorerState = {
   url: '',
   query: '',
+  isPrettifyQuery: false,
   result: '',
   error: undefined,
   isLoading: false,
@@ -21,6 +22,11 @@ const explorerReducer = createSlice({
     },
     setQuery: (state, action: PayloadAction<string>) => {
       state.query = action.payload;
+      state.isPrettifyQuery = true;
+    },
+    setPrettifyQuery: (state, action: PayloadAction<string>) => {
+      state.query = action.payload;
+      state.isPrettifyQuery = false;
     },
     setVariables: (state, action: PayloadAction<string>) => {
       state.query = action.payload;
@@ -52,6 +58,7 @@ const explorerReducer = createSlice({
   },
 });
 
-export const { setUrl, setQuery } = explorerReducer.actions;
+export const { setUrl, setQuery, setPrettifyQuery } =
+  explorerReducer.actions;
 
 export default explorerReducer.reducer;

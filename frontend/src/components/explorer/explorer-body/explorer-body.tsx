@@ -1,26 +1,41 @@
 'use client';
 
-import { ScrollShadow } from '@nextui-org/react';
+import { Button, ScrollShadow } from '@nextui-org/react';
 import CodeEditor from '@uiw/react-textarea-code-editor';
 import { useContext } from 'react';
+import { toast } from 'sonner';
 
+import { ExplorerPrettifyingSvg } from '@/components/svg-icons';
 import { AppContext } from '@/context/context';
 import {
   EDITOR_PLACEHOLDER_EN,
   EDITOR_PLACEHOLDER_RU,
 } from '@/shared/constants';
-import { setQuery } from '@/store/reducers/explorer/explorer-slice';
+import {
+  setPrettifyQuery,
+  setQuery,
+} from '@/store/reducers/explorer/explorer-slice';
 import { useAppDispatch, useAppSelector } from '@/store/store-hooks';
+import { prettifying } from '@/utils/prettifying';
 
-import styles from './explorer-body.module.css';
+import styles from './explorer-body.module.scss';
 
 const ExplorerBody = () => {
   const context = useContext(AppContext);
-  const { locale } = context;
+  const { locale, translations } = context;
+  const { explorerPrettifyingSuccess } = translations;
 
-  const { query } = useAppSelector((store) => store.explorer);
+  const { query, isPrettifyQuery } = useAppSelector(
+    (store) => store.explorer
+  );
 
   const dispatch = useAppDispatch();
+
+  const handlePrettifying = () => {
+    const newQuery = prettifying(query);
+    dispatch(setPrettifyQuery(newQuery));
+    toast.success(explorerPrettifyingSuccess);
+  };
 
   return (
     <ScrollShadow className={styles.result}>
@@ -42,6 +57,16 @@ const ExplorerBody = () => {
         }
         onChange={(e) => dispatch(setQuery(e.target.value))}
       />
+      <Button
+        color='default'
+        variant='shadow'
+        className={styles.btn}
+        isDisabled={!isPrettifyQuery}
+        isIconOnly
+        onClick={handlePrettifying}
+      >
+        <ExplorerPrettifyingSvg />
+      </Button>
     </ScrollShadow>
   );
 };

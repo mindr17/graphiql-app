@@ -21,5 +21,6 @@
   "explorerHeaders": "Заголовки",
   "explorerVariables": "Переменные",
   "explorerHeadersPlaceholder": "Поле для ввода заголовков",
-  "explorerVariablesPlaceholder": "Поле для ввода переменных"
+  "explorerVariablesPlaceholder": "Поле для ввода переменных",
+  "explorerPrettifyingSuccess": "Запрос был успешно отредактирован"
 }

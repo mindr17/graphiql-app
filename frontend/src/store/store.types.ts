@@ -3,6 +3,7 @@ import { GraphQLSchema } from 'graphql';
 export interface ExplorerState {
   url: string;
   query: string;
+  isPrettifyQuery: boolean;
   result: string;
   error: string | undefined;
   isLoading: boolean;
