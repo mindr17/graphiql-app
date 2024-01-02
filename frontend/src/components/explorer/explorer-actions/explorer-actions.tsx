@@ -8,6 +8,7 @@ import {
   ExplorerResultSvg,
 } from '@/components/svg-icons';
 import { AppContext } from '@/context/context';
+import { useAppSelector } from '@/store/store-hooks';
 
 import ExplorerDocs from '../docs/docs';
 import ExplorerResult from '../result/result';
@@ -15,6 +16,8 @@ import styles from './explorer-actions.module.css';
 
 const ExplorerActions = () => {
   const [selected, setSelected] = useState<string>('headers');
+
+  const { docs, error } = useAppSelector((store) => store.docs);
 
   const context = useContext(AppContext);
   const { translations } = context;
@@ -41,6 +44,7 @@ const ExplorerActions = () => {
           />
           <Tab
             key='docs'
+            isDisabled={!docs || !!error}
             title={
               <div className='flex items-center gap-1.5'>
                 <ExplorerDocsSvg />
