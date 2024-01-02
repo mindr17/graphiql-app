@@ -1,6 +1,6 @@
 'use client';
 
-import { Button } from '@nextui-org/react';
+import { Button, Chip } from '@nextui-org/react';
 import { GraphQLObjectType } from 'graphql';
 import { useState } from 'react';
 
@@ -30,25 +30,48 @@ const DocsSchema = () => {
   if (field) {
     return (
       <section>
-        <Button
-          size='sm'
-          radius='sm'
-          variant='ghost'
-          onClick={() => setField(null)}
-        >{`⇦ Fields`}</Button>
-
-        <h3>{field}</h3>
-        <p>{fields[field].description}</p>
-        <div>
-          <span>{'Type:'}</span>
-          <span>{fields[field].type.toString()}</span>
+        <div className={styles.titleWrapp}>
+          <Button
+            size='sm'
+            radius='sm'
+            variant='ghost'
+            onClick={() => setField(null)}
+          >{`⇦ Fields`}</Button>
+          <h3 className={styles.title}>{field}</h3>
         </div>
+
+        {fields[field].description && (
+          <Chip className={styles.fieldDescr}>
+            {fields[field].description}
+          </Chip>
+        )}
+
+        <div className={styles.fieldWrapp}>
+          <span className={styles.argsItemName}>{'Type:'}</span>
+          <span
+            className={styles.menuItemType}
+            onClick={() => {
+              setField(null);
+              setFieldType({
+                field: field,
+                type: fields[field].type.toString(),
+              });
+            }}
+          >
+            {'  '}
+            {fields[field].type.toString()}
+          </span>
+        </div>
+
         <h4>Arguments</h4>
+
         <ul>
           {fields[field].args.map((arg) => (
-            <li key={arg.name}>
-              <span>{arg.name}</span>:{' '}
-              <span>{arg.type.toString()}</span>
+            <li className={styles.argsItem} key={arg.name}>
+              <span className={styles.argsItemName}>{arg.name}</span>:{' '}
+              <span className={styles.argsItemType}>
+                {arg.type.toString()}
+              </span>
             </li>
           ))}
         </ul>
@@ -66,9 +89,16 @@ const DocsSchema = () => {
 
       for (const property in itemFields) {
         arr.push(
-          <li key={itemFields[property].name}>
-            <span>{itemFields[property].name}:</span>
-            <p>{itemFields[property].description}</p>
+          <li
+            className={styles.argsItem}
+            key={itemFields[property].name}
+          >
+            <span className={styles.argsItemName}>
+              {itemFields[property].name}:
+            </span>
+            <span className={styles.argsItemType}>
+              {itemFields[property].description}
+            </span>
           </li>
         );
       }
@@ -78,24 +108,32 @@ const DocsSchema = () => {
 
     return (
       <section>
-        <Button
-          size='sm'
-          radius='sm'
-          variant='ghost'
-          onClick={() => {
-            setField(fieldType.field);
-            setFieldType(null);
-          }}
-        >
-          {`⇦ ${fieldType.field}`}
-        </Button>
+        <div className={styles.titleWrapp}>
+          <Button
+            size='sm'
+            radius='sm'
+            variant='ghost'
+            onClick={() => {
+              setField(fieldType.field);
+              setFieldType(null);
+            }}
+          >
+            {`⇦ ${fieldType.field}`}
+          </Button>
+          <h3 className={styles.title}>{item.name}</h3>
+        </div>
 
-        <h3>{item.name}</h3>
-        <p>{item.description}</p>
+        {item.description && (
+          <Chip className={styles.fieldDescr}>
+            {item.description}
+          </Chip>
+        )}
 
-        <div>
-          <span>{'Type:'}</span>
-          <span>{fields[fieldType.field].type.toString()}</span>
+        <div className={styles.fieldWrapp}>
+          <span className={styles.argsItemName}>{'Type:  '}</span>
+          <span className={styles.argsItemType}>
+            {fields[fieldType.field].type.toString()}
+          </span>
         </div>
 
         <h4>Fields:</h4>

@@ -1,5 +1,7 @@
 'use client';
 
+import { ScrollShadow } from '@nextui-org/react';
+import CodeEditor from '@uiw/react-textarea-code-editor';
 import { useContext } from 'react';
 
 import { AppContext } from '@/context/context';
@@ -21,16 +23,26 @@ const ExplorerBody = () => {
   const dispatch = useAppDispatch();
 
   return (
-    <textarea
-      className={styles.textarea}
-      placeholder={
-        locale === 'en'
-          ? EDITOR_PLACEHOLDER_EN
-          : EDITOR_PLACEHOLDER_RU
-      }
-      value={query}
-      onChange={(e) => dispatch(setQuery(e.target.value))}
-    />
+    <ScrollShadow className={styles.result}>
+      <CodeEditor
+        value={query}
+        language='graphql'
+        className={styles.textarea}
+        padding={15}
+        data-color-mode='dark'
+        style={{
+          fontFamily: 'inherit',
+          fontSize: '16px',
+          background: 'inherit',
+        }}
+        placeholder={
+          locale === 'en'
+            ? EDITOR_PLACEHOLDER_EN
+            : EDITOR_PLACEHOLDER_RU
+        }
+        onChange={(e) => dispatch(setQuery(e.target.value))}
+      />
+    </ScrollShadow>
   );
 };
 
