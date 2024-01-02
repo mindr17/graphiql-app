@@ -39,3 +39,22 @@
 .argsItemType {
   color: var(--color-orange);
 }
+
+.titleWrapp {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.title {
+  font-size: 22px;
+  margin: 0 15px;
+}
+
+.fieldWrapp {
+  margin-bottom: 10px;
+}
+
+.fieldDescr {
+  margin: 10px 0;
+}

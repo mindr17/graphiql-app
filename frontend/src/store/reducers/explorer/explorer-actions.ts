@@ -1,15 +1,19 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { toast } from 'sonner';
 
 import {
   ExplorerFetchResultArgs,
   ExplorerFetchResultReturns,
 } from '../../store.types';
 
-const config = {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-  },
+const config = (headers: string | null): RequestInit => {
+  return {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      ...JSON.parse(headers ? headers : '{}'),
+    },
+  };
 };
 
 export const explorerFetchResult = createAsyncThunk<
@@ -18,11 +22,11 @@ export const explorerFetchResult = createAsyncThunk<
   { rejectValue: string }
 >(
   'explorer/fetchResult',
-  async ({ url, query }, { rejectWithValue }) => {
+  async ({ url, query, variables, headers }, { rejectWithValue }) => {
     try {
       const request = await fetch(url, {
-        ...config,
-        body: JSON.stringify({ query }),
+        ...config(headers),
+        body: JSON.stringify({ query, variables }),
       });
 
       const response = await request.json();
@@ -36,9 +40,13 @@ export const explorerFetchResult = createAsyncThunk<
         return { result: response.errors[0].message, success: false };
       }
     } catch (err) {
-      if (err instanceof Error) return rejectWithValue(err.message);
+      if (err instanceof Error) {
+        toast.error('Error: ' + err.message);
+        return rejectWithValue(err.message);
+      }
 
-      return rejectWithValue('Error!');
+      toast.error('Error: Something went wrong!');
+      return rejectWithValue('Error: Something went wrong!');
     }
   }
 );

@@ -3,7 +3,10 @@ import { GraphQLSchema } from 'graphql';
 export interface ExplorerState {
   url: string;
   query: string;
+  isPrettifyQuery: boolean;
   result: string;
+  variables: string;
+  headers: string;
   error: string | undefined;
   isLoading: boolean;
   isSucces: boolean;
@@ -22,6 +25,8 @@ export interface ExplorerFetchArgs {
 
 export interface ExplorerFetchResultArgs extends ExplorerFetchArgs {
   query: string;
+  variables: string;
+  headers: string | null;
 }
 
 export interface ExplorerFetchResultReturns {

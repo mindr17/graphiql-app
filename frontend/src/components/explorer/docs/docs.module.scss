@@ -1,5 +1,6 @@
 .snippet {
   margin: 10px;
+  white-space: normal;
 }
 
 .wrapp {
@@ -11,6 +12,7 @@
 }
 
 .result {
+  padding: 20px;
   min-height: 300px;
   max-height: 300px;
 

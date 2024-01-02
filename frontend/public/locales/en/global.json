@@ -21,5 +21,8 @@
   "explorerHeaders": "Headers",
   "explorerVariables": "Variables",
   "explorerHeadersPlaceholder": "Field for entering request headers",
-  "explorerVariablesPlaceholder": "Field for entering request variables"
+  "explorerVariablesPlaceholder": "Field for entering request variables",
+  "explorerPrettifyingSuccess": "Query was been prettified successfuly",
+  "explorerVariablesError": "Variables is invalid. Try anothers!",
+  "explorerHeadersError": "Headers is invalid. Try anothers!"
 }

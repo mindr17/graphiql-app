@@ -6,6 +6,7 @@ import { SessionProvider } from 'next-auth/react';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import { PropsWithChildren } from 'react';
 import { Provider } from 'react-redux';
+import { Toaster } from 'sonner';
 
 import LocalesProvider from '@/components/providers/locales-provider';
 import { store } from '@/store/store';
@@ -23,6 +24,12 @@ const Providers: React.FC<PropsWithChildren> = ({ children }) => {
               defaultTheme='dark'
               themes={['light', 'dark', 'modern']}
             >
+              <Toaster
+                position='top-right'
+                expand={false}
+                richColors
+              />
+
               {children}
             </NextThemesProvider>
           </NextUIProvider>

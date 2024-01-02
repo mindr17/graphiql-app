@@ -2,8 +2,8 @@
 
 import {
   CircularProgress,
+  Code,
   ScrollShadow,
-  Snippet,
 } from '@nextui-org/react';
 import CodeEditor from '@uiw/react-textarea-code-editor';
 
@@ -26,27 +26,17 @@ const ExplorerResult = () => {
 
   if (error) {
     return (
-      <Snippet
-        color='danger'
-        symbol={''}
-        className={styles.snippet}
-        hideCopyButton
-      >
+      <Code color='danger' className={styles.snippet}>
         {error}
-      </Snippet>
+      </Code>
     );
   }
 
   if (!result) {
     return (
-      <Snippet
-        color='warning'
-        symbol={''}
-        className={styles.snippet}
-        hideCopyButton
-      >
+      <Code color='warning' className={styles.snippet}>
         Enter the api url, please!
-      </Snippet>
+      </Code>
     );
   }
 
