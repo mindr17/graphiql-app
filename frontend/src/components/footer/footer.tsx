@@ -6,7 +6,7 @@ import FooterMenu from './footer-menu';
 
 const Footer = () => {
   return (
-    <footer className={s.main}>
+    <footer className={s.main} data-testid='footer'>
       <div className={s.wrapp}>
         <div className={s.content}>
           <Link
