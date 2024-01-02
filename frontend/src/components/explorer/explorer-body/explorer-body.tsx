@@ -1,6 +1,6 @@
 'use client';
 
-import { Button, ScrollShadow } from '@nextui-org/react';
+import { Button } from '@nextui-org/react';
 import CodeEditor from '@uiw/react-textarea-code-editor';
 import { useContext } from 'react';
 import { toast } from 'sonner';
@@ -38,7 +38,7 @@ const ExplorerBody = () => {
   };
 
   return (
-    <ScrollShadow className={styles.result}>
+    <>
       <CodeEditor
         value={query}
         language='graphql'
@@ -67,7 +67,7 @@ const ExplorerBody = () => {
       >
         <ExplorerPrettifyingSvg />
       </Button>
-    </ScrollShadow>
+    </>
   );
 };
 
