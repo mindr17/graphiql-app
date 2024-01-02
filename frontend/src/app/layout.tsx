@@ -21,7 +21,7 @@ const RootLayout: FC<PropsWithChildren> = (props) => {
   const { children } = props;
 
   return (
-    <html lang='en'>
+    <html lang='en' suppressHydrationWarning>
       <body
         className={`${source_sans.className} ${montserrat.className}`}
       >
