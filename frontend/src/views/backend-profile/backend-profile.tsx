@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { getServerSession } from 'next-auth/next';
 import { FC } from 'react';
 
-import { googleAuthConfig } from '../../../configs/auth';
+import { googleAuthConfig } from '../../configs/auth';
 
 const BackendProfile: FC = async () => {
   const session = await getServerSession(googleAuthConfig);
