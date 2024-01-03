@@ -1,6 +1,5 @@
 import type { AuthOptions, User } from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
-import GoggleProvider from 'next-auth/providers/google';
 
 const users = [
   {
@@ -12,12 +11,9 @@ const users = [
   },
 ];
 
-export const googleAuthConfig: AuthOptions = {
+export const authConfig: AuthOptions = {
+  session: { strategy: 'jwt' },
   providers: [
-    GoggleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID!,
-      clientSecret: process.env.GOOGLE_SECRET!,
-    }),
     Credentials({
       credentials: {
         email: { label: 'email', type: 'email', required: true },
@@ -34,11 +30,12 @@ export const googleAuthConfig: AuthOptions = {
           (user) => user.email === credentials.email
         );
 
-        if (
-          currentUser &&
-          currentUser.password === credentials.password
-        ) {
-          // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        if (!currentUser) return null;
+
+        const isPasswordCorrect =
+          currentUser.password === credentials.password;
+
+        if (isPasswordCorrect) {
           const { password, ...userWithoutPass } = currentUser;
 
           return userWithoutPass as User;

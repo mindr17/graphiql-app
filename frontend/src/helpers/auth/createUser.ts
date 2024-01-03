@@ -1,30 +1,25 @@
-import {
-  CreateUserDocument,
-  CreateUserMutation,
-  Users,
-} from '@/src/gql/graphql';
-import { client } from '@/src/helpers/clientGq';
+import { User } from 'next-auth';
 
-export const createUser = async (
-  user: Pick<Users, 'email' | 'password' | 'googleId'>
-) => {
+import { config, publicFetchUrl } from '@/config';
+
+export const createUser = async (user: User) => {
   try {
-    const result = await client.request<CreateUserMutation>(
-      CreateUserDocument,
-      {
-        email: user.email,
-        password: user.password,
-        googleId: user.googleId,
-      }
-    );
-    return result;
+    const { email } = user;
+
+    const body = {
+      guide_link: user,
+    };
+
+    return await fetch(publicFetchUrl, {
+      method: 'PUT',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${config.API_TOKEN_PRIVATE}`,
+      },
+      body: JSON.stringify(body),
+    });
   } catch (e) {
-    if (e.response && e.response.errors) {
-      // Handle GraphQL errors here
-      console.error('GraphQL Error:', e.response.errors);
-    } else {
-      // Handle other errors (network error, etc.)
-      console.error('Network Error:', e);
-    }
+    console.error('Network Error:', e);
   }
 };
