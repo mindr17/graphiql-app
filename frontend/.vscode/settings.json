@@ -17,5 +17,6 @@
   ],
   "stylelint.validate": ["css", "scss"],
   "typescript.referencesCodeLens.enabled": true,
-  "css.lint.unknownAtRules": "ignore"
+  "css.lint.unknownAtRules": "ignore",
+  "editor.minimap.enabled": true
 }

@@ -40,7 +40,7 @@ const Header = () => {
         </Link>
         <LanguageSelect />
       </NavbarBrand>
-      <div className={styles.rapper}>
+      <div className={styles.wrapper}>
         <HeaderNav />
         <HeaderUser />
       </div>
