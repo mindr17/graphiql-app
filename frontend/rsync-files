@@ -3,7 +3,7 @@ src/
 .env.local
 
 package.json
-pnpm-lock.yaml
+package-lock.json
 
 tsconfig.json
 next.config.js

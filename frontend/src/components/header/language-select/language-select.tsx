@@ -5,7 +5,7 @@ import { FC, useContext, useRef, useState } from 'react';
 import { AppContext, localeType } from '@/context/context';
 import useOnClickOutside from '@/helpers/use-click-outside';
 
-import s from './language-select.module.scss';
+import styles from './language-select.module.scss';
 
 interface Languages {
   en: {
@@ -39,42 +39,42 @@ const LanguageSelect: FC = () => {
   useOnClickOutside(menuRef, () => setIsMenuOpen(false));
 
   return (
-    <div className={s.dropdown} ref={menuRef}>
+    <div className={styles.dropdown} ref={menuRef}>
       <button
-        className={clsx(s.selected, s.smSize)}
+        className={clsx(styles.selected, styles.smSize)}
         onClick={() => setIsMenuOpen((prev) => !prev)}
       >
         <img
           alt='ru'
-          className={s.smSize}
+          className={styles.smSize}
           src={`/icons/${locale}.svg`}
         />
       </button>
       <div
-        className={clsx(s.dropdownMenu, {
-          [s.dropdownMenuActive]: isMenuOpen,
+        className={clsx(styles.dropdownMenu, {
+          [styles.dropdownMenuActive]: isMenuOpen,
         })}
       >
         <div
-          className={s.langdiv}
+          className={styles.langdiv}
           onClick={() => handleLanguageChange(languages.en.code)}
         >
-          <div className={clsx(s.selected, s.smSize)}>
+          <div className={clsx(styles.selected, styles.smSize)}>
             <img
               alt={languages.ru.code}
-              className={s.smSize}
+              className={styles.smSize}
               src={'/icons/en.svg'}
             />
           </div>
         </div>
         <div
-          className={s.langdivBottom}
+          className={styles.langdivBottom}
           onClick={() => handleLanguageChange(languages.ru.code)}
         >
-          <div className={clsx(s.selected, s.smSize)}>
+          <div className={clsx(styles.selected, styles.smSize)}>
             <img
               alt={languages.en.code}
-              className={s.smSize}
+              className={styles.smSize}
               src={'/icons/ru.svg'}
             />
           </div>
