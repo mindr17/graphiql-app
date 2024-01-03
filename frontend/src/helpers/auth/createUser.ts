@@ -5,7 +5,6 @@ import { config, publicFetchUrl } from '@/config';
 export const createUser = async (user: User) => {
   try {
     const { email } = user;
-
     const body = {
       guide_link: user,
     };
