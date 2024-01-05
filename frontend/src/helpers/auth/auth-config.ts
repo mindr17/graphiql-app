@@ -56,7 +56,6 @@ export const authConfig: AuthOptions = {
   ],
   callbacks: {
     async signIn(signInProps) {
-      console.log('signInProps: ', signInProps);
       const { account, profile } = signInProps;
 
       if (!profile || !account) return false;
@@ -70,9 +69,9 @@ export const authConfig: AuthOptions = {
 
       // if (userExists) return true;
 
-      const inputUser = { email, password };
+      // const inputUser = { email, password };
 
-      createUser(inputUser);
+      // createUser(inputUser);
 
       return true;
     },

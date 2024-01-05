@@ -47,12 +47,11 @@ const SignUp: React.FC = () => {
     const { email: formDataEmail, password: formDataPassword } =
       formData;
 
-    const { hash } = await getHashedPassword(formDataPassword);
-    console.log('hash: ', hash);
+    // const { hash } = await getHashedPassword(formDataPassword);
 
     const bodyData = {
-      email: formData.email,
-      password_hash: hash,
+      email: formDataEmail,
+      password: formDataPassword,
     };
     const options: RequestInit = {
       method: 'POST',
@@ -62,14 +61,12 @@ const SignUp: React.FC = () => {
       headers: {
         'Content-Type': 'application/json',
       },
+
       body: JSON.stringify(bodyData),
     };
 
     try {
-      const res = await fetch(
-        `${config.fetchUrl}/items/users`,
-        options
-      );
+      const res = await fetch(`/api/auth/create-user`, options);
 
       console.log('res: ', res);
 
@@ -77,13 +74,13 @@ const SignUp: React.FC = () => {
         throw new Error(res.statusText);
       }
 
-      if (res && res.ok) {
-        await signIn('credentials', {
-          redirect: false,
-          email: formDataEmail,
-          password: formDataPassword,
-        });
-      }
+      // if (res && res.ok) {
+      //   await signIn('credentials', {
+      //     redirect: false,
+      //     email: formDataEmail,
+      //     password: formDataPassword,
+      //   });
+      // }
     } catch (error) {
       return;
     }

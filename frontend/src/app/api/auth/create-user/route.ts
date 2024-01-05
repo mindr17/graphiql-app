@@ -8,11 +8,13 @@ export async function POST(req: NextRequest) {
 
   const data = await req.json();
 
-  const { user } = data;
+  const { email, password } = data;
 
   const passwordHash = await getPasswordHash(password);
 
-  const res = await createUserHelper(user);
+  const newUser = { email, password_hash: passwordHash };
+
+  const res = await createUserHelper(newUser);
 
   return NextResponse.json({ res });
 }
