@@ -19,9 +19,9 @@ export const signUp = async (
     const newUser = { email, password_hash: passwordHash };
     const res = await writeUser(newUser);
 
-    if (res) return false;
+    if (res) return true;
 
-    return true;
+    return false;
   } catch (e) {
     console.error(e);
 

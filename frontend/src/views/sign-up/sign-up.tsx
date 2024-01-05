@@ -39,14 +39,10 @@ const formSchemaTest = yup.object().shape({
 
 const formSchemaProd = yup.object().shape({
   email: yup.string().email().required(),
-  password: yup
-    .string()
-    .required('Please enter password')
-    .min(8, 'Password is too short - should be 8 chars minimum.'),
+  password: yup.string().required('Please enter password'),
   confirmPassword: yup
     .string()
-    .required('Please repaet enter password')
-    .oneOf([yup.ref('password')], 'Passwords must match'),
+    .required('Please repaet enter password'),
   agree: yup.boolean().isTrue('Is required'),
 });
 
@@ -91,6 +87,8 @@ const SignUp: React.FC = () => {
       const data = await result.json();
       const { isSignedUp } = data;
       console.log('isSignedUp: ', isSignedUp);
+
+      if (!isSignedUp) return;
 
       await signIn('credentials', {
         redirect: true,

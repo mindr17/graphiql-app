@@ -6,12 +6,11 @@ import { signIn, useSession } from 'next-auth/react';
 import type { FormEventHandler } from 'react';
 
 import GoogleButton from '../google-button';
-import classes from './login-form.module.css';
+import styles from './login-form.module.css';
 
 const LoginForm: React.FC = () => {
   const router = useRouter();
   const session = useSession();
-  console.log('session: ', session);
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = async (
     event
@@ -23,7 +22,8 @@ const LoginForm: React.FC = () => {
     const res = await signIn('credentials', {
       email: formData.get('email'),
       password: formData.get('password'),
-      redirect: false,
+      redirect: true,
+      callbackUrl: '/explorer',
     });
 
     if (res && !res.error) {
@@ -33,7 +33,7 @@ const LoginForm: React.FC = () => {
   };
 
   return (
-    <form className={classes.loginForm} onSubmit={handleSubmit}>
+    <form className={styles.loginForm} onSubmit={handleSubmit}>
       <Input
         label='Email'
         placeholder='Enter your email'
