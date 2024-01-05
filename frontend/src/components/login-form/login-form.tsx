@@ -1,17 +1,13 @@
 'use client';
 
 import { Button, Input } from '@nextui-org/react';
-import { useRouter } from 'next/navigation';
-import { signIn, useSession } from 'next-auth/react';
+import { signIn } from 'next-auth/react';
 import type { FormEventHandler } from 'react';
 
 import GoogleButton from '../google-button';
-import styles from './login-form.module.css';
+import styles from './login-form.module.scss';
 
 const LoginForm: React.FC = () => {
-  const router = useRouter();
-  const session = useSession();
-
   const handleSubmit: FormEventHandler<HTMLFormElement> = async (
     event
   ) => {
@@ -19,17 +15,12 @@ const LoginForm: React.FC = () => {
 
     const formData = new FormData(event.currentTarget);
 
-    const res = await signIn('credentials', {
+    await signIn('credentials', {
       email: formData.get('email'),
       password: formData.get('password'),
       redirect: true,
       callbackUrl: '/explorer',
     });
-
-    if (res && !res.error) {
-      router.push('/profile');
-    } else {
-    }
   };
 
   return (

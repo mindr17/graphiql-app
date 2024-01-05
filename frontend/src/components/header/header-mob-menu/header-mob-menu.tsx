@@ -16,7 +16,7 @@ import BurgerSvg from '@/components/svg-icons/burger';
 import { AppContext } from '@/context/context';
 
 import { navItems } from '../header-nav/header-nav';
-import styles from './header-mob-menu.module.css';
+import styles from './header-mob-menu.module.scss';
 
 const HeaderMobMenu = () => {
   const session = useSession();
@@ -64,13 +64,13 @@ const HeaderMobMenu = () => {
           <DropdownSection>
             <DropdownItem
               key={'signIn'}
-              onClick={() => handleClickLink('/signIn')}
+              onClick={() => handleClickLink('/sign-in')}
             >
               {signIn}
             </DropdownItem>
             <DropdownItem
               key={'signUp'}
-              onClick={() => handleClickLink('/signup')}
+              onClick={() => handleClickLink('/sign-up')}
             >
               {signUp}
             </DropdownItem>

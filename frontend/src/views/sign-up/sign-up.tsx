@@ -86,12 +86,11 @@ const SignUp: React.FC = () => {
 
       const data = await result.json();
       const { isSignedUp } = data;
-      console.log('isSignedUp: ', isSignedUp);
 
       if (!isSignedUp) return;
 
       await signIn('credentials', {
-        redirect: true,
+        callbackUrl: '/explorer',
         email: formDataEmail,
         password: formDataPassword,
       });

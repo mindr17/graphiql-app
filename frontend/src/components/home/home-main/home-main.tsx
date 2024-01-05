@@ -6,7 +6,6 @@ import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import { useContext } from 'react';
 
-import bg from '@/assets/main-bg.png';
 import { AppContext } from '@/context/context';
 
 import styles from './home-main.module.scss';
@@ -21,12 +20,14 @@ const HomeMain = () => {
 
   return (
     <section className={styles.mainSection}>
-      <div
-        className={styles.mainSectionBg}
-        style={{
-          background: `url(${bg.src}) 50% / cover no-repeat`,
-        }}
-      />
+      <div className={styles.mainSectionBg}>
+        <Image
+          className={styles.mainSectionWrappImg}
+          src={'/main-bg.png'}
+          alt='main-graph'
+          fill
+        />
+      </div>
       <div className={styles.mainSectionWrapp}>
         <Image
           className={styles.mainSectionWrappImg}
