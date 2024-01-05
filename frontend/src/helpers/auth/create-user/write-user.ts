@@ -4,6 +4,7 @@ import { UserToBeWritten } from '@/helpers/auth/types';
 export const writeUser = async (
   user: UserToBeWritten
 ): Promise<boolean> => {
+  const url = `${config.fetchUrl}/items/users`;
   const options: RequestInit = {
     method: 'POST',
     mode: 'cors',
@@ -17,10 +18,7 @@ export const writeUser = async (
   };
 
   try {
-    const res = await fetch(
-      `${config.fetchUrl}/items/users`,
-      options
-    );
+    const res = await fetch(url, options);
 
     if (!res.ok) {
       throw new Error(res.statusText);

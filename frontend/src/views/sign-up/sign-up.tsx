@@ -13,8 +13,6 @@ import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 
 import { GoogleSvg, VkSvg } from '@/components/svg-icons';
-import { config } from '@/config';
-import { getHashedPassword } from '@/helpers/auth/authServerHelpers';
 
 import styles from './sing-up.module.scss';
 
@@ -52,7 +50,6 @@ const SignUp: React.FC = () => {
   const onSubmit: SubmitHandler<FormValues> = async (formData) => {
     const { email: formDataEmail, password: formDataPassword } =
       formData;
-
     const bodyData = {
       email: formDataEmail,
       password: formDataPassword,
@@ -65,24 +62,25 @@ const SignUp: React.FC = () => {
       headers: {
         'Content-Type': 'application/json',
       },
-
       body: JSON.stringify(bodyData),
     };
 
     try {
-      const res = await fetch(`/api/auth/create-user`, options);
+      const result = await fetch(`/api/sign-up`, options);
 
-      if (!res.ok) {
-        throw new Error(res.statusText);
+      if (!result.ok) {
+        throw new Error(result.statusText);
       }
 
-      if (res && res.ok) {
-        await signIn('credentials', {
-          redirect: false,
-          email: formDataEmail,
-          password: formDataPassword,
-        });
-      }
+      const data = await result.json();
+      const { isSignedUp } = data;
+      console.log('isSignedUp: ', isSignedUp);
+
+      await signIn('credentials', {
+        redirect: false,
+        email: formDataEmail,
+        password: formDataPassword,
+      });
     } catch (error) {
       return;
     }

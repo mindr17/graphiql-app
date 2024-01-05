@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     "jest.setup.ts",
     "jest.config.ts"
-, "src/app/api/auth/create-user"  ],
+, "src/app/api/sign-up"  ],
   "exclude": ["./node_modules"]
 }

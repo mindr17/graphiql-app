@@ -3,7 +3,7 @@ import Credentials from 'next-auth/providers/credentials';
 
 import { bcryptCompare } from './bcrypt-compare';
 import { checkIfUserExists } from './check-if-user-exists';
-import { createUser } from './create-user-helper/create-user-helper';
+import { createUser } from './create-user/sign-up';
 import { getUserFromApi } from './get-user-from-api';
 import { UserTemplate } from './types';
 
