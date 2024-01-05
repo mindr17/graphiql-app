@@ -14,7 +14,7 @@ const Profile: FC = () => {
 
   return (
     <div className={styles.container}>
-      <h1>Profile (CSR)</h1>
+      <h1>Profile</h1>
       {isAuthenticated ? (
         <div>
           <p>User: {session.data.user?.name}</p>

@@ -3,10 +3,13 @@ import ExplorerBody from '@/components/explorer/explorer-body/explorer-body';
 import ExplorerHeaders from '@/components/explorer/explorer-headers/explorer-headers';
 import ExplorerInput from '@/components/explorer/explorer-input/explorer-input';
 import ExplorerSend from '@/components/explorer/explorer-send/explorer-send';
+import { protectFromUnauthorized } from '@/helpers/auth/protect-from-unauthorized';
 
 import styles from './explorer.module.scss';
 
-const Explorer: React.FC = () => {
+const Explorer: React.FC = async () => {
+  await protectFromUnauthorized();
+
   return (
     <section className={styles.main}>
       <ExplorerInput />

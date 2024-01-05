@@ -10,6 +10,7 @@ const description =
   'GraphiQL is a playground/IDE for graphQL requests';
 
 export const metadata: Metadata = {
+  metadataBase: new URL(baseUrl),
   title,
   description,
   openGraph: {

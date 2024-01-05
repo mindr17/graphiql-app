@@ -4,7 +4,7 @@ const domain = 'badges.bio';
 const baseConfig = {
   subDomain,
   domain,
-  baseUrl: `https://${domain}`,
+  baseUrl: `https://apifinder.badges.bio`,
   API_TOKEN_PRIVATE: process.env.API_TOKEN_PRIVATE,
   API_TOKEN_PUBLIC: process.env.NEXT_PUBLIC_API_TOKEN_PUBLIC,
   searchToken: '',
@@ -17,7 +17,7 @@ const baseConfig = {
 
 const devConfig = {};
 const prodConfig = {
-  // fetchUrl: process.env.PROD_FETCH_URL_PRIVATE,
+  fetchUrl: process.env.PROD_FETCH_URL_PRIVATE,
 };
 
 export const config = {
