@@ -19,12 +19,12 @@ const Profile: FC = () => {
           <p>User: {session.data.user?.name}</p>
           <p>Email: {session.data.user?.email}</p>
           <p>
-            <Image
+            {/* <Image
               alt={`Image by ${session.data.user?.name}`}
               src={session.data.user?.image as string}
               height={35}
               width={35}
-            />
+            /> */}
           </p>
           <br />
           <Button color='secondary' onClick={() => signOut()}>

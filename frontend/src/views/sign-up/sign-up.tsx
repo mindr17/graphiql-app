@@ -1,7 +1,13 @@
 'use client';
 
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Button, Checkbox, Chip, Input } from '@nextui-org/react';
+import {
+  Button,
+  Checkbox,
+  Chip,
+  Input,
+  Link,
+} from '@nextui-org/react';
 import { signIn } from 'next-auth/react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
@@ -68,19 +74,17 @@ const SignUp: React.FC = () => {
     try {
       const res = await fetch(`/api/auth/create-user`, options);
 
-      console.log('res: ', res);
-
       if (!res.ok) {
         throw new Error(res.statusText);
       }
 
-      // if (res && res.ok) {
-      //   await signIn('credentials', {
-      //     redirect: false,
-      //     email: formDataEmail,
-      //     password: formDataPassword,
-      //   });
-      // }
+      if (res && res.ok) {
+        await signIn('credentials', {
+          redirect: false,
+          email: formDataEmail,
+          password: formDataPassword,
+        });
+      }
     } catch (error) {
       return;
     }
@@ -91,9 +95,9 @@ const SignUp: React.FC = () => {
       <div className={styles.formContainer}>
         <div className={styles.formTop}>
           <h2 className={styles.title}>Sign Up</h2>
-          <Button className={styles.signInButton} radius='full'>
+          <Link href={'/sign-in'} className={styles.signInButton}>
             sign in
-          </Button>
+          </Link>
         </div>
         <form
           className={styles.formBody}

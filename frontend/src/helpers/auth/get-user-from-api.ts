@@ -18,7 +18,6 @@ export const getUserFromApi = async (
       },
     };
     const resultJson = await fetch(url, options);
-    console.log('resultJson: ', resultJson);
     const result = await resultJson.json();
     const user = result.data[0];
 

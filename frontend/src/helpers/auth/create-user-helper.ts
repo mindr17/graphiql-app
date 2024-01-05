@@ -26,8 +26,6 @@ export const createUserHelper = async (
       options
     );
 
-    console.log('res: ', res);
-
     if (!res.ok) {
       throw new Error(res.statusText);
     }

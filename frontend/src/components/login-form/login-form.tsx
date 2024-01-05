@@ -2,7 +2,7 @@
 
 import { Button, Input } from '@nextui-org/react';
 import { useRouter } from 'next/navigation';
-import { signIn } from 'next-auth/react';
+import { signIn, useSession } from 'next-auth/react';
 import type { FormEventHandler } from 'react';
 
 import GoogleButton from '../google-button';
@@ -10,6 +10,8 @@ import classes from './login-form.module.css';
 
 const LoginForm: React.FC = () => {
   const router = useRouter();
+  const session = useSession();
+  console.log('session: ', session);
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = async (
     event
@@ -27,7 +29,6 @@ const LoginForm: React.FC = () => {
     if (res && !res.error) {
       router.push('/profile');
     } else {
-      console.log(res);
     }
   };
 

@@ -8,10 +8,8 @@ export async function POST(req: NextRequest) {
   const data = await req.json();
 
   const { password } = data;
-  console.log('password: ', password);
 
   const passwordHash = await getPasswordHash(password);
-  console.log('passwordHash: ', passwordHash);
 
   return NextResponse.json({ passwordHash });
 }

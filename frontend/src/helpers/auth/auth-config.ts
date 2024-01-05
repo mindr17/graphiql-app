@@ -1,5 +1,6 @@
 import type { AuthOptions } from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
+import Email from 'next-auth/providers/email';
 
 import { bcryptCompare } from './bcrypt-compare';
 import { checkIfUserExists } from './check-if-user-exists';
@@ -39,7 +40,7 @@ export const authConfig: AuthOptions = {
           throw new Error('Invalid email');
         }
 
-        const { password: apiUserPasswordHash } = apiUser;
+        const { password_hash: apiUserPasswordHash } = apiUser;
 
         const isPasswordCorrect = await bcryptCompare(
           passwordInput,
@@ -56,22 +57,17 @@ export const authConfig: AuthOptions = {
   ],
   callbacks: {
     async signIn(signInProps) {
-      const { account, profile } = signInProps;
+      console.log('signInProps: ', signInProps);
+      const { account, user } = signInProps;
 
-      if (!profile || !account) return false;
+      if (!account || !user) return false;
 
-      // const { provider } = account;
-      const { email, name } = profile;
+      const { email } = user;
 
-      if (!email || !name) return false;
+      const userExists = await checkIfUserExists(email);
 
-      // const userExists = await checkIfUserExists(email);
-
-      // if (userExists) return true;
-
-      // const inputUser = { email, password };
-
-      // createUser(inputUser);
+      console.log('userExists: ', userExists);
+      if (userExists) return true;
 
       return true;
     },
@@ -80,7 +76,6 @@ export const authConfig: AuthOptions = {
         return {
           ...token,
           accessToken: account.access_token,
-          name: user.name,
         };
       }
 
