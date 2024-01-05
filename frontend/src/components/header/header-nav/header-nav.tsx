@@ -4,14 +4,7 @@ import { usePathname } from 'next/navigation';
 
 import styles from './header-nav.module.scss';
 
-export const navItems = [
-  // { label: 'Home', href: '/' },
-  // { label: signIn, href: '/sign-in' },
-  // { label: signUp, href: '/sign-up' },
-  // { label: 'Frontend Profile', href: '/client-profile' },
-  // { label: 'Backend Profile', href: '/backend-profile' },
-  { label: 'Explorer', href: '/explorer' },
-];
+export const navItems = [{ label: 'Explorer', href: '/explorer' }];
 
 const HeaderNav = () => {
   const pathname = usePathname();

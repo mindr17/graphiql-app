@@ -30,7 +30,7 @@ const HeaderUser = () => {
         </>
       ) : (
         <div>
-          <ButtonGroup>
+          <ButtonGroup data-testid='header-auth-btns'>
             <Button
               href='/sign-in'
               as={Link}
