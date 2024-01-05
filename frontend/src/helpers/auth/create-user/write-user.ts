@@ -1,13 +1,8 @@
 import { apiToken, config } from '@/config';
 
-export interface MyUser {
-  email: string;
-  password_hash: string;
-}
+import { ApiUser } from '../types';
 
-export const createUserHelper = async (
-  user: MyUser
-): Promise<boolean> => {
+export const writeUser = async (user: ApiUser): Promise<boolean> => {
   const options: RequestInit = {
     method: 'POST',
     mode: 'cors',

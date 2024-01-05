@@ -3,7 +3,9 @@ import Credentials from 'next-auth/providers/credentials';
 
 import { bcryptCompare } from './bcrypt-compare';
 import { checkIfUserExists } from './check-if-user-exists';
+import { createUser } from './create-user/create-user';
 import { getUserFromApi } from './get-user-from-api';
+import { UserTemplate } from './types';
 
 export const authConfig: AuthOptions = {
   session: { strategy: 'jwt' },
@@ -20,15 +22,20 @@ export const authConfig: AuthOptions = {
       async authorize(credentials) {
         if (!credentials) return null;
 
-        const { email, password: passwordInput } = credentials;
+        const { email: emailInput, password: passwordInput } =
+          credentials;
 
-        const apiUser = await getUserFromApi(email);
+        const apiUser = await getUserFromApi(emailInput);
 
         if (!apiUser) {
           throw new Error('Invalid email');
         }
 
-        const { password_hash: apiUserPasswordHash } = apiUser;
+        const {
+          id,
+          email,
+          password_hash: apiUserPasswordHash,
+        } = apiUser;
 
         const isPasswordCorrect = await bcryptCompare(
           passwordInput,
@@ -39,38 +46,48 @@ export const authConfig: AuthOptions = {
           throw new Error('Invalid password');
         }
 
-        return apiUser;
+        const user = { id, email, password: apiUserPasswordHash };
+
+        return user;
       },
     }),
   ],
   callbacks: {
-    async signIn(signInProps) {
-      console.log('signInProps: ', signInProps);
-      const { account, user } = signInProps;
+    async signIn(props) {
+      console.log('props: ', props);
+      const { account, user } = props;
 
       if (!account || !user) return false;
 
       const { email } = user;
 
+      if (!email) return false;
+
       const userExists = await checkIfUserExists(email);
 
-      console.log('userExists: ', userExists);
       if (userExists) return true;
 
-      return true;
-    },
-    async jwt({ token, user, account }) {
-      if (account && user) {
-        return {
-          ...token,
-          accessToken: account.access_token,
-        };
-      }
+      const userTemplate: UserTemplate = {
+        email,
+        password: '',
+      };
 
-      return token;
+      const userIsWrittenToApi = await createUser(userTemplate);
+
+      return userIsWrittenToApi;
     },
-    async session(sessionProps) {
-      const { session: oldSession, token } = sessionProps;
+    async jwt(props) {
+      const { token, user, account } = props;
+
+      if (!account || !user) return token;
+
+      return {
+        ...token,
+        accessToken: account.access_token,
+      };
+    },
+    async session(props) {
+      const { session: oldSession, token } = props;
 
       if (!oldSession) return oldSession;
 

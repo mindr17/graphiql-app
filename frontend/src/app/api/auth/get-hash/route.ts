@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-import { getPasswordHash } from '@/helpers/auth/get-password-hash';
+import { getPasswordHash } from '@/helpers/auth/create-user/get-password-hash';
 
 export async function POST(req: NextRequest) {
   if (!req) return;

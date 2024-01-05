@@ -16,7 +16,7 @@ import BurgerSvg from '@/components/svg-icons/burger';
 import { AppContext } from '@/context/context';
 
 import { navItems } from '../header-nav/header-nav';
-import s from './header-mob-menu.module.css';
+import styles from './header-mob-menu.module.css';
 
 const HeaderMobMenu = () => {
   const session = useSession();
@@ -33,7 +33,7 @@ const HeaderMobMenu = () => {
   return (
     <Dropdown placement='bottom-end'>
       <DropdownTrigger>
-        <Button variant='faded' className={s.svgTeam} isIconOnly>
+        <Button variant='faded' className={styles.svgTeam} isIconOnly>
           <BurgerSvg />
         </Button>
       </DropdownTrigger>
@@ -82,12 +82,3 @@ const HeaderMobMenu = () => {
 };
 
 export default HeaderMobMenu;
-
-// {session?.data ? (
-//   <DropdownItem
-//     key={'signOut'}
-//     onClick={() => signOut({ callbackUrl: '/' })}
-//   >
-//     {'Sign Out'}
-//   </DropdownItem>
-// ) : (
