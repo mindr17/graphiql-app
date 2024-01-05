@@ -44,9 +44,13 @@ const SignUp: React.FC = () => {
   const errors = formState.errors;
 
   const onSubmit: SubmitHandler<FormValues> = async (formData) => {
-    const { hash } = await getHashedPassword(formData.password);
+    const { email: formDataEmail, password: formDataPassword } =
+      formData;
 
-    const data = {
+    const hash = await getHashedPassword(formDataPassword);
+    console.log('hash: ', hash);
+
+    const bodyData = {
       email: formData.email,
       password_hash: hash,
     };
@@ -58,7 +62,7 @@ const SignUp: React.FC = () => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify(bodyData),
     };
 
     try {
@@ -67,6 +71,8 @@ const SignUp: React.FC = () => {
         options
       );
 
+      console.log('res: ', res);
+
       if (!res.ok) {
         throw new Error(res.statusText);
       }
@@ -74,8 +80,8 @@ const SignUp: React.FC = () => {
       if (res && res.ok) {
         await signIn('credentials', {
           redirect: false,
-          email: formData.email,
-          password: formData.password,
+          email: formDataEmail,
+          password: formDataPassword,
         });
       }
     } catch (error) {

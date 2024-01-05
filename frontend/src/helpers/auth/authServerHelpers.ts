@@ -88,7 +88,7 @@ export const getHashedPassword = async (password: string) => {
 
     body: JSON.stringify(body),
   };
-  const res = await fetch(`/api/get-hash`, options);
+  const res = await fetch(`/api/auth/get-hash`, options);
 
   return res.json();
 };
