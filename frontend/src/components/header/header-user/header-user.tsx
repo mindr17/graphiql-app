@@ -25,7 +25,7 @@ const HeaderUser = () => {
         </Link>
       ) : (
         <div>
-          <ButtonGroup>
+          <ButtonGroup data-testid='header-auth-btns'>
             <Button
               href='/signIn'
               as={Link}

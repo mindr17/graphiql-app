@@ -39,7 +39,11 @@ const LanguageSelect: FC = () => {
   useOnClickOutside(menuRef, () => setIsMenuOpen(false));
 
   return (
-    <div className={s.dropdown} ref={menuRef}>
+    <div
+      className={s.dropdown}
+      ref={menuRef}
+      data-testid='header-language'
+    >
       <button
         className={clsx(s.selected, s.smSize)}
         onClick={() => setIsMenuOpen((prev) => !prev)}
