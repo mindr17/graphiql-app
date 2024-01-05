@@ -10,7 +10,7 @@ import { GoogleSvg, VkSvg } from '@/components/svg-icons';
 import { config } from '@/config';
 import { getHashedPassword } from '@/helpers/auth/authServerHelpers';
 
-import s from './sing-up.module.scss';
+import styles from './sing-up.module.scss';
 
 type FormValues = {
   email: string;
@@ -47,7 +47,7 @@ const SignUp: React.FC = () => {
     const { email: formDataEmail, password: formDataPassword } =
       formData;
 
-    const hash = await getHashedPassword(formDataPassword);
+    const { hash } = await getHashedPassword(formDataPassword);
     console.log('hash: ', hash);
 
     const bodyData = {
@@ -91,26 +91,26 @@ const SignUp: React.FC = () => {
 
   return (
     <div>
-      <div className={s.formContainer}>
-        <div className={s.formTop}>
-          <h2 className={s.title}>Sign Up</h2>
-          <Button className={s.signInButton} radius='full'>
+      <div className={styles.formContainer}>
+        <div className={styles.formTop}>
+          <h2 className={styles.title}>Sign Up</h2>
+          <Button className={styles.signInButton} radius='full'>
             sign in
           </Button>
         </div>
         <form
-          className={s.formBody}
+          className={styles.formBody}
           onSubmit={handleSubmit(onSubmit)}
         >
           <Input
-            className={s.input}
+            className={styles.input}
             {...register('email')}
             label='Email'
             isInvalid={!!errors?.email}
             errorMessage={errors?.email?.message}
           />
           <Input
-            className={s.input}
+            className={styles.input}
             {...register('password')}
             type='password'
             label='Password'
@@ -118,14 +118,14 @@ const SignUp: React.FC = () => {
             errorMessage={errors?.password?.message}
           />
           <Input
-            className={s.input}
+            className={styles.input}
             {...register('confirmPassword')}
             type='password'
             label='Repeat password'
             isInvalid={!!errors?.confirmPassword}
             errorMessage={errors?.confirmPassword?.message}
           />
-          <div className={s.formBottom}>
+          <div className={styles.formBottom}>
             <Controller
               name='agree'
               control={control}
@@ -140,9 +140,9 @@ const SignUp: React.FC = () => {
                   onBlur={onBlur}
                   onChange={onChange}
                 >
-                  <p className={s.checkoxText}>
+                  <p className={styles.checkoxText}>
                     I agree with{' '}
-                    <span className={s.blueText}>
+                    <span className={styles.blueText}>
                       User Agreements, Terms & Conditions
                     </span>{' '}
                     and confirm that over 18 year old
@@ -152,25 +152,25 @@ const SignUp: React.FC = () => {
             />
             <Button
               type='submit'
-              className={s.submitButton}
+              className={styles.submitButton}
               radius='md'
               size='lg'
             >
               Sign Up
             </Button>
-            <div className={s.dividerBody}>
-              <span className={s.dividerLeft}></span>
-              <Chip className={s.chip}>Or</Chip>
-              <span className={s.dividerRight}></span>
+            <div className={styles.dividerBody}>
+              <span className={styles.dividerLeft}></span>
+              <Chip className={styles.chip}>Or</Chip>
+              <span className={styles.dividerRight}></span>
             </div>
           </div>
         </form>
-        <div className={s.social}>
-          <Button className={s.socialButton}>
+        <div className={styles.social}>
+          <Button className={styles.socialButton}>
             <GoogleSvg />
           </Button>
 
-          <Button className={s.socialButton}>
+          <Button className={styles.socialButton}>
             <VkSvg />
           </Button>
         </div>

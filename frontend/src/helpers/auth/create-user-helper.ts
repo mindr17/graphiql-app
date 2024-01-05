@@ -5,7 +5,9 @@ export interface MyUser {
   password_hash: string;
 }
 
-export const createUser = async (user: MyUser): Promise<boolean> => {
+export const createUserHelper = async (
+  user: MyUser
+): Promise<boolean> => {
   const options: RequestInit = {
     method: 'POST',
     mode: 'cors',

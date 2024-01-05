@@ -3,7 +3,7 @@ import Credentials from 'next-auth/providers/credentials';
 
 import { bcryptCompare } from './bcrypt-compare';
 import { checkIfUserExists } from './check-if-user-exists';
-import { createUser } from './create-user';
+import { createUser } from './create-user-helper';
 import { getUser, getUserFromApi } from './get-user-from-api';
 
 // const users = [
@@ -70,9 +70,9 @@ export const authConfig: AuthOptions = {
 
       // if (userExists) return true;
 
-      // const inputUser = { email, password_hash };
+      const inputUser = { email, password };
 
-      // createUser(inputUser);
+      createUser(inputUser);
 
       return true;
     },
