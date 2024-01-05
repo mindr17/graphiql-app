@@ -13,8 +13,8 @@ import styles from './home-main.module.scss';
 
 const HomeMain = () => {
   const session = useSession();
+  const { data: seeeionData } = session;
   const router = useRouter();
-
   const context = useContext(AppContext);
   const { translations } = context;
   const { mainTitle, mainSubTitle, mainBtn } = translations;
@@ -45,7 +45,7 @@ const HomeMain = () => {
             color='secondary'
             variant='ghost'
             onClick={() =>
-              router.push(session?.data ? '/explorer' : '/signin')
+              router.push(seeeionData ? '/explorer' : '/sign-in')
             }
           >
             {mainBtn}

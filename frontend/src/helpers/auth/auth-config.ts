@@ -1,21 +1,9 @@
 import type { AuthOptions } from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
-import Email from 'next-auth/providers/email';
 
 import { bcryptCompare } from './bcrypt-compare';
 import { checkIfUserExists } from './check-if-user-exists';
-import { createUser } from './create-user-helper';
-import { getUser, getUserFromApi } from './get-user-from-api';
-
-// const users = [
-//   {
-//     id: '1',
-//     email: 'de17eon@gmail.com',
-//     name: 'Leni',
-//     password: '12345678',
-//     role: 'admin',
-//   },
-// ];
+import { getUserFromApi } from './get-user-from-api';
 
 export const authConfig: AuthOptions = {
   session: { strategy: 'jwt' },
