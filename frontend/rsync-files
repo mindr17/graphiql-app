@@ -1,6 +1,6 @@
 public/
 src/
-.env.local
+.env.prod
 
 package.json
 package-lock.json

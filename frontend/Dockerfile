@@ -45,7 +45,7 @@ RUN adduser --system --uid 1001 nextjs
 COPY --from=builder /app/public ./public
 
 # COPY --from=builder /app/service-account.json ./service-account.json
-COPY --from=builder /app/.env.local ./.env.local
+COPY --from=builder /app/.env.prod ./.env
 COPY --from=builder /app/tailwind.config.ts ./tailwind.config.ts
 COPY --from=builder /app/postcss.config.js ./postcss.config.js
 

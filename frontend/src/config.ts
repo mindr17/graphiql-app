@@ -17,7 +17,7 @@ const baseConfig = {
 
 const devConfig = {};
 const prodConfig = {
-  fetchUrl: process.env.PROD_FETCH_URL_PRIVATE,
+  // fetchUrl: process.env.PROD_FETCH_URL_PRIVATE,
 };
 
 export const config = {
