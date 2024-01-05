@@ -12,4 +12,5 @@ Dockerfile
 .dockerignore
 docker-compose.yml
 
+postcss.config.js
 tailwind.config.ts

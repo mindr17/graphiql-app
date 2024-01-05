@@ -6,7 +6,7 @@ import { FC, useContext } from 'react';
 import { NotFoundSvg } from '@/components/svg-icons';
 import { AppContext } from '@/context/context';
 
-import styles from './not-found.module.css';
+import styles from './not-found.module.scss';
 
 const NotFound: FC = () => {
   const context = useContext(AppContext);

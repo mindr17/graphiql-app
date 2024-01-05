@@ -1,5 +1,6 @@
 .env
 .env*.local
+.env*.prod
 
 dist
 node_modules

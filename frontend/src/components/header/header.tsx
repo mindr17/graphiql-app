@@ -43,7 +43,9 @@ const Header = () => {
       </NavbarBrand>
       <div className={styles.wrapper}>
         <HeaderNav />
-        <HeaderUser />
+        <div className={styles.right}>
+          <HeaderUser />
+        </div>
       </div>
       <div className={styles.wrapperMob}>
         <HeaderMobMenu />

@@ -4,8 +4,8 @@ import { ApiUser } from './types';
 
 export const getUserFromApi = async (
   email: string
-): Promise<ApiUser | null> => {
-  if (!email) return null;
+): Promise<ApiUser | undefined> => {
+  if (!email) return;
 
   try {
     const url = `${config.fetchUrl}/items/users?filter[email][_eq]=${email}&fields=id,email,password_hash`;
@@ -25,6 +25,6 @@ export const getUserFromApi = async (
 
     return user;
   } catch (error) {
-    return null;
+    return;
   }
 };

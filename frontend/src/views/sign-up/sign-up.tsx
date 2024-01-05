@@ -13,6 +13,7 @@ import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 
 import { GoogleSvg, VkSvg } from '@/components/svg-icons';
+import { isTest } from '@/config';
 
 import styles from './sing-up.module.scss';
 
@@ -23,7 +24,7 @@ type FormValues = {
   agree?: true;
 };
 
-const formSchema = yup.object().shape({
+const formSchemaTest = yup.object().shape({
   email: yup.string().email().required(),
   password: yup
     .string()
@@ -35,6 +36,21 @@ const formSchema = yup.object().shape({
     .oneOf([yup.ref('password')], 'Passwords must match'),
   agree: yup.boolean().isTrue('Is required'),
 });
+
+const formSchemaProd = yup.object().shape({
+  email: yup.string().email().required(),
+  password: yup
+    .string()
+    .required('Please enter password')
+    .min(8, 'Password is too short - should be 8 chars minimum.'),
+  confirmPassword: yup
+    .string()
+    .required('Please repaet enter password')
+    .oneOf([yup.ref('password')], 'Passwords must match'),
+  agree: yup.boolean().isTrue('Is required'),
+});
+
+const formSchema = isTest ? formSchemaTest : formSchemaProd;
 
 const SignUp: React.FC = () => {
   const { register, control, handleSubmit, formState } =
@@ -77,7 +93,7 @@ const SignUp: React.FC = () => {
       console.log('isSignedUp: ', isSignedUp);
 
       await signIn('credentials', {
-        redirect: false,
+        redirect: true,
         email: formDataEmail,
         password: formDataPassword,
       });

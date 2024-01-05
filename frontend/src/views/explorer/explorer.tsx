@@ -4,7 +4,7 @@ import ExplorerHeaders from '@/components/explorer/explorer-headers/explorer-hea
 import ExplorerInput from '@/components/explorer/explorer-input/explorer-input';
 import ExplorerSend from '@/components/explorer/explorer-send/explorer-send';
 
-import styles from './explorer.module.css';
+import styles from './explorer.module.scss';
 
 const Explorer: React.FC = () => {
   return (

@@ -47,6 +47,7 @@ COPY --from=builder /app/public ./public
 # COPY --from=builder /app/service-account.json ./service-account.json
 COPY --from=builder /app/.env.local ./.env.local
 COPY --from=builder /app/tailwind.config.ts ./tailwind.config.ts
+COPY --from=builder /app/postcss.config.js ./postcss.config.js
 
 # Set the correct permission for prerender cache
 RUN mkdir .next
