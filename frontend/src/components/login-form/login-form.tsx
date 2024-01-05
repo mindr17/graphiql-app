@@ -25,7 +25,7 @@ const LoginForm: React.FC = () => {
     });
 
     if (res && !res.error) {
-      router.push('/clientProfile');
+      router.push('/profile');
     } else {
       console.log(res);
     }

@@ -2,10 +2,13 @@
 
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Button, Checkbox, Chip, Input } from '@nextui-org/react';
+import { signIn } from 'next-auth/react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 
 import { GoogleSvg, VkSvg } from '@/components/svg-icons';
+import { config } from '@/config';
+import { getHashedPassword } from '@/helpers/auth/authServerHelpers';
 
 import s from './sing-up.module.scss';
 
@@ -21,14 +24,6 @@ const formSchema = yup.object().shape({
   password: yup
     .string()
     .required('Please enter password')
-    .matches(
-      /[a-z]/,
-      'Password can only contain lowercase latin letters.'
-    )
-    .matches(
-      /[A-Z]/,
-      'Password can only contain upercase latin letters.'
-    )
     .min(8, 'Password is too short - should be 8 chars minimum.'),
   confirmPassword: yup
     .string()
@@ -48,8 +43,45 @@ const SignUp: React.FC = () => {
 
   const errors = formState.errors;
 
-  const onSubmit: SubmitHandler<FormValues> = (data) =>
-    console.log(data);
+  const onSubmit: SubmitHandler<FormValues> = async (formData) => {
+    const { hash } = await getHashedPassword(formData.password);
+
+    const data = {
+      email: formData.email,
+      password_hash: hash,
+    };
+    const options: RequestInit = {
+      method: 'POST',
+      mode: 'cors',
+      cache: 'no-cache',
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    };
+
+    try {
+      const res = await fetch(
+        `${config.fetchUrl}/items/users`,
+        options
+      );
+
+      if (!res.ok) {
+        throw new Error(res.statusText);
+      }
+
+      if (res && res.ok) {
+        await signIn('credentials', {
+          redirect: false,
+          email: formData.email,
+          password: formData.password,
+        });
+      }
+    } catch (error) {
+      return;
+    }
+  };
 
   return (
     <div>

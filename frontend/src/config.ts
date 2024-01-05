@@ -1,6 +1,5 @@
 const subDomain = 'apifinder-api';
 const domain = 'badges.bio';
-export const publicFetchUrl = `https://${subDomain}.${domain}`;
 
 const baseConfig = {
   subDomain,
@@ -29,3 +28,5 @@ export const config = {
 };
 
 export const myConfig = config;
+export const publicFetchUrl = `https://${subDomain}.${domain}`;
+export const apiToken = process.env.API_TOKEN_PRIVATE;

@@ -30,6 +30,7 @@ const Header = () => {
   return (
     <Navbar
       data-testid='header'
+      maxWidth='full'
       className={clsx(styles.header, {
         [styles.headerActive]: headerActive,
       })}

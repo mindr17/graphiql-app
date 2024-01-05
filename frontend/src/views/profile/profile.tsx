@@ -6,13 +6,15 @@ import Link from 'next/link';
 import { signOut, useSession } from 'next-auth/react';
 import { FC } from 'react';
 
-const ClientProfile: FC = () => {
+const Profile: FC = () => {
   const session = useSession();
+  const { status } = session;
+  const isAuthenticated = status === 'authenticated';
 
   return (
     <div>
       <h1>Client profile</h1>
-      {session.status === 'authenticated' && (
+      {isAuthenticated ? (
         <div>
           <p>User: {session.data.user?.name}</p>
           <p>Email: {session.data.user?.email}</p>
@@ -29,13 +31,11 @@ const ClientProfile: FC = () => {
             Sign out
           </Button>
         </div>
-      )}
-
-      {session.status === 'unauthenticated' && (
+      ) : (
         <Link href='/api/auth/signin'>SignIn</Link>
       )}
     </div>
   );
 };
 
-export default ClientProfile;
+export default Profile;

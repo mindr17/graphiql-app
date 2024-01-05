@@ -1,46 +1,42 @@
 .main {
-  margin-top: 10px;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 }
 
 .contentWrapp {
-  margin-top: 12px;
   display: flex;
+  flex-direction: column;
+
   width: 100%;
   height: 100%;
-  flex-direction: column;
+  margin-top: 12px;
 }
 
 .textareaLeft {
   position: relative;
-  width: 100%;
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .send {
   display: flex;
-  width: 100%;
   justify-content: space-between;
+  width: 100%;
 }
 
 .send button:last-child {
   width: 100%;
 }
 
-@media (min-width: 400px) {
+@media (width >= 400px) {
   .send button:last-child {
     width: 215px;
   }
 }
 
-@media (min-width: 768px) {
-  .main {
-    margin-top: 15px;
-  }
-
+@media (width >= 768px) {
   .contentWrapp {
     flex-direction: row;
   }

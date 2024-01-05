@@ -11,32 +11,37 @@ import { AppContext } from '@/context/context';
 const HeaderUser = () => {
   const session = useSession();
   const pathname = usePathname();
-
   const context = useContext(AppContext);
   const { translations } = context;
   const { signIn, signUp } = translations;
+  const { data: sessionData } = session;
 
   return (
     <>
-      {session?.data && <Link href='/profile'>Profile</Link>}
-      {session?.data ? (
-        <Link href='#' onClick={() => signOut({ callbackUrl: '/' })}>
-          Sign Out
-        </Link>
+      {sessionData ? (
+        <>
+          <Link href='/profile'>Profile</Link>
+          <Link
+            href='#'
+            onClick={() => signOut({ callbackUrl: '/' })}
+          >
+            Sign Out
+          </Link>
+        </>
       ) : (
         <div>
           <ButtonGroup>
             <Button
-              href='/signIn'
+              href='/sign-in'
               as={Link}
-              isDisabled={pathname === '/signIn'}
+              isDisabled={pathname === '/sign-in'}
             >
               {signIn}
             </Button>
             <Button
-              href='/signup'
+              href='/sign-up'
               as={Link}
-              isDisabled={pathname === '/signup'}
+              isDisabled={pathname === '/sign-up'}
             >
               {signUp}
             </Button>

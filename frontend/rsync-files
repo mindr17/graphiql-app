@@ -11,3 +11,5 @@ next.config.js
 Dockerfile
 .dockerignore
 docker-compose.yml
+
+tailwind.config.ts

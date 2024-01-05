@@ -3,20 +3,18 @@
 import { Input } from '@nextui-org/react';
 import { useContext } from 'react';
 
+import ExplorerSend from '@/components/explorer/explorer-send/explorer-send';
 import { AppContext } from '@/context/context';
 import { setUrl } from '@/store/reducers/explorer/explorer-slice';
 import { useAppDispatch, useAppSelector } from '@/store/store-hooks';
 
-import ExplorerSend from '../explorer-send/explorer-send';
 import styles from './explorer-input.module.scss';
 
 const ExplorerInput = () => {
   const context = useContext(AppContext);
   const { translations } = context;
   const { explorerInput } = translations;
-
   const { url } = useAppSelector((store) => store.explorer);
-
   const dispatch = useAppDispatch();
 
   return (

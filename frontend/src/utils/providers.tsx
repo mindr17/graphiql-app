@@ -29,7 +29,6 @@ const Providers: React.FC<PropsWithChildren> = ({ children }) => {
                 expand={false}
                 richColors
               />
-
               {children}
             </NextThemesProvider>
           </NextUIProvider>

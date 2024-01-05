@@ -1,5 +1,19 @@
+.container {
+  width: 100%;
+  display: flex;
+  padding: 20px;
+}
+
+@media (min-width: 500px) {
+  .container {
+    border-radius: 16px;
+  }
+}
+
 .header {
   background: inherit;
+  padding: 20px;
+  width: 100%;
 
   & header {
     border-radius: 0px;
@@ -8,7 +22,7 @@
     transition: all 0.3s ease;
 
     @media (min-width: 500px) {
-      border-radius: 0px 0px 16px 16px;
+      border-radius: 16px;
     }
   }
 }

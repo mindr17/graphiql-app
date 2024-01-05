@@ -1,11 +1,7 @@
-import LoginForm from '../../components/loginForm/login-form';
+import LoginForm from '../../components/login-form/login-form';
 
-const Signin = async () => {
-  return (
-    <div>
-      <LoginForm />
-    </div>
-  );
+const Signin = (): JSX.Element => {
+  return <LoginForm />;
 };
 
 export default Signin;
