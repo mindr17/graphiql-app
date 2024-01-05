@@ -53,8 +53,6 @@ const SignUp: React.FC = () => {
     const { email: formDataEmail, password: formDataPassword } =
       formData;
 
-    // const { hash } = await getHashedPassword(formDataPassword);
-
     const bodyData = {
       email: formDataEmail,
       password: formDataPassword,

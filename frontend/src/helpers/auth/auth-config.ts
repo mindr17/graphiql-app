@@ -1,9 +1,9 @@
-import type { AuthOptions } from 'next-auth';
+import type { AuthOptions, User } from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
 
 import { bcryptCompare } from './bcrypt-compare';
 import { checkIfUserExists } from './check-if-user-exists';
-import { createUser } from './create-user/create-user';
+import { createUser } from './create-user-helper/create-user-helper';
 import { getUserFromApi } from './get-user-from-api';
 import { UserTemplate } from './types';
 
@@ -19,7 +19,7 @@ export const authConfig: AuthOptions = {
           required: true,
         },
       },
-      async authorize(credentials) {
+      async authorize(credentials): Promise<User | null> {
         if (!credentials) return null;
 
         const { email: emailInput, password: passwordInput } =
@@ -28,12 +28,12 @@ export const authConfig: AuthOptions = {
         const apiUser = await getUserFromApi(emailInput);
 
         if (!apiUser) {
-          throw new Error('Invalid email');
+          throw new Error('Email not registered!');
         }
 
         const {
-          id,
-          email,
+          id: apiUserId,
+          email: apiUserEmail,
           password_hash: apiUserPasswordHash,
         } = apiUser;
 
@@ -43,10 +43,13 @@ export const authConfig: AuthOptions = {
         );
 
         if (!isPasswordCorrect) {
-          throw new Error('Invalid password');
+          throw new Error('Password is not correct!');
         }
 
-        const user = { id, email, password: apiUserPasswordHash };
+        const user: User = {
+          id: apiUserId,
+          email: apiUserEmail,
+        };
 
         return user;
       },
@@ -54,7 +57,6 @@ export const authConfig: AuthOptions = {
   ],
   callbacks: {
     async signIn(props) {
-      console.log('props: ', props);
       const { account, user } = props;
 
       if (!account || !user) return false;

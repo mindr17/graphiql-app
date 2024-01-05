@@ -1,10 +1,10 @@
 import { apiToken, config } from '@/config';
 
-import { MyUser } from './types';
+import { ApiUser } from './types';
 
 export const getUserFromApi = async (
   email: string
-): Promise<MyUser | null> => {
+): Promise<ApiUser | null> => {
   if (!email) return null;
 
   try {

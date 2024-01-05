@@ -1,10 +1,15 @@
-export interface ApiUser {
-  id: string;
+export interface UserTemplate {
+  email: string;
+  password: string;
+}
+
+export interface UserToBeWritten {
   email: string;
   password_hash: string;
 }
 
-export interface UserTemplate {
+export interface ApiUser {
+  id: string;
   email: string;
-  password: string;
+  password_hash: string;
 }

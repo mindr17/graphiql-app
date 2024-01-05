@@ -1,8 +1,9 @@
 import { apiToken, config } from '@/config';
+import { UserToBeWritten } from '@/helpers/auth/types';
 
-import { ApiUser } from '../types';
-
-export const writeUser = async (user: ApiUser): Promise<boolean> => {
+export const writeUser = async (
+  user: UserToBeWritten
+): Promise<boolean> => {
   const options: RequestInit = {
     method: 'POST',
     mode: 'cors',
@@ -28,7 +29,9 @@ export const writeUser = async (user: ApiUser): Promise<boolean> => {
     if (res && res.ok) {
       return true;
     }
-  } catch (error) {
+  } catch (e) {
+    console.error(e);
+
     return false;
   }
 

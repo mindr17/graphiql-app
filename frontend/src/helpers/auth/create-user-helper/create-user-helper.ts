@@ -2,7 +2,9 @@ import { UserTemplate } from '../types';
 import { getPasswordHash } from './get-password-hash';
 import { writeUser } from './write-user';
 
-export async function createUser(user: UserTemplate) {
+export async function createUserHelper(
+  user: UserTemplate
+): Promise<boolean> {
   const { email, password } = user;
 
   const passwordHash = await getPasswordHash(password);
@@ -12,6 +14,8 @@ export async function createUser(user: UserTemplate) {
   try {
     await writeUser(newUser);
   } catch (e) {
+    console.error(e);
+
     return false;
   }
 
