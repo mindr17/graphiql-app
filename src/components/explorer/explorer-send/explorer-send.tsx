@@ -64,6 +64,7 @@ const ExplorerSend = (props: ExplorerSendProps) => {
         color='success'
         isLoading={isLoading}
         isDisabled={url.trim() === ''}
+        className={styles.button}
         onClick={handleSendUrl}
       >
         {explorerSend}

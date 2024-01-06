@@ -13,16 +13,16 @@
 }
 
 .btn {
-  min-width: fit-content;
-  padding: 0px 8px;
   user-select: none;
+  min-width: fit-content;
+  padding: 0 8px;
 
   & span {
     display: none;
   }
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .inputAction {
     position: absolute;
     right: 0;

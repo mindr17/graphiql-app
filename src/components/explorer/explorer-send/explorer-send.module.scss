@@ -2,15 +2,13 @@
   display: flex;
 }
 
-.btn {
-  margin-right: 8px;
+.button {
   color: #fff;
-  background: var(--color-grey);
+  background: var(--color-green);
 }
 
 @media (width >= 768px) {
-  .btn {
+  .button {
     margin: 0;
-    background: inherit;
   }
 }

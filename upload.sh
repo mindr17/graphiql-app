@@ -1,1 +1,1 @@
-time bash commands.sh
+time bash deploy.sh
