@@ -5,8 +5,7 @@ const baseConfig = {
   subDomain,
   domain,
   baseUrl: `https://apifinder.badges.bio`,
-  API_TOKEN_PRIVATE: process.env.API_TOKEN_PRIVATE,
-  API_TOKEN_PUBLIC: process.env.NEXT_PUBLIC_API_TOKEN_PUBLIC,
+  apiToken: process.env.API_TOKEN_PRIVATE,
   searchToken: '',
   revalidationToken: '',
   yandexMetricaId: '',
@@ -33,3 +32,4 @@ export const apiToken = process.env.API_TOKEN_PRIVATE;
 export const fetchUrl = config.fetchUrl;
 export const isTest = process.env.IS_TEST === 'true' || false;
 export const baseUrl = config.baseUrl;
+export const apiToken = config.apiToken;

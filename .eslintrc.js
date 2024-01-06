@@ -56,7 +56,7 @@ module.exports = {
         ],
         'simple-import-sort/imports': 'warn',
         'simple-import-sort/exports': 'error',
-        // 'import/no-unresolved': [2, { commonjs: true, amd: true }],
+        'import/no-unresolved': [2, { commonjs: true, amd: true }],
         'import/named': 2,
         'import/namespace': 2,
         'import/default': 2,
