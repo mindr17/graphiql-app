@@ -3,12 +3,12 @@ import ExplorerBody from '@/components/explorer/explorer-body/explorer-body';
 import ExplorerHeaders from '@/components/explorer/explorer-headers/explorer-headers';
 import ExplorerInput from '@/components/explorer/explorer-input/explorer-input';
 import ExplorerSend from '@/components/explorer/explorer-send/explorer-send';
-import { protectFromUnauthorized } from '@/helpers/auth/protect-from-unauthorized';
+import { protectPageFrom } from '@/helpers/auth/protect-page-from';
 
 import styles from './explorer.module.scss';
 
 const Explorer: React.FC = async () => {
-  await protectFromUnauthorized();
+  await protectPageFrom('unauthorized');
 
   return (
     <section className={styles.main}>

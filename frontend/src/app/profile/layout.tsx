@@ -1,10 +1,10 @@
 import { FC, PropsWithChildren } from 'react';
 
-import { protectFromUnauthorized } from '@/helpers/auth/protect-from-unauthorized';
+import { protectPageFrom } from '@/helpers/auth/protect-page-from';
 
 const Layout: FC<PropsWithChildren> = async (props) => {
   const { children } = props;
-  await protectFromUnauthorized();
+  await protectPageFrom('authorized');
 
   return <>{children}</>;
 };
