@@ -16,7 +16,7 @@ import {
 } from '@/store/reducers/explorer/explorer-slice';
 import { useAppDispatch, useAppSelector } from '@/store/store-hooks';
 
-import styles from './explorer-headers.module.css';
+import styles from './explorer-headers.module.scss';
 
 const ExplorerHeaders = () => {
   const [isShow, setIsShow] = useState<boolean>(true);

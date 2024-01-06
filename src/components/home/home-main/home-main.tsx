@@ -24,8 +24,9 @@ const HomeMain = () => {
         <Image
           className={styles.mainSectionWrappImg}
           src={'/main-bg.png'}
-          alt='main-graph'
+          alt='home page background'
           fill
+          priority
         />
       </div>
       <div className={styles.mainSectionWrapp}>
@@ -40,7 +41,6 @@ const HomeMain = () => {
           <h1>{mainTitle}</h1>
           <h3>{mainSubTitle}</h3>
         </div>
-
         <div className={styles.mainSectionBtn}>
           <Button
             color='secondary'

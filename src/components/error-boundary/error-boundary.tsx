@@ -3,7 +3,7 @@ import { FC, useContext } from 'react';
 
 import { AppContext } from '@/context/context';
 
-import styles from './error-boundary.module.css';
+import styles from './error-boundary.module.scss';
 
 interface ErrorBoundaryProps {
   onReset: () => void;

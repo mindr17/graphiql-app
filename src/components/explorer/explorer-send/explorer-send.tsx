@@ -11,7 +11,7 @@ import { explorerFetchResult } from '@/store/reducers/explorer/explorer-actions'
 import { useAppDispatch, useAppSelector } from '@/store/store-hooks';
 import { checkValues } from '@/utils/check-values';
 
-import styles from './explorer-send.module.css';
+import styles from './explorer-send.module.scss';
 
 interface ExplorerSendProps {
   cl?: string;

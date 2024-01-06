@@ -12,7 +12,7 @@ import { useAppSelector } from '@/store/store-hooks';
 
 import ExplorerDocs from '../docs/docs';
 import ExplorerResult from '../result/result';
-import styles from './explorer-actions.module.css';
+import styles from './explorer-actions.module.scss';
 
 const ExplorerActions = () => {
   const [selected, setSelected] = useState<string>('headers');
