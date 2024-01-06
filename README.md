@@ -3,7 +3,7 @@
 `GraphiQL` is a playground/IDE for graphQL requests.
 
 [Task Link](https://github.com/rolling-scopes-school/tasks/blob/master/react/modules/graphiql.md)  
-[Deploy Link]()
+[Deploy Link](https://apifinder.badges.bio/)
 
 ## Project Purpose
 
