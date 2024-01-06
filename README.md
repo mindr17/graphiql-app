@@ -45,4 +45,10 @@ npm install
 npm run dev
 ```
 
-3. Contact out team for actual `.env` contents. Use `.env.example` as a template. API_TOKEN is needed for access to api of our self-hosted cloud database, which stores user's encripted credencials.
+3. Contact the developers team for actual `.env` contents. Use `.env.example` as a template. API_TOKEN is needed for access to api of our self-hosted cloud database, which stores user's encripted credencials.
+
+4. Enjoy! Example graphql api for testing:
+
+```
+https://studio.apollographql.com/public/rick-and-morty-a3b90u/variant/current/home
+```

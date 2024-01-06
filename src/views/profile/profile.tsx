@@ -14,17 +14,22 @@ const Profile: FC = () => {
 
   return (
     <div className={styles.container}>
-      <h1>Profile</h1>
+      <h1 className={styles.h1}>Profile</h1>
       {isAuthenticated ? (
-        <div>
-          <p>User: {session.data.user?.name}</p>
+        <>
           <p>Email: {session.data.user?.email}</p>
-          <Button color='secondary' onClick={() => signOut()}>
+          <Button
+            className={styles.signIn}
+            color='secondary'
+            onClick={() => signOut()}
+          >
             Sign out
           </Button>
-        </div>
+        </>
       ) : (
-        <Link href='/api/auth/signin'>SignIn</Link>
+        <Link className={styles.signIn} href='/api/auth/signin'>
+          SignIn
+        </Link>
       )}
     </div>
   );
