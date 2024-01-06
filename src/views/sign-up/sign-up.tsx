@@ -24,7 +24,7 @@ type FormValues = {
   agree?: true;
 };
 
-const formSchemaTest = yup.object().shape({
+const formSchema = yup.object().shape({
   email: yup.string().email().required(),
   password: yup
     .string()
@@ -36,17 +36,6 @@ const formSchemaTest = yup.object().shape({
     .oneOf([yup.ref('password')], 'Passwords must match'),
   agree: yup.boolean().isTrue('Is required'),
 });
-
-const formSchemaProd = yup.object().shape({
-  email: yup.string().email().required(),
-  password: yup.string().required('Please enter password'),
-  confirmPassword: yup
-    .string()
-    .required('Please repaet enter password'),
-  agree: yup.boolean().isTrue('Is required'),
-});
-
-const formSchema = isTest ? formSchemaTest : formSchemaProd;
 
 const SignUp: React.FC = () => {
   const { register, control, handleSubmit, formState } =

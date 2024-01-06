@@ -29,6 +29,5 @@ export const config = {
 export const myConfig = config;
 export const publicFetchUrl = `https://${subDomain}.${domain}`;
 export const fetchUrl = config.fetchUrl;
-export const isTest = process.env.IS_TEST === 'true' || false;
 export const baseUrl = config.baseUrl;
 export const apiToken = config.apiToken;
