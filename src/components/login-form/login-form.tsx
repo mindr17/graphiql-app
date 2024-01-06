@@ -1,10 +1,11 @@
 'use client';
 
-import { Button, Input } from '@nextui-org/react';
+import { Button, Chip, Input } from '@nextui-org/react';
 import { signIn } from 'next-auth/react';
 import type { FormEventHandler } from 'react';
 
-import GoogleButton from '../google-button';
+import GoogleButton from '../google-button/google-button';
+import SocialLoginButton from '../social-login-button/social-login-button';
 import styles from './login-form.module.scss';
 
 const LoginForm: React.FC = () => {
@@ -19,7 +20,7 @@ const LoginForm: React.FC = () => {
       email: formData.get('email'),
       password: formData.get('password'),
       redirect: true,
-      callbackUrl: '/',
+      callbackUrl: '/explorer',
     });
   };
 
@@ -40,7 +41,14 @@ const LoginForm: React.FC = () => {
         required
       />
       <Button type='submit'>Sign In</Button>
+      <div className={styles.dividerBody}>
+        <span className={styles.dividerLeft}></span>
+        <Chip className={styles.chip}>Or</Chip>
+        <span className={styles.dividerRight}></span>
+      </div>
       <GoogleButton />
+      <SocialLoginButton provider={'github'} />
+      <SocialLoginButton provider={'vk'} />
     </form>
   );
 };

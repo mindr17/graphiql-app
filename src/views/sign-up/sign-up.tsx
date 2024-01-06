@@ -12,9 +12,9 @@ import { signIn } from 'next-auth/react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 
-import { GoogleSvg } from '@/components/svg-icons';
+import GoogleButton from '@/components/google-button/google-button';
 
-import styles from './sing-up.module.scss';
+import styles from './sign-up.module.scss';
 
 type FormValues = {
   email: string;
@@ -81,7 +81,7 @@ const SignUp: React.FC = () => {
         email: formDataEmail,
         password: formDataPassword,
         redirect: true,
-        callbackUrl: '/',
+        callbackUrl: '/explorer',
       });
     } catch (error) {
       return;
@@ -165,9 +165,7 @@ const SignUp: React.FC = () => {
           </div>
         </form>
         <div className={styles.social}>
-          <Button className={styles.socialButton}>
-            <GoogleSvg />
-          </Button>
+          <GoogleButton />
         </div>
       </div>
     </div>

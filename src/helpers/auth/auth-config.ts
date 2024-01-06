@@ -1,63 +1,33 @@
-import type { AuthOptions, User } from 'next-auth';
-import Credentials from 'next-auth/providers/credentials';
+import type { AuthOptions } from 'next-auth';
 
-import { bcryptCompare } from './bcrypt-compare';
-import { getUserFromApi } from './get-user-from-api';
-import { ApiUser } from './types';
+import { credentialsProvider } from './providers/credentials-provider';
+import { githubProvider } from './providers/github-provider';
+import { googleProvider } from './providers/google-provider';
+import { vkProvider } from './providers/vk-provider';
 
 export const authConfig: AuthOptions = {
   session: { strategy: 'jwt' },
   providers: [
-    Credentials({
-      credentials: {
-        email: { label: 'email', type: 'email', required: true },
-        password: {
-          label: 'password',
-          type: 'password',
-          required: true,
-        },
-      },
-      async authorize(credentials): Promise<User | null> {
-        if (!credentials) return null;
-
-        const { email: emailInput, password: passwordInput } =
-          credentials;
-
-        const apiUser: ApiUser | undefined =
-          await getUserFromApi(emailInput);
-
-        if (!apiUser) {
-          throw new Error('Email not registered!');
-        }
-
-        const {
-          id: apiUserId,
-          email: apiUserEmail,
-          password_hash: apiUserPasswordHash,
-        } = apiUser;
-        const isPasswordCorrect = await bcryptCompare(
-          passwordInput,
-          apiUserPasswordHash
-        );
-
-        if (!isPasswordCorrect) {
-          throw new Error('Password is not correct!');
-        }
-
-        const user: User = {
-          id: apiUserId,
-          email: apiUserEmail,
-        };
-
-        return user;
-      },
-    }),
+    credentialsProvider,
+    googleProvider,
+    githubProvider,
+    vkProvider,
   ],
   callbacks: {
-    async signIn(props) {
-      const { account, user } = props;
+    async signIn(props): Promise<boolean> {
+      console.log('props: ', props);
 
-      if (!account || !user || !user.email) return false;
+      // const { account, user } = props;
+
+      // if (user && user.email) return true;
+
+      // if (!account) return false;
+
+      // const { provider } = account;
+
+      // if (provider === 'google') return true;
+
+      // if (provider === 'github') return true;
 
       return true;
     },
