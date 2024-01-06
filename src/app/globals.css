@@ -1,7 +1,6 @@
-/* stylelint-disable at-rule-no-unknown */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('tailwindcss/base');
+@import url('tailwindcss/components');
+@import url('tailwindcss/utilities');
 
 :root {
   --font-main: 'Source Sans 3', sans-serif;
@@ -88,7 +87,7 @@ svg {
   display: flex;
   flex-flow: column nowrap;
   align-items: stretch;
-  justify-content: start;
+  justify-content: flex-start;
 
   width: 100%;
   min-height: 100vh;

@@ -1,29 +1,22 @@
-.container {
-  display: flex;
+.header {
   width: 100%;
-  padding: 20px;
-}
+  background: inherit;
 
-@media (width >= 500px) {
-  .container {
+  @media (width >= 500px) {
+    padding: 20px;
     border-radius: 16px;
   }
 }
 
-.header {
-  width: 100%;
-  padding: 20px;
-  background: inherit;
+.header header {
+  background: rgb(18 19 20 / 84%);
+  border-radius: 0;
+  box-shadow: 0 4px 4px 0 rgb(0 0 0 / 30%);
+  transition: all 0.3s ease;
 
-  & header {
-    background: rgb(18 19 20 / 84%);
-    border-radius: 0;
-    box-shadow: 0 4px 4px 0 rgb(0 0 0 / 30%);
-    transition: all 0.3s ease;
-
-    @media (width >= 500px) {
-      border-radius: 16px;
-    }
+  @media (width >= 500px) {
+    padding: 20px;
+    border-radius: 16px;
   }
 }
 

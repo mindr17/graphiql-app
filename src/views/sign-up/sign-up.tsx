@@ -12,7 +12,7 @@ import { signIn } from 'next-auth/react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 
-import { GoogleSvg, VkSvg } from '@/components/svg-icons';
+import { GoogleSvg } from '@/components/svg-icons';
 
 import styles from './sing-up.module.scss';
 
@@ -167,10 +167,6 @@ const SignUp: React.FC = () => {
         <div className={styles.social}>
           <Button className={styles.socialButton}>
             <GoogleSvg />
-          </Button>
-
-          <Button className={styles.socialButton}>
-            <VkSvg />
           </Button>
         </div>
       </div>
