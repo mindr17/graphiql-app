@@ -13,7 +13,6 @@ import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 
 import { GoogleSvg, VkSvg } from '@/components/svg-icons';
-import { isTest } from '@/config';
 
 import styles from './sing-up.module.scss';
 

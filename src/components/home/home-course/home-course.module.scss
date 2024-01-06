@@ -1,12 +1,14 @@
 .section {
-  width: 100%;
   display: flex;
   justify-content: center;
+
+  width: 100%;
   padding: 60px 0;
+
   border-top: 1px solid #202020;
   border-bottom: 1px solid #202020;
 
-  @media (max-width: 800px) {
+  @media (width <= 800px) {
     padding: 30px 0;
   }
 }
@@ -15,7 +17,7 @@
   display: flex;
   align-items: center;
 
-  @media (max-width: 800px) {
+  @media (width <= 800px) {
     flex-direction: column;
     align-items: flex-start;
   }
@@ -23,19 +25,22 @@
 
 .link {
   display: block;
+
   min-width: 220px;
   height: 80px;
-  background-image: url(../../../assets/rsschool-icon.svg);
-  background-position: center;
+
+  background-image: url("../../../assets/rsschool-icon.svg");
   background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
+
   transition: all 0.3s ease;
 
   &:hover {
-    background-image: url(../../../assets/rsschool-icon-active.svg);
+    background-image: url("../../../assets/rsschool-icon-active.svg");
   }
 
-  @media (max-width: 800px) {
+  @media (width <= 800px) {
     margin-bottom: 20px;
   }
 }
@@ -44,13 +49,15 @@
   max-width: 800px;
   margin: 0 0 0 40px;
   padding: 0 0 0 40px;
-  font-size: 28px;
-  border-left: 1.5px solid rgba(255, 255, 255, 0.12);
 
-  @media (max-width: 800px) {
-    border-left: none;
-    font-size: 18px;
+  font-size: 28px;
+
+  border-left: 1.5px solid rgb(255 255 255 / 12%);
+
+  @media (width <= 800px) {
     margin: 0;
     padding: 0;
+    font-size: 18px;
+    border-left: none;
   }
 }

@@ -44,3 +44,5 @@ npm install
 ```
 npm run dev
 ```
+
+3. Contact out team for actual `.env` contents. Use `.env.example` as a template. API_TOKEN is needed for access to api of our self-hosted cloud database, which stores user's encripted credencials.
