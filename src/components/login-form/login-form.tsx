@@ -19,7 +19,7 @@ const LoginForm: React.FC = () => {
       email: formData.get('email'),
       password: formData.get('password'),
       redirect: true,
-      callbackUrl: '/explorer',
+      callbackUrl: '/',
     });
   };
 

@@ -78,9 +78,10 @@ const SignUp: React.FC = () => {
       if (!isSignedUp) return;
 
       await signIn('credentials', {
-        callbackUrl: '/explorer',
         email: formDataEmail,
         password: formDataPassword,
+        redirect: true,
+        callbackUrl: '/',
       });
     } catch (error) {
       return;
