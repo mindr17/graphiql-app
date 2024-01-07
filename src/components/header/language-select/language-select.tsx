@@ -1,5 +1,5 @@
-/* eslint-disable @next/next/no-img-element */
 import { clsx } from 'clsx';
+import Image from 'next/image';
 import { FC, useContext, useRef, useState } from 'react';
 
 import { AppContext, localeType } from '@/context/context';
@@ -7,29 +7,12 @@ import useOnClickOutside from '@/helpers/use-click-outside';
 
 import styles from './language-select.module.scss';
 
-interface Languages {
-  en: {
-    code: localeType;
-  };
-  ru: {
-    code: localeType;
-  };
-}
-
 const LanguageSelect: FC = () => {
   const context = useContext(AppContext);
   const { locale, setLocale } = context;
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
-
-  const languages: Languages = {
-    ru: {
-      code: 'ru',
-    },
-    en: {
-      code: 'en',
-    },
-  };
+  const languages: localeType[] = ['en', 'ru'];
 
   const handleLanguageChange = (newLocale: localeType) => {
     setLocale(newLocale);
@@ -48,8 +31,10 @@ const LanguageSelect: FC = () => {
         className={clsx(styles.selected, styles.smSize)}
         onClick={() => setIsMenuOpen((prev) => !prev)}
       >
-        <img
-          alt='ru'
+        <Image
+          alt={locale}
+          width={22}
+          height={22}
           className={styles.smSize}
           src={`/icons/${locale}.svg`}
         />
@@ -59,30 +44,25 @@ const LanguageSelect: FC = () => {
           [styles.dropdownMenuActive]: isMenuOpen,
         })}
       >
-        <div
-          className={styles.langdiv}
-          onClick={() => handleLanguageChange(languages.en.code)}
-        >
-          <div className={clsx(styles.selected, styles.smSize)}>
-            <img
-              alt={languages.ru.code}
-              className={styles.smSize}
-              src={'/icons/en.svg'}
-            />
-          </div>
-        </div>
-        <div
-          className={styles.langdivBottom}
-          onClick={() => handleLanguageChange(languages.ru.code)}
-        >
-          <div className={clsx(styles.selected, styles.smSize)}>
-            <img
-              alt={languages.en.code}
-              className={styles.smSize}
-              src={'/icons/ru.svg'}
-            />
-          </div>
-        </div>
+        {languages.map((language) => {
+          return (
+            <div
+              key={language}
+              className={styles.langdiv}
+              onClick={() => handleLanguageChange(language)}
+            >
+              <div className={clsx(styles.selected, styles.smSize)}>
+                <Image
+                  alt={language}
+                  width={22}
+                  height={22}
+                  className={styles.smSize}
+                  src={`/icons/${language}.svg`}
+                />
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

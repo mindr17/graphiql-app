@@ -22,7 +22,6 @@ const HomeTeam = () => {
   return (
     <section className={styles.section}>
       <h2 className={styles.title}>{mainTeamTitle}</h2>
-
       <div className={styles.grid}>
         {list.map((item, index) => (
           <HomeTeamCard

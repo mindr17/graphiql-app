@@ -4,7 +4,7 @@ import { Button, Chip, Input, Link } from '@nextui-org/react';
 import { signIn } from 'next-auth/react';
 import type { FormEventHandler } from 'react';
 
-import { socialProviders } from '@/helpers/auth/providers/enabled-providers';
+import { socialProviders } from '@/helpers/auth/enabled-providers';
 
 import SocialLoginButton from '../social-login-button/social-login-button';
 import styles from './login-form.module.scss';

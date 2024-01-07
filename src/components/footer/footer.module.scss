@@ -18,7 +18,7 @@
   justify-content: center;
 
   width: 100%;
-  padding: 8px 12px;
+  padding: 12px;
 
   background: var(--color-footer);
   border-radius: 16px;
@@ -28,8 +28,9 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 
+  width: 100%;
   max-width: 300px;
 
   @media (width >= 500px) {

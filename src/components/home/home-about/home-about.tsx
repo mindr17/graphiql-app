@@ -22,7 +22,6 @@ const HomeAbout = () => {
   return (
     <section className={styles.section}>
       <h2 className={styles.title}>{mainAboutTitle}</h2>
-
       <div className={styles.wrapp}>
         <p
           className={styles.text}

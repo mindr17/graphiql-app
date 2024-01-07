@@ -11,62 +11,49 @@ import {
 import { FC } from 'react';
 
 import { TeamSvg } from '../svg-icons';
-import s from './footer.module.scss';
+import styles from './footer.module.scss';
+
+const team = [
+  {
+    name: 'mindr17',
+    imageSrc: 'https://avatars.githubusercontent.com/u/6329657?v=4',
+  },
+  {
+    name: 'ldemyanov',
+    imageSrc: 'https://avatars.githubusercontent.com/u/109416811?v=4',
+  },
+  {
+    name: 'MaxLisyanskiy',
+    imageSrc: 'https://avatars.githubusercontent.com/u/59924323?v=4',
+  },
+];
 
 const FooterMenu: FC = () => {
   return (
     <Dropdown placement='left-start' backdrop='blur'>
       <DropdownTrigger>
-        <Button variant='faded' className={s.svgTeam} isIconOnly>
+        <Button variant='faded' className={styles.svgTeam} isIconOnly>
           <TeamSvg />
         </Button>
       </DropdownTrigger>
       <DropdownMenu aria-label='Static Actions'>
-        <DropdownItem
-          key='mindr17'
-          href={`https://github.com/mindr17`}
-          target='_blank'
-          rel='noopener noreferrer'
-          startContent={
-            <Avatar
-              size='sm'
-              src='https://avatars.githubusercontent.com/u/6329657?v=4'
-              isBordered
-            />
-          }
-        >
-          @mindr17
-        </DropdownItem>
-        <DropdownItem
-          key='ldemyanov'
-          href={`https://github.com/ldemyanov`}
-          target='_blank'
-          rel='noopener noreferrer'
-          startContent={
-            <Avatar
-              size='sm'
-              src='https://avatars.githubusercontent.com/u/109416811?v=4'
-              isBordered
-            />
-          }
-        >
-          @ldemyanov
-        </DropdownItem>
-        <DropdownItem
-          key='MaxLisyanskiy'
-          href={`https://github.com/MaxLisyanskiy`}
-          target='_blank'
-          rel='noopener noreferrer'
-          startContent={
-            <Avatar
-              size='sm'
-              src='https://avatars.githubusercontent.com/u/59924323?v=4'
-              isBordered
-            />
-          }
-        >
-          @MaxLisyanskiy
-        </DropdownItem>
+        {team.map((member) => {
+          const { name, imageSrc } = member;
+
+          return (
+            <DropdownItem
+              key={name}
+              href={`https://github.com/${name}`}
+              target='_blank'
+              rel='noopener noreferrer'
+              startContent={
+                <Avatar size='sm' src={imageSrc} isBordered />
+              }
+            >
+              {`@${name}`}
+            </DropdownItem>
+          );
+        })}
       </DropdownMenu>
     </Dropdown>
   );

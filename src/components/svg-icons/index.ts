@@ -1,8 +1,3 @@
-export { default as GoogleSvg } from './google';
-export { default as NotFoundSvg } from './not-found';
-export { default as VkSvg } from './vk';
-
-//explorer
 export { default as ExplorerArrowSvg } from './explorer/explorer-arrow';
 export { default as ExplorerCatalogSvg } from './explorer/explorer-catalog';
 export { default as ExplorerDocsSvg } from './explorer/explorer-docs';
@@ -11,7 +6,8 @@ export { default as ExplorerOtherSvg } from './explorer/explorer-other';
 export { default as ExplorerPrettifyingSvg } from './explorer/explorer-prettifying';
 export { default as ExplorerResultSvg } from './explorer/explorer-result';
 export { default as ExplorerVariablesSvg } from './explorer/explorer-variables';
-
-// footer
 export { default as RSSchoolSvg } from './footer/rsschool';
 export { default as TeamSvg } from './footer/team';
+export { default as GoogleSvg } from './google';
+export { default as NotFoundSvg } from './not-found';
+export { default as VkSvg } from './vk';

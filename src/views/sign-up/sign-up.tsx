@@ -13,7 +13,7 @@ import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 
 import SocialLoginButton from '@/components/social-login-button/social-login-button';
-import { socialProviders } from '@/helpers/auth/providers/enabled-providers';
+import { socialProviders } from '@/helpers/auth/enabled-providers';
 
 import styles from './sign-up.module.scss';
 
@@ -168,7 +168,10 @@ const SignUp: React.FC = () => {
         <div className={styles.social}>
           {socialProviders.map((provider) => {
             return (
-              <SocialLoginButton provider={provider} key={provider} />
+              <SocialLoginButton
+                provider={provider}
+                key={provider.name}
+              />
             );
           })}
         </div>
