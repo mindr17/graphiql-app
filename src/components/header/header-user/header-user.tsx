@@ -1,6 +1,7 @@
 'use client';
 
 import { Button, ButtonGroup } from '@nextui-org/react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { signOut, useSession } from 'next-auth/react';
@@ -20,6 +21,14 @@ const HeaderUser = () => {
     <>
       {sessionData ? (
         <>
+          {sessionData.user?.image && (
+            <Image
+              src={sessionData.user?.image}
+              alt={'Profile image'}
+              width={'30'}
+              height={'30'}
+            />
+          )}
           <Link href='/profile'>Profile</Link>
           <Link
             href='#'

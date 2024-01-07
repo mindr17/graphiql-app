@@ -12,7 +12,6 @@ import { signIn } from 'next-auth/react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 
-import GoogleButton from '@/components/google-button/google-button';
 import SocialLoginButton from '@/components/social-login-button/social-login-button';
 import { socialProviders } from '@/helpers/auth/providers/enabled-providers';
 

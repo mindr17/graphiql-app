@@ -12,15 +12,15 @@ export const socialProviders: IProvider[] = [
     iconHtml: githubIconHtml,
   },
   {
-    name: 'google',
-    iconHtml: googleIconHtml,
-  },
-  {
     name: 'vk',
     iconHtml: vkIconHtml,
   },
   {
     name: 'discord',
     iconHtml: discordIconHtml,
+  },
+  {
+    name: 'google',
+    iconHtml: googleIconHtml,
   },
 ];

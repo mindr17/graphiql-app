@@ -9,7 +9,7 @@ export const protectPageFrom = async (
   from: From = 'unauthorized'
 ) => {
   const session = await getServerSession(authConfig);
-  const isLoggedIn = session && session.user?.email;
+  const isLoggedIn = session && session.user;
 
   if (from === 'unauthorized' && !isLoggedIn) {
     redirect('/sign-in');
