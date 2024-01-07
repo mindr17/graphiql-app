@@ -1,24 +1,26 @@
 import Link from 'next/link';
 
 import { RSSchoolSvg } from '../svg-icons';
-import s from './footer.module.scss';
+import styles from './footer.module.scss';
 import FooterMenu from './footer-menu';
 
 const Footer = () => {
   return (
-    <footer className={s.main} data-testid='footer'>
-      <div className={s.wrapp}>
-        <div className={s.content}>
+    <footer className={styles.main} data-testid='footer'>
+      <div className={styles.wrapp}>
+        <div className={styles.content}>
           <Link
             href='https://rs.school/react/'
             target='_blank'
             rel='noopener noreferrer'
-            className={s.schoolLink}
+            className={styles.schoolLink}
           >
-            <RSSchoolSvg className={s.svgSchool} />
+            <RSSchoolSvg className={styles.svgSchool} />
           </Link>
-          <p className={s.title}>© 2023 GraphiQL | ApiFinder</p>
           <FooterMenu />
+        </div>
+        <div className={styles.about}>
+          <p className={styles.title}>© 2023 GraphiQL | ApiFinder</p>
         </div>
       </div>
     </footer>

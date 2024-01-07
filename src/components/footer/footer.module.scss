@@ -1,20 +1,25 @@
 .main {
-  margin: 0 auto;
-  width: 100%;
-  max-width: 1920px;
-  padding: 20px;
   display: flex;
   flex-direction: column;
   flex-grow: 0;
   flex-shrink: 0;
+
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 .wrapp {
-  width: 100%;
-  padding: 8px 12px;
   display: flex;
+  flex-direction: column;
+  gap: 8px;
   align-items: center;
   justify-content: center;
+
+  width: 100%;
+  padding: 8px 12px;
+
   background: var(--color-footer);
   border-radius: 16px;
 }
@@ -24,23 +29,14 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+
   max-width: 300px;
 
-  @media (min-width: 500px) {
-    width: 100%;
-    max-width: 100%;
+  @media (width >= 500px) {
     flex-wrap: nowrap;
     justify-content: space-between;
-  }
-}
-
-.title {
-  order: 0;
-  margin-bottom: 15px;
-
-  @media (min-width: 500px) {
-    order: 1;
-    margin-bottom: 0;
+    width: 100%;
+    max-width: 100%;
   }
 }
 
@@ -58,6 +54,19 @@
 }
 
 .svgTeam {
-  order: 2;
   cursor: pointer;
+  order: 2;
+}
+
+.about {
+  display: flex;
+  place-self: center center;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+
+  @media (width >= 500px) {
+    position: absolute;
+  }
 }

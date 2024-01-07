@@ -11,7 +11,7 @@
     "lint:fix": "eslint . --ext ts, tsx --fix",
     "format": "prettier . --check",
     "format:fix": "prettier . --write",
-    "test": "jest",
+    "test": "jest --coverage",
     "coverage": "jest --coverage",
     "prepare": "cd .. && husky install frontend/.husky"
   },
