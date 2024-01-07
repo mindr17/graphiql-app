@@ -17,19 +17,17 @@ export const authConfig: NextAuthOptions = {
   ],
   callbacks: {
     async signIn(props): Promise<boolean> {
-      console.log('props: ', props);
+      const { account, user } = props;
 
-      // const { account, user } = props;
+      if (user && user.email) return true;
 
-      // if (user && user.email) return true;
+      if (!account) return false;
 
-      // if (!account) return false;
+      const { provider } = account;
 
-      // const { provider } = account;
+      if (provider === 'google') return true;
 
-      // if (provider === 'google') return true;
-
-      // if (provider === 'github') return true;
+      if (provider === 'github') return true;
 
       return true;
     },

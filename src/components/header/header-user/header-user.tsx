@@ -9,6 +9,8 @@ import { useContext } from 'react';
 
 import { AppContext } from '@/context/context';
 
+import styles from './header-user.module.scss';
+
 const HeaderUser = () => {
   const session = useSession();
   const pathname = usePathname();
@@ -22,12 +24,16 @@ const HeaderUser = () => {
       {sessionData ? (
         <>
           {sessionData.user?.image && (
-            <Image
-              src={sessionData.user?.image}
-              alt={'Profile image'}
-              width={'30'}
-              height={'30'}
-            />
+            <div className={styles.imageContainer}>
+              <Image
+                src={sessionData.user?.image}
+                alt={'Profile image'}
+                sizes='30px'
+                className={styles.image}
+                width={30}
+                height={30}
+              />
+            </div>
           )}
           <Link href='/profile'>Profile</Link>
           <Link

@@ -1,0 +1,15 @@
+.imageContainer {
+  position: relative;
+
+  overflow: hidden;
+  display: flex;
+
+  width: 30px;
+  height: 30px;
+
+  border-radius: 999px;
+}
+
+.image {
+  object-fit: cover;
+}

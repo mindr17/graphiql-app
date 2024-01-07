@@ -12,13 +12,13 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'avatars.githubusercontent.com',
+        hostname: '**.githubusercontent.com',
         port: '',
         pathname: '/**',
       },
       {
         protocol: 'https',
-        hostname: 'userapi.com',
+        hostname: '**.userapi.com',
         port: '',
         pathname: '/**',
       },
