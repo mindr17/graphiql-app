@@ -1,10 +1,10 @@
-import { apiToken, config } from '@/config';
+import { apiToken, fetchUrl } from '@/config';
 import { UserToBeWritten } from '@/helpers/auth/types';
 
 export const writeUser = async (
   user: UserToBeWritten
 ): Promise<boolean> => {
-  const url = `${config.fetchUrl}/items/users`;
+  const url = `${fetchUrl}/items/users`;
   const options: RequestInit = {
     method: 'POST',
     mode: 'cors',

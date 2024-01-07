@@ -1,17 +1,19 @@
-import type { AuthOptions } from 'next-auth';
+import type { NextAuthOptions } from 'next-auth';
 
 import { credentialsProvider } from './providers/credentials-provider';
+import { discordProvider } from './providers/discord-provider';
 import { githubProvider } from './providers/github-provider';
 import { googleProvider } from './providers/google-provider';
 import { vkProvider } from './providers/vk-provider';
 
-export const authConfig: AuthOptions = {
+export const authConfig: NextAuthOptions = {
   session: { strategy: 'jwt' },
   providers: [
     credentialsProvider,
     googleProvider,
     githubProvider,
     vkProvider,
+    discordProvider,
   ],
   callbacks: {
     async signIn(props): Promise<boolean> {

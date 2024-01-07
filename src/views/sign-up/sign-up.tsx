@@ -13,6 +13,8 @@ import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 
 import GoogleButton from '@/components/google-button/google-button';
+import SocialLoginButton from '@/components/social-login-button/social-login-button';
+import { socialProviders } from '@/helpers/auth/providers/enabled-providers';
 
 import styles from './sign-up.module.scss';
 
@@ -165,7 +167,11 @@ const SignUp: React.FC = () => {
           </div>
         </form>
         <div className={styles.social}>
-          <GoogleButton />
+          {socialProviders.map((provider) => {
+            return (
+              <SocialLoginButton provider={provider} key={provider} />
+            );
+          })}
         </div>
       </div>
     </div>

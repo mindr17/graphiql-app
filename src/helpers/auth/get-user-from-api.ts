@@ -1,4 +1,4 @@
-import { apiToken, config } from '@/config';
+import { apiToken, fetchUrl } from '@/config';
 
 import { ApiUser } from './types';
 
@@ -8,7 +8,7 @@ export const getUserFromApi = async (
   if (!email) return;
 
   try {
-    const url = `${config.fetchUrl}/items/users?filter[email][_eq]=${email}&fields=id,email,password_hash`;
+    const url = `${fetchUrl}/items/users?filter[email][_eq]=${email}&fields=id,email,password_hash`;
     const options: RequestInit = {
       method: 'GET',
       mode: 'cors',

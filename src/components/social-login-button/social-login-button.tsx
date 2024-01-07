@@ -1,25 +1,31 @@
 'use client';
 
 import { Button } from '@nextui-org/react';
-import { useSearchParams } from 'next/navigation';
 import { signIn } from 'next-auth/react';
 
+import { Icon } from '@/app/Icon/Icon';
+
 import styles from './social-login-button.module.scss';
+import { IProvider } from './types';
 
 interface Props {
-  provider?: 'vk' | 'google' | 'github';
+  provider: IProvider;
 }
 
 const SocialLoginButton = (props: Props): JSX.Element => {
   const { provider } = props;
-  const searchParams = useSearchParams();
-  const callbackUrl = searchParams.get('callbackUrl') || '/explorer';
+  const { name: providerName, iconHtml = '' } = provider;
 
-  const handleClick = () => signIn(provider, { callbackUrl });
+  const handleClick = async () => {
+    await signIn(providerName, {
+      callbackUrl: '/explorer',
+      redirect: true,
+    });
+  };
 
   return (
-    <Button className={styles.socialButton} onClick={handleClick}>
-      {provider}
+    <Button className={styles.container} onClick={handleClick}>
+      {iconHtml ? <Icon html={iconHtml} /> : providerName}
     </Button>
   );
 };

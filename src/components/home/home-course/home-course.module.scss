@@ -29,7 +29,7 @@
   min-width: 220px;
   height: 80px;
 
-  background-image: url("../../../assets/rsschool-icon.svg");
+  background-image: url('../../../assets/rsschool-icon.svg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -37,7 +37,7 @@
   transition: all 0.3s ease;
 
   &:hover {
-    background-image: url("../../../assets/rsschool-icon-active.svg");
+    background-image: url('../../../assets/rsschool-icon-active.svg');
   }
 
   @media (width <= 800px) {
