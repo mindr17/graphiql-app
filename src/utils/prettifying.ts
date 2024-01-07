@@ -4,8 +4,10 @@ export const prettifying = (query: string): string => {
   let indentLevel = 0;
   let outputCode = '';
 
-  for (let i = 0; i < query.length; i++) {
-    const char = query[i];
+  const line = query.replace(/\s+/g, '~');
+
+  for (let i = 0; i < line.length; i++) {
+    const char = line[i];
     if (char === '{') {
       outputCode += ' {\n' + ' '.repeat(TAB_SIZE * (indentLevel + 1));
       indentLevel++;
@@ -17,15 +19,22 @@ export const prettifying = (query: string): string => {
         ' '.repeat(TAB_SIZE * indentLevel) +
         '}\n';
     } else if (char === ',') {
-      outputCode += ',\n' + ' '.repeat(TAB_SIZE * indentLevel);
+      outputCode += ', ';
     } else if (char === '(') {
       outputCode += ' (';
     } else if (char === ':') {
       outputCode += ': ';
-    } else if (char.trim() !== '') {
+    } else if (char === '~') {
+      const lastChar = line[i - 1] === ' ';
+      const nextChar = line[i + 1] === ' ';
+
+      outputCode += lastChar || nextChar ? '' : ' ';
+    } else {
       outputCode += char;
     }
   }
+
+  console.log(outputCode);
 
   return outputCode.trim();
 };
