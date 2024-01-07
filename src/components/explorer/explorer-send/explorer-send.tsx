@@ -5,9 +5,18 @@ import { clsx } from 'clsx';
 import { useContext } from 'react';
 import { toast } from 'sonner';
 
+import { ExplorerTestSvg } from '@/components/svg-icons';
 import { AppContext } from '@/context/context';
+import {
+  EDITOR_TEST_API_QUERY,
+  EDITOR_TEST_API_URL,
+} from '@/shared/constants';
 import { explorerFetchDocs } from '@/store/reducers/docs/docs-actions';
 import { explorerFetchResult } from '@/store/reducers/explorer/explorer-actions';
+import {
+  setQuery,
+  setUrl,
+} from '@/store/reducers/explorer/explorer-slice';
 import { useAppDispatch, useAppSelector } from '@/store/store-hooks';
 import { checkValues } from '@/utils/check-values';
 
@@ -51,15 +60,42 @@ const ExplorerSend = (props: ExplorerSendProps) => {
           url,
           query,
           variables: isCorrectVariables ? variables : '',
-          headers: isCorrectHeaders ? variables : null,
+          headers: isCorrectHeaders ? headers : null,
         })
       );
       dispatch(explorerFetchDocs({ url }));
     }
   };
 
+  const handleSendTestApi = () => {
+    dispatch(setUrl(EDITOR_TEST_API_URL));
+    dispatch(setQuery(EDITOR_TEST_API_QUERY));
+
+    setTimeout(() => {
+      dispatch(
+        explorerFetchResult({
+          url: EDITOR_TEST_API_URL,
+          query: EDITOR_TEST_API_QUERY,
+          variables: '',
+          headers: '',
+        })
+      );
+      dispatch(explorerFetchDocs({ url: EDITOR_TEST_API_URL }));
+    }, 500);
+  };
+
   return (
     <div className={clsx(styles.wrapper, cl)}>
+      <Button
+        color='default'
+        className={styles.buttonTest}
+        size='sm'
+        isIconOnly
+        onClick={handleSendTestApi}
+      >
+        <ExplorerTestSvg />
+      </Button>
+
       <Button
         color='success'
         isLoading={isLoading}

@@ -63,3 +63,22 @@ export const MAIN_TEAM_LIST_RU = [
     bio: 'Frontend-разработчик, специализирующийся на создании пользовательских интерфейсов с использованием библиотеки React. Он внес большой вклад в создание GraphQL-редактора и общий внешний вид приложения',
   },
 ];
+
+export const EDITOR_TEST_API_URL =
+  'https://rickandmortyapi.com/graphql';
+export const EDITOR_TEST_API_QUERY = `query Query {
+  characters(page: 2, filter: { name: "Morty" }) {
+    info {
+      count
+    }
+    results {
+      name
+    }
+  }
+  location(id: 1) {
+    id
+  }
+  episodesByIds(ids: [1, 2]) {
+    id
+  }
+}`;

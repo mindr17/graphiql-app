@@ -5,6 +5,7 @@ export { default as ExplorerHeadersSvg } from './explorer/explorer-headers';
 export { default as ExplorerOtherSvg } from './explorer/explorer-other';
 export { default as ExplorerPrettifyingSvg } from './explorer/explorer-prettifying';
 export { default as ExplorerResultSvg } from './explorer/explorer-result';
+export { default as ExplorerTestSvg } from './explorer/explorer-test';
 export { default as ExplorerVariablesSvg } from './explorer/explorer-variables';
 export { default as RSSchoolSvg } from './footer/rsschool';
 export { default as TeamSvg } from './footer/team';
