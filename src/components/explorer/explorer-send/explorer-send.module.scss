@@ -1,0 +1,19 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.button {
+  color: #fff;
+  background: var(--color-green);
+}
+
+.buttonTest {
+  margin-right: 10px;
+}
+
+@media (width >= 768px) {
+  .button {
+    margin: 0;
+  }
+}

@@ -1,0 +1,21 @@
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+}
+
+.wrapper {
+  padding: 30px;
+  background: var(--color-red-hover);
+  border-radius: 16px;
+}
+
+.btn {
+  margin-top: 20px;
+  font-weight: 600;
+  color: var(--background);
+  background: var(--color-white);
+}

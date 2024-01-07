@@ -1,0 +1,22 @@
+{
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll.stylelint": "explicit"
+  },
+  "editor.formatOnSave": true,
+  "[graphql]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "graphql"
+  ],
+  "stylelint.validate": ["css", "scss"],
+  "typescript.referencesCodeLens.enabled": true,
+  "css.lint.unknownAtRules": "ignore",
+  "editor.minimap.enabled": true
+}

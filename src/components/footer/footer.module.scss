@@ -1,0 +1,73 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 0;
+  flex-shrink: 0;
+
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.wrapp {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  padding: 12px;
+
+  background: var(--color-footer);
+  border-radius: 16px;
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  max-width: 300px;
+
+  @media (width >= 500px) {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+.schoolLink {
+  order: 1;
+  margin-right: 20px;
+}
+
+.svgSchool {
+  transition: fill 0.2s ease;
+
+  &:hover {
+    fill: var(--color-orange-hover);
+  }
+}
+
+.svgTeam {
+  cursor: pointer;
+  order: 2;
+}
+
+.about {
+  display: flex;
+  place-self: center center;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+
+  @media (width >= 500px) {
+    position: absolute;
+  }
+}

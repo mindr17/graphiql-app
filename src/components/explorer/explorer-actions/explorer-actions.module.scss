@@ -1,0 +1,47 @@
+.main {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  min-height: 300px;
+  margin-bottom: 10px;
+
+  background: rgb(31 32 33);
+  border-radius: 10px;
+}
+
+.actions {
+  display: flex;
+  gap: 11px;
+
+  width: 100%;
+  padding: 13px 11px;
+
+  border: 1px solid #2d2e2e;
+}
+
+.textarea {
+  flex-grow: 1;
+  padding: 18px 20px;
+  background: inherit;
+}
+
+.tabs {
+  font-size: 10px;
+}
+
+@media (width >= 400px) {
+  .tabs {
+    font-size: 16px;
+  }
+}
+
+@media (width >= 768px) {
+  .main {
+    width: 50%;
+    min-height: 0;
+    margin-bottom: 0;
+    border-radius: 0;
+  }
+}

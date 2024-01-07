@@ -1,0 +1,40 @@
+.wrapper {
+  display: flex;
+}
+
+.inputWrapp {
+  position: relative;
+  display: flex;
+  width: 100%;
+}
+
+.inputAction {
+  display: none;
+}
+
+.btn {
+  user-select: none;
+  min-width: fit-content;
+  padding: 0 8px;
+
+  & span {
+    display: none;
+  }
+}
+
+@media (width >= 768px) {
+  .inputAction {
+    position: absolute;
+    right: 0;
+    display: flex;
+  }
+
+  .btn {
+    display: flex;
+    padding: 0 20px;
+
+    & span {
+      display: block;
+    }
+  }
+}

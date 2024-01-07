@@ -1,0 +1,16 @@
+public/
+src/
+.env.prod
+
+package.json
+package-lock.json
+
+tsconfig.json
+next.config.js
+
+Dockerfile
+.dockerignore
+docker-compose.yml
+
+postcss.config.js
+tailwind.config.ts

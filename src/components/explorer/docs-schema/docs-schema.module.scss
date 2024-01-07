@@ -1,0 +1,60 @@
+.menu {
+  margin-left: 10px;
+}
+
+.menuItem {
+  margin: 15px 0;
+}
+
+.menuItemTitle {
+  & span {
+    color: var(--color-blue);
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: var(--color-blue-dark);
+    }
+  }
+}
+
+.menuItemType {
+  color: var(--color-purple);
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: var(--color-purple-dark);
+  }
+}
+
+.argsItem {
+  margin: 5px;
+}
+
+.argsItemName {
+  color: var(--color-green);
+}
+
+.argsItemType {
+  color: var(--color-orange);
+}
+
+.titleWrapp {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.title {
+  font-size: 22px;
+  margin: 0 15px;
+}
+
+.fieldWrapp {
+  margin-bottom: 10px;
+}
+
+.fieldDescr {
+  margin: 10px 0;
+}
